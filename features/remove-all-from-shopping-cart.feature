@@ -6,4 +6,3 @@ Feature: As a user of systembolaget
 		Given that a person have a shopping cart with items in it
 		When the person clicks the reset button
 		Then the shopping cart will be reset
-		And have 0 items in it
