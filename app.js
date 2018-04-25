@@ -36,7 +36,7 @@ class App {
     // console.warn(person, person instanceof Person);
     assert(
       person instanceof Person,
-      "You're not a person/logged in! Register!"
+      "You're not a person/logged in Register!"
     );
     /// Then assert age of person 
     return this.categoryByName[categoryName].products;
