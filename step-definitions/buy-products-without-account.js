@@ -1,6 +1,6 @@
 let ShoppingCart = require("../shopping-cart.js");
 let theApp = require("../app.js");
-let NoRegistratedUser = require("../noRegistratedUser.js");
+let NoRegistratedUser = require("../noregistrateduser.js");
 
 module.exports = function(){
 
@@ -19,22 +19,22 @@ module.exports = function(){
          aShoppingCart.add(theApp.products[500], 5);
          aShoppingCart.add(theApp.products[1200], 10);
          //this code was to se if the prodcuts hade the right quantity
-         /*console.log(theApp.products[500]);
-         console.log(theApp.products[1200]);*/
+         console.log(theApp.products[500]);
+         console.log(theApp.products[1200]);
          callback();
        });
 
        this.When(/^i want to buy the items$/, function (callback) {
-        //a function in the shoppingcart that will checkout after your order
+        //a function in the shoppingcart that will buyOrder after your order
         //But to check out you need to fill the adress and the payment mehtod
-         aShoppingCart.checkOut();
+         aShoppingCart.buyOrder();
 
          // Since we do not have a registrered user/address we expect check out to throw an error
          assert.throws(
           function(){
-            aShoppingCart.checkout();
+            aShoppingCart.buyOrder();
           }, 
-          "The checkout did not throw an error even though we did not have an ok user/address"
+          "The buyOrder did not throw an error even though we did not have an ok user/address"
          );
          callback();
        });
