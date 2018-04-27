@@ -18,8 +18,8 @@ module.exports = function() {
   });
 
   this.Then(/^an array containing all the veteöl will show up$/, function (callback) {
-    //Show result of the search
-    searchBeverage.searchResults();
+    //Show result of the search in array form
+    console.log(searchBeverage.searchResults());
     callback();
   });
 }

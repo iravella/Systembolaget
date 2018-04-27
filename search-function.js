@@ -5,6 +5,6 @@ module.exports = class SearchFunction {
 	}
 
 	searchResults(){
-
+		searchByName + searchByType == [profit];
 	}
 }
