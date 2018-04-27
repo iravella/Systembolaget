@@ -1,3 +1,4 @@
+
 module.exports = class Product {
 
   constructor(data){

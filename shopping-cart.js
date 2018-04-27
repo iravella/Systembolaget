@@ -1,5 +1,5 @@
 let assert = require('assert');
-
+//let OrderStatus = require("../orderstatus.js");
 module.exports = class ShoppingCart {
 
   constructor(){
@@ -75,8 +75,9 @@ module.exports = class ShoppingCart {
     // (gives us a line sum)
     // add a line sums into a total sum
 
+
   }
-  checkOut(){
+  buyOrder(){
   	//when you checkout you are done with the payment and you have typed in all the infromation you need to
   	//get the product delivered to you
   	//and a the order will come to the comany
