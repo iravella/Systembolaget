@@ -4,12 +4,10 @@ Feature:
     I want to be able to add a certain quantity of a beverage to my shopping cart
 
 
- Scenario: A person want to add certain quantity of beverage to his shopping cart
-  Given the person is a registered user
-  And the user is viewing a certain product
-  And the quantity has been set to 3
-  When the user clicks "Add to cart"
-  Then the product with the quantity of 3 should be added to the user's shopping cart
+ Scenario: A user want to add certain quantity of beverage to his shopping cart
+  Given the user is a registered user
+  When the user is trying to add a 3 bottles of Captain Morgan to his/her shopping card
+  Then 3 bottles of Captain Morgan should be to the shopping cart
 
  
 
