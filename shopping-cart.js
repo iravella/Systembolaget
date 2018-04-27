@@ -62,6 +62,10 @@ module.exports = class ShoppingCart {
 
   }
 
+  getCartItems(){
+    return this.thingsToBuy;
+  }
+
   removeAllItems(){
     this.thingsToBuy = [];
   }
