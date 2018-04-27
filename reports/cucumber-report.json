@@ -1,50 +1,50 @@
 [
   {
-    "description": "         in order to get the information easily.",
+    "description": "so that it doesnt exist in my shopping cart",
     "elements": [
       {
-        "id": "as-a-user-i-want-to-choose/see-certain-categories-of-beverages;the-user-want-to-get-the-information-of-certain-categories-of-beveragess",
+        "id": "as-a-user-i-should-be-able-to-remove-the-selected-item-from-the-shopping-cart;a-person-want-to-remove-the-selected-item-from-his-shoppingcart",
         "keyword": "Scenario",
         "line": 4,
-        "name": "The user want to get the information of certain categories of beveragess",
+        "name": "A person want to remove the selected item from his shoppingcart",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "name": "that the person is a registered user",
+            "name": "that a person has an 3 selected items in his shoppingcart",
             "result": {
               "status": "passed",
-              "duration": 315945
+              "duration": 18891091
             },
             "line": 5,
             "match": {
-              "location": "C:\\Users\\swapn\\Desktop\\Automation\\Systembolaget\\step-definitions\\category-information.js:6"
+              "location": "C:\\Users\\swapn\\Desktop\\Automation\\Systembolaget\\step-definitions\\remove-item-shoppingcart.js:6"
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "name": "the user clicks on products/certain categories",
+            "name": "the person clicks  delete on 2nd item in the shoppingcart",
             "result": {
               "status": "passed",
-              "duration": 282446
+              "duration": 407272
             },
             "line": 6,
             "match": {
-              "location": "C:\\Users\\swapn\\Desktop\\Automation\\Systembolaget\\step-definitions\\category-information.js:11"
+              "location": "C:\\Users\\swapn\\Desktop\\Automation\\Systembolaget\\step-definitions\\remove-item-shoppingcart.js:23"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "name": "the user should be able to see the information of that product",
+            "name": "the 2nd item should be deleted from the shoppingcart",
             "result": {
               "status": "passed",
-              "duration": 475680
+              "duration": 3454233
             },
             "line": 7,
             "match": {
-              "location": "C:\\Users\\swapn\\Desktop\\Automation\\Systembolaget\\step-definitions\\category-information.js:16"
+              "location": "C:\\Users\\swapn\\Desktop\\Automation\\Systembolaget\\step-definitions\\remove-item-shoppingcart.js:30"
             }
           },
           {
@@ -52,7 +52,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 2210134912
+              "duration": 2324405665
             },
             "hidden": true,
             "match": {
@@ -64,11 +64,11 @@
         "type": "scenario"
       }
     ],
-    "id": "as-a-user-i-want-to-choose/see-certain-categories-of-beverages",
+    "id": "as-a-user-i-should-be-able-to-remove-the-selected-item-from-the-shopping-cart",
     "keyword": "Feature",
     "line": 1,
-    "name": "As a user I want to choose/see certain categories of beverages",
+    "name": "As a user i should be able to remove the selected item from the shopping cart",
     "tags": [],
-    "uri": "C:\\Users\\swapn\\Desktop\\Automation\\Systembolaget\\features\\category-information.feature"
+    "uri": "C:\\Users\\swapn\\Desktop\\Automation\\Systembolaget\\features\\remove-item-shoppingcart.feature"
   }
 ]
