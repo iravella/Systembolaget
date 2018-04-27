@@ -3,16 +3,19 @@ let ShoppingCart = require('./shopping-cart.js');
 
 module.exports = class Person {
 
-  constructor(name, age){
+  constructor(fullName,dateOfBirth,addressStreet,addressZipCode, addressCity){
 
     // Throw an error if name is not an empty string
     assert(
-      typeof name === 'string' && name !== '',
+      typeof fullName === 'string' && fullName !== '',
       'The name must be a non-empty string!'
     );
 
-    this.name = name;
-    this.age = age;
+    this.fullName = fullName;
+    this.dateOfBirth = dateOfBirth;
+    this.addressStreet = addressStreet;
+    this.addressZipCode = addressZipCode;
+    this.addressCity = addressCity;
     this.shoppingCart = new ShoppingCart();
   }
 
