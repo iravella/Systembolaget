@@ -76,6 +76,17 @@ module.exports = class ShoppingCart {
     // add a line sums into a total sum
 
   }
+  checkOut(){
+  	//when you checkout you are done with the payment and you have typed in all the infromation you need to
+  	//get the product delivered to you
+  	//and a the order will come to the comany
+  }
+
+  payment(){
+  	//this function will check so your payments is right
+  	//so your payment work
+
+  }
 
 
 }

@@ -1,4 +1,3 @@
-
 Feature: As a user I want to be able to see 
     from which country the beverage comes from 
     so that i know where they come from
