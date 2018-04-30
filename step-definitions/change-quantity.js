@@ -14,6 +14,7 @@ module.exports = function() {
      aShoppingCart = new ShoppingCart();
      aShoppingCart.add(aProduct1, 3);
      aShoppingCart.add(aProduct2, 5);
+     console.warn(aShoppingCart.thingsToBuy);
      callback();
   });
 
@@ -21,12 +22,21 @@ module.exports = function() {
    this.When(/^the user changes the quantity of the beverage in the cart$/, function (callback) 
   {
     // change the quantity of aProduct1(10) insted of aProduct1(3)
+    aShoppingCart.changeQuantity(aProduct1,10);
+    
     callback();
   });
 
 
-  // this.Then(/^the quantity should be changed in the shopping cart$/, function (callback) {
-  //   // Write code here that turns the phrase above into concrete actions
-  //   callback(null, 'pending');
-  // });
+  this.Then(/^the quantity should be changed in the shopping cart$/, function (callback) {
+    // Display the updated cart
+
+    console.warn(aShoppingCart.thingsToBuy);
+     assert.deepEqual(aShoppingCart.thingsToBuy, [
+      {product:aProduct1, quantity: 10}, 
+      {product:aProduct2, quantity: 5}],
+      "The item was ."
+     );
+    callback();
+  });
 }
