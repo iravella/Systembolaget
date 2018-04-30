@@ -3,14 +3,17 @@ let myApp = require('../app.js');
 
 module.exports = function() 
 {
+      let aPerson;
 
        this.Given(/^that user is a registered person$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
+        // creating an instance of a  person
+        aPerson = new Person("Swapna",'840304','Saimagatan','20090','stockholm');
+         
          callback();
        });
 
-       this.When(/^the user clicks on the beverage$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
+       this.When(/^the user chooses a "([^"]*)" beverage$/, function (arg1, callback) {
+         //whene the user chooses a beverage
          callback();
        });
 
