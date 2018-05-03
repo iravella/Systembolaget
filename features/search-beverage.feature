@@ -1,8 +1,17 @@
-Feature: As a user
-	I want to be able to search for veteöl
-	So that i can find it easily
+Feature: Search function and filter 
+         As a user
+	     I want to be able to search for a product in the sortiment using different filters to match my criterias
+	     So that i more easily find a product im looking for
 
-	Scenario: A person wants to search for veteöl
-		Given that veteöl is the searched for name
-		When search is executed
-		Then an array containing all the veteöl will show up
+	Scenario Outline: A person wants to search for <productName> using the filter "<SearchFilter>"
+		Given that a user is on the mainpage
+		When a search is executed with the text: "<Search>" and filter: "<SearchFilter>"
+		Then products matching the "<Search>" and "<SearchFilter>" will show up
+
+		Examples:
+		| Search    | SearchFilter |
+		| Carlsberg | Frankrike    |
+		| Veteöl    | Pris: 1-120  |
+		| Rött Vin  | Övriga       |
+		| Vodka     | Ryssland     |
+		| Volvo     | Sverige      |
