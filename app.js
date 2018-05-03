@@ -46,6 +46,16 @@ class App {
     this.users.push(new Person(name, age));
   }
 
+  displayProductBasicDetails(ursprunglandnamn, volymiml, alkoholhalt, prisinklmoms)
+  {
+    // this.ursprunglandnamn = [];
+    // this.volymiml = [];
+    // this.alkoholhalt = [];
+    // this.prisinklmoms = [];
+     //response[namn=='Renat'].ursprunglandnamn
+
+  }
+
 }
 
 // Create an app to start our application
