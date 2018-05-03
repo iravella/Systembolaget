@@ -35,7 +35,7 @@ module.exports = function() {
      assert.deepEqual(aShoppingCart.thingsToBuy, [
       {product:aProduct1, quantity: 10}, 
       {product:aProduct2, quantity: 5}],
-      "The item was ."
+      "The quantity didn't change."
      );
     callback();
   });

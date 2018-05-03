@@ -31,3 +31,4 @@ module.exports = function() {
          // need frontend testing
          callback();
        });
+   }
