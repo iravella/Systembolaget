@@ -5,7 +5,7 @@ let myApp = require('../app.js');
 module.exports = function()
 
 {
-       let aPerson, aProductNamn,p1,p2,p3,p4;
+       let aPerson, aProductNamn;
 
        this.Given(/^that user is a registered user$/, function (callback) 
        {
