@@ -71,9 +71,12 @@ module.exports = class ShoppingCart {
   }
 
   sum(){
+    let price = 0;
     // how much does everything cost
     // would we like a line sum as well?
-
+    // for(i=0; i< thingsToBuy.length; i++){
+    //   product.filter("prisinkmoms");
+    // }
     // loop through thingsToBuy.
     // get the price of each product and multiply with the quantity
     // (gives us a line sum)
