@@ -49,8 +49,9 @@ module.exports = function(){
 
        this.Then(/^Payment method$/, function (callback) {
         //call the payment met
-       });hod
+      
         aShoppingCart.payment();
          callback();
+          });
 
 }
