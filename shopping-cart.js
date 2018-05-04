@@ -65,6 +65,9 @@ module.exports = class ShoppingCart {
   removeAllItems() {
     this.thingsToBuy = [];
   }
+   removeAllItems() { 
+    this.thingsToBuy = []; 
+  } 
 
   /*savecart() {
     localStorage.setItems("shoppingcart", JSON.stringfy(thingsToBuy)); 
