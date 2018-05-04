@@ -66,11 +66,15 @@ module.exports = class ShoppingCart {
     this.thingsToBuy = [];
   }
 
-  savecart() {
+  /*savecart() {
     localStorage.setItems("shoppingcart", JSON.stringfy(thingsToBuy)); 
   }
   loadcart() {
     let cart = JSON.parse(localStorage.getItem(shoppingcart));
+  }
+  */
+  getCartItems(){
+    return this.thingsToBuy;
   }
 
   sum(){
@@ -91,7 +95,7 @@ module.exports = class ShoppingCart {
   // sum(){
   //   let price = 0;
 
-    sum() {
+   
 
 
     // how much does everything cost

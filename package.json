@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "node node_modules/selenium-cucumber-js/index.js -b phantomjs & exit 0",
-    "one-feature": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/buy-products-without-account.feature & exit 0",
+    "one-feature": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/total-price-of-items.feature & exit 0",
     "view-shopping-cart": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/view-shopping-cart.feature & exit 0",
     "search-beverage": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/search-beverage.feature & exit 0"
   },
