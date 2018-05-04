@@ -4,21 +4,20 @@ let ShoppingCart = require('../shopping-cart.js');
 
 module.exports = function() {
 
-  let aShoppingCart;
   let itemsInCart;
 
        this.Given(/^that the user has products in his shopping cart$/, function (callback) {
-         aShoppingCart = new ShoppingCart();
+         shared.shoppingcart.theShoppingCart = new ShoppingCart();
          //Creating fake items
-         aShoppingCart.add(myApp.products[729], 3);
-         aShoppingCart.add(myApp.products[1337], 3);
+         shared.shoppingcart.theShoppingCart.add(myApp.products[729], 3);
+         shared.shoppingcart.theShoppingCart.add(myApp.products[1337], 3);
          callback();
        });
 
 
 
        this.When(/^the user checks his shopping cart$/, function (callback) {
-         itemsInCart = aShoppingCart.getCartItems();
+         itemsInCart = shared.shoppingcart.theShoppingCart.getCartItems();
          callback();
        });
 

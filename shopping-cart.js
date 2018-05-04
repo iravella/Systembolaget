@@ -79,6 +79,7 @@ module.exports = class ShoppingCart {
     let Sum = priceArray.reduce(function(accumulator, currentValue){
       return accumulator + currentValue;
     }, 0);
+    //console.log(Sum+"kr");
     return Sum;
     
     // how much does everything cost
