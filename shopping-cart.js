@@ -2,11 +2,11 @@ let assert = require('assert');
 //let OrderStatus = require("../orderstatus.js");
 module.exports = class ShoppingCart {
 
-  constructor(){
+  constructor() {
     this.thingsToBuy = [];
   }
 
-  add(product, quantity){
+  add(product, quantity) {
     // should we check that the product
     // is an instanceOf Product ?
 
@@ -22,17 +22,17 @@ module.exports = class ShoppingCart {
     });
   }
 
-  findProductInCart(product){
+  findProductInCart(product) {
     // should we check that product is an instance of Product?
-    for(let i = 0; i < this.thingsToBuy.length; i++){
-      if(this.thingsToBuy[i].product === product){
+    for (let i = 0; i < this.thingsToBuy.length; i++) {
+      if (this.thingsToBuy[i].product === product) {
         return i;
       }
     }
     return -1;
   }
 
-  changeQuantity(product, newQuantity){
+  changeQuantity(product, newQuantity) {
 
     // is product really an instance of Product
     // is newQuantity a positive integer?
@@ -44,12 +44,12 @@ module.exports = class ShoppingCart {
       "Can't change the quantity of a product not in the cart"
     );
 
-    
+
     this.thingsToBuy[index].quantity = newQuantity;
 
   }
 
-  remove(product){
+  remove(product) {
     let index = this.findProductInCart(product);
 
     assert(
@@ -62,16 +62,20 @@ module.exports = class ShoppingCart {
 
   }
 
-  getCartItems(){
-    return this.thingsToBuy;
-  }
-
-  removeAllItems(){
+  removeAllItems() {
     this.thingsToBuy = [];
   }
 
+  savecart() {
+    localStorage.setItems("shoppingcart", JSON.stringfy(thingsToBuy)); 
+  }
+  loadcart() {
+    let cart = JSON.parse(localStorage.getItem(shoppingcart));
+  }
+
   sum(){
-    
+ 
+  
     let priceArray = this.thingsToBuy.map(function(item) {
       return item.product.prisinklmoms * item.quantity;
     });
@@ -82,6 +86,14 @@ module.exports = class ShoppingCart {
     //console.log(Sum+"kr");
     return Sum;
     
+
+
+  // sum(){
+  //   let price = 0;
+
+    sum() {
+
+
     // how much does everything cost
     // would we like a line sum as well?
     // loop through thingsToBuy.
@@ -91,15 +103,15 @@ module.exports = class ShoppingCart {
 
 
   }
-  buyOrder(){
-  	//when you checkout you are done with the payment and you have typed in all the infromation you need to
-  	//get the product delivered to you
-  	//and a the order will come to the comany
+  buyOrder() {
+    //when you checkout you are done with the payment and you have typed in all the infromation you need to
+    //get the product delivered to you
+    //and a the order will come to the comany
   }
 
-  payment(){
-  	//this function will check so your payments is right
-  	//so your payment work
+  payment() {
+    //this function will check so your payments is right
+    //so your payment work
 
   }
 
