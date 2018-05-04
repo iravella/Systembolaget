@@ -71,12 +71,18 @@ module.exports = class ShoppingCart {
   }
 
   sum(){
-    let price = 0;
+    
+    let priceArray = this.thingsToBuy.map(function(item) {
+      return item.product.prisinklmoms * item.quantity;
+    });
+    
+    let Sum = priceArray.reduce(function(accumulator, currentValue){
+      return accumulator + currentValue;
+    }, 0);
+    return Sum;
+    
     // how much does everything cost
     // would we like a line sum as well?
-    // for(i=0; i< thingsToBuy.length; i++){
-    //   product.filter("prisinkmoms");
-    // }
     // loop through thingsToBuy.
     // get the price of each product and multiply with the quantity
     // (gives us a line sum)

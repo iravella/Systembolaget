@@ -1,10 +1,9 @@
 module.exports = class SearchFunction {
-	constructor(searchWord){
-		let searchByName = {}
-		let searchByType = {}
+	constructor(searchText, searchFilter){
+
 	}
 
-	searchResults(){
-		searchByName + searchByType == [profit];
+	search(){
+		
 	}
 }
