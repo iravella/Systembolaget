@@ -1,28 +1,35 @@
   let ShoppingCart = require('../shopping-cart.js');
   let myApp = require('../app.js');
   module.exports = function() {
-    let aShoppingCart, aProduct1, aProduct2, aProduct3, ItemsInCart;
+    let aShoppingCart, aProduct1, aProduct2, aProduct3, ItemsInCart,productToRemove;
 
 
     this.Given(/^that the user has Zero products in the shoppingcart$/, function(callback) {
+      //creating an instance of the shoppingcart
       aShoppingCart = new ShoppingCart();
-      ItemsInCart = aShoppingCart.getCartItems();
-      
       callback();
     });
 
-    this.When(/^the user deletes an item from the shoppingcart$/, function(callback) {
-      
-      
-      // if (ItemsInCart<1)
-      //   console.log("ShoppingCart is empty");
+    this.When(/^the user tries to delete an item from the shoppingcart$/, function (callback) {
+      // run the delete/remove function here
+      for( let product of myApp.products){
+
+     if(product.namn === "Renat")
+     { 
+        productToRemove = product;
+        break;
+      }
+    }
+    try {
+      aShoppingCart.remove(productToRemove);
+    } catch (error) {
+    }
       callback();
     });
 
     this.Then(/^an error message should pop up$/, function(callback) {
-      //alert("cannot be removed anything from an empty an cart ");
-      assert.deepEqual(ItemsInCart=[],"shoppingcart is  not empty,the cart has some items");
-      //console.log("cannot be removed anything from an empty an cart ");
+      // FRONTEND TEST : there should be an error dialogue
+      // with the text: "cannot be removed anything from an empty an cart"
       callback();
     });
 
