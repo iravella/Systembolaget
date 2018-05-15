@@ -21,7 +21,7 @@
 
     this.Then(/^an error message should pop up$/, function(callback) {
       //alert("cannot be removed anything from an empty an cart ");
-      assert.deepEqual(ItemsInCart!=[],"shoppingcart is not empty,the cart has some items");
+      assert.deepEqual(ItemsInCart=[],"shoppingcart is  not empty,the cart has some items");
       //console.log("cannot be removed anything from an empty an cart ");
       callback();
     });
