@@ -93,7 +93,7 @@ module.exports = class ShoppingCart {
     //console.log(Sum+"kr");
     return Sum;
     
-
+}
 
   // sum(){
   //   let price = 0;
@@ -113,7 +113,7 @@ module.exports = class ShoppingCart {
   buyOrder() {
     //when you checkout you are done with the payment and you have typed in all the infromation you need to
     //get the product delivered to you
-    //and a the order will come to the comany
+    //and a the order will come to the home
   }
 
   payment() {
