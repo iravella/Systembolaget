@@ -1,4 +1,5 @@
 let assert = require('assert');
+//let Card = require('../card.js');
 //let OrderStatus = require("../orderstatus.js");
 module.exports = class ShoppingCart {
 
@@ -116,11 +117,32 @@ module.exports = class ShoppingCart {
     //and a the order will come to the home
   }
 
-  payment() {
+  makePayment(Card) {
     //this function will check so your payments is right
-    //so your payment work
+    //so your payment work, 
+    //string or number
+    
 
+    let cardInfo = {
+      "kind": "credit_card",
+      "first_name": "Sandhya Rani",
+      "last_name":"Komma",
+      "number":5555555555554444,
+      "verification_value": "423",
+      "month": "5",
+      "year": "2020",
+      "email": "joey@gmail.com"
+    }
+     
+     assert(cardInfo.card_type === 'number', "card_type can't be a number");
+     assert(isNaN(cardInfo.cardnr) === false, 'The card number is not a number');
+     assert(isNaN(cardInfo.verification_value) === false, 'The verification_value number is not a number');
+     assert(cardInfo.first_name !== 'string','The first_name is not a string' );
+    
+  
   }
+  
+   
 
 
 }
