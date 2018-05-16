@@ -1,18 +1,19 @@
 let ShoppingCart = require("../shopping-cart.js");
 let myApp = require("../app.js");
 let NoRegistratedUser = require("../noregistrateduser.js");
+let credCard = require("../card.js");
 
 module.exports = function(){
 
-	
-	let aShoppingCart;
+  let card;
+  let aShoppingCart;
   let adress;
-       this.Given(/^I am an none\-registered user$/, function (callback) {
+       this.Given(/^the user is an none\-registered user$/, function (callback) {
          let aNoRegistratedUser = new NoRegistratedUser();
          callback();
        });
 
-       this.Given(/^I have products in my shoppingcart$/, function (callback) {
+       this.Given(/^the user have products in my shoppingcart$/, function (callback) {
 
         //creating fake items to the shopping cart
          aShoppingCart = new ShoppingCart();
@@ -24,34 +25,25 @@ module.exports = function(){
          callback();
        });
 
-       this.When(/^I want to buy the items$/, function (callback) {
-        //a function in the shoppingcart that will buyOrder after your order
-        //But to check out you need to fill the adress and the payment mehtod
-         aShoppingCart.buyOrder();
+       this.When(/^the user enters the payment information$/, function (callback) {
+        //smattra in smaragd info
+       card = new credCard("Jolle","yallemar",1337133713371337,666)
 
-         // // Since we do not have a registrered user/address we expect check out to throw an error
-         // assert.throws(
-         //  function(){
-         //    aShoppingCart.buyOrder();
-         //  }, 
-         //  "The buyOrder did not throw an error even though we did not have an ok user/address"
-         // );
+
          callback();
        });
 
-       this.Then(/^the website will ask for my shipping information$/, function (callback) {
-        //You have to type your adress in the adressbox
-        // Will be detail tested with selenium
-
-        //frontend tester
+        this.When(/^the payment information is valid$/, function (callback) {
+          assert(typeof card.first_name === "string" && card.first_name !== "", "The first name must be a non-empty string");
+          assert(typeof card.last_name === "string" && card.last_name !== "", "The last name must be a non-empty string");
+          assert(typeof card.cardnr === "number" && (card.cardnr + "").length == 16, "the card number must contain 16 numbers");
+          assert(typeof card.verification_value === "number" && (card.verification_value + "").length == 3, "the verification number must contain 3 numbers");
          callback();
        });
 
-       this.Then(/^Payment method$/, function (callback) {
-        //call the payment met
-      
-        aShoppingCart.payment();
+       this.Then(/^the user should have bougth the items$/, function (callback) {
+        //Add a module that say you items have been ordered (no need to save the order) frontend testing
          callback();
-          });
+       });
 
 }

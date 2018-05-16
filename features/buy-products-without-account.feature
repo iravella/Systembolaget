@@ -3,8 +3,8 @@ Feature: As a user I should be able to buy products
 	so that it is easier to buy
 
 	Scenario: buy products without using an account
-		Given I am an none-registered user
-		And I have products in my shoppingcart
-		When I want to buy the items
-		Then the website will ask for my shipping information
-		And Payment method
+		Given the user is an none-registered user
+		And the user have products in my shoppingcart
+		When the user enters the payment information
+		And the payment information is valid
+		Then the user should have bougth the items

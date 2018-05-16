@@ -96,52 +96,6 @@ module.exports = class ShoppingCart {
     
 }
 
-  // sum(){
-  //   let price = 0;
-
-   
-
-
-    // how much does everything cost
-    // would we like a line sum as well?
-    // loop through thingsToBuy.
-    // get the price of each product and multiply with the quantity
-    // (gives us a line sum)
-    // add a line sums into a total sum
-
-
-  }
-  buyOrder() {
-    //when you checkout you are done with the payment and you have typed in all the infromation you need to
-    //get the product delivered to you
-    //and a the order will come to the home
-  }
-
-  makePayment(Card) {
-    //this function will check so your payments is right
-    //so your payment work, 
-    //string or number
-    
-
-    let cardInfo = {
-      "kind": "credit_card",
-      "first_name": "Sandhya Rani",
-      "last_name":"Komma",
-      "number":5555555555554444,
-      "verification_value": "423",
-      "month": "5",
-      "year": "2020",
-      "email": "joey@gmail.com"
-    }
-     
-     assert(cardInfo.card_type === 'number', "card_type can't be a number");
-     assert(isNaN(cardInfo.cardnr) === false, 'The card number is not a number');
-     assert(isNaN(cardInfo.verification_value) === false, 'The verification_value number is not a number');
-     assert(cardInfo.first_name !== 'string','The first_name is not a string' );
-    
-  
-  }
-  
    
 
 
