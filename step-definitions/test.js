@@ -1,4 +1,3 @@
-
 module.exports = function() {
 
   // This does NOT give us all of jQuery's functions.
