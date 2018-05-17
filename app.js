@@ -1,15 +1,33 @@
 // Read classes from other files
-let Person = require('./person.js');
-let Product = require('./product.js');
-let Category = require('./category.js');
+var Person = require('./person.js');
+var Product = require('./product.js');
+var Category = require('./category.js');
 
 class App {
 
   constructor() {
-    // Read the JSON
-    let productData = require('./json/sortiment.json');
-    let categoryData = require('./json/categories.json');
+    let productData;
+    let categoryData;
 
+    if (typeof window !== 'undefined') {
+      (async ()=>{
+        productData = await require('./json/sortiment.json');
+        categoryData = await require('./json/categories.json');
+        this.constructorContinued(productData, categoryData);
+      })();
+    } else {
+      productData = require('./json/sortiment.json');
+      categoryData = require('./json/categories.json');
+      this.constructorContinued(productData, categoryData);
+    }
+  }
+
+  constructorContinued(productData, categoryData){
+    // Make instances of Product from the productdata
+    this.products = [];
+    for (let p of productData) {
+      this.products.push(new Product(p));
+    }
     // Make instances of Product from the productdata
     this.products = [];
     for (let p of productData) {
@@ -31,7 +49,9 @@ class App {
     // Add a list of active/logged in user
     this.users = [];
 
+
   }
+
   listProducts(categoryName, person) {
     // console.warn(person, person instanceof Person);
     assert(
@@ -60,7 +80,6 @@ class App {
 
 // Create an app to start our application
 let myApp = new App();
-
 // Exporting the app instance so that I can use it 
 // in my test code (step definitions) via require
 module.exports = myApp;

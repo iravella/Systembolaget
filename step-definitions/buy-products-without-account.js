@@ -1,7 +1,7 @@
-let ShoppingCart = require("../shopping-cart.js");
-let myApp = require("../app.js");
-let NoRegistratedUser = require("../noregistrateduser.js");
-let credCard = require("../card.js");
+var ShoppingCart = require("../shopping-cart.js");
+var myApp = require("../app.js");
+var NoRegistratedUser = require("../noregistrateduser.js");
+var credCard = require("../card.js");
 
 module.exports = function(){
 

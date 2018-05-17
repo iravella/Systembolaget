@@ -44,9 +44,23 @@ module.exports = class ShoppingCart {
       index >= 0,
       "Can't change the quantity of a product not in the cart"
     );
-
+    
 
     this.thingsToBuy[index].quantity = newQuantity;
+    console.log(this.thingsToBuy);
+
+    let maxILager = this.thingsToBuy[index].product.iLager;
+
+    console.log(maxILager);
+
+    if(this.thingsToBuy[index].quantity < 1){
+      this.thingsToBuy[index].quantity = 1;
+    } 
+    if (this.thingsToBuy[index].quantity > maxILager) {
+      this.thingsToBuy[index].quantity = maxILager;
+      
+    }
+    
 
   }
 
@@ -66,9 +80,6 @@ module.exports = class ShoppingCart {
   removeAllItems() {
     this.thingsToBuy = [];
   }
-   removeAllItems() { 
-    this.thingsToBuy = []; 
-  } 
 
   /*savecart() {
     localStorage.setItems("shoppingcart", JSON.stringfy(thingsToBuy)); 
