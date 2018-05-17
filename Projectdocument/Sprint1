@@ -4,25 +4,29 @@ Classes and Methods
 
 •	Person
 o	constructor (fullName,dateOfBirth,addressStreet,addressZipCode, addressCity)
+
 •	Shoppingcart
 o	constructor()
 o	add(product, quantity)
-o	 findProductInCart(product)
-o	 changeQuantity(product, newQuantity)
-o	 remove(product)
+o	findProductInCart(product)
+o	changeQuantity(product, newQuantity)
+o	remove(product)
 o	getCartItems()
-o	 removeAllItems()
+o	removeAllItems()
 o	sum()
 o	payment()
 o	savecart()
 o	loadcart()
+
 •	Product
 o	constructor (data)
+
 •	App
 o	constructor()
 o	listProducts(categoryName, person)
-o	  addUser(name, age)
-o	displayProductBasicDetails(ursprunglandnamn, volymiml, alkoholhalt, prisinklmoms)
+o	addUser(name, age)
+o	displayProductBasicDetails(ursprunglandnamn, volymiml, alkoholhalt,  
+  prisinklmoms)
 
 
 •	Category
@@ -39,9 +43,6 @@ o	orderList()
 o	mostBoughtItems()
 •	Not Registered
 o	constructor(adress)
-
-
-
 
 Feature Files(Scenarios)
 
