@@ -1,5 +1,16 @@
 class CreateUnderMenus {
 
+
+	constructor() {
+		this.CreateUnderMenuPris()
+		this.CreateUnderMenuVolym();
+		this.CreateUnderMenuVarugrupp();
+		this.CreateUnderMenuLänder();
+		this.CreateUnderMenuFörpackning();
+		this.CreateUnderMenuAlkoholhalt();
+		this.CreateUnderMenuEkologisk();
+	}
+
 		CreateUnderMenuPris() {
 			let formdiv = $('<form>' + '<div>').addClass('form-group undermenupris').attr('type', 'text').attr('display', 'none')
 			let minpris = $('<input>' + '<div>').attr('type', 'text').attr('placeholder', "Min pris").attr('id', 'hiddenfiltermenu0').attr('size','6').attr('maxlength', '6').addClass('minPris undermenupris').attr('display', 'none')
@@ -14,7 +25,8 @@ class CreateUnderMenus {
 							let maxPris = $('.maxPris').val() / 1;
 
 							if( maxPris == 0 && minPris == 0) {						
-								$('#mainfiltermenu0').toggle();
+								$('#mainfiltermenu0').children().toggle();
+								return;
 							}
 
 
@@ -214,6 +226,10 @@ class CreateUnderMenus {
 					if(e.target !== e.currentTarget) return;
 					let minAlk = $('.minAlk').val() / 1;
 					let maxAlk = $('.maxAlk').val() / 1;
+					if( minAlk == 0 && maxAlk == 0) {						
+								$('#mainfiltermenu5').children().toggle();
+								return;
+					}
 					$('#hiddenfiltermenu5').toggle('swing');
 					$('#mainfiltermenu5').toggle();
 					$('#hiddenfiltermenu5').html(minAlk + " - " + maxAlk + " %")
@@ -221,12 +237,9 @@ class CreateUnderMenus {
 								if(e.target !== e.currentTarget) return;
 								$('.undermenualkoholhalt').remove()								//This Works as reset 
 								myUndermenus.CreateUnderMenuAlkoholhalt();		
-							});
+								});
 
-							if( minAlk == 0 && maxAlk == 0) {						
-								$('#hiddenfiltermenu5').toggle();
-								$('#mainfiltermenu5').toggle();
-							}
+
 					$('.undermenualkoholhalt').toggle();
 
 			});
@@ -251,15 +264,7 @@ class CreateUnderMenus {
 		}
 
 
-		CreateAllUnderMenus() {
-		this.CreateUnderMenuPris()
-		this.CreateUnderMenuVolym();
-		this.CreateUnderMenuVarugrupp()
-		this.CreateUnderMenuLänder();
-		this.CreateUnderMenuFörpackning();
-		this.CreateUnderMenuAlkoholhalt();
-		this.CreateUnderMenuEkologisk();
-		}
-
 
 }
+
+module.exports = CreateUnderMenus;

@@ -1,5 +1,5 @@
-let Search = require("../search-function.js");
-let myApp = require('../app.js');
+var Search = require("../search-function.js");
+var myApp = require('../app.js');
 
 module.exports = function() {
 	let searchFunction = new Search();
@@ -14,13 +14,13 @@ module.exports = function() {
 // eftersom arrayen är tom. Kör cucumber when, when, when för alla variabler sedan kollar then?
 // eller kör den given, when, then för en variabel i taget?
 
-	this.Given(/^that a user is on the mainpage$/, function (callback) {
-		// Write code here that turns the phrase above into concrete actions
+	this.Given(/^that a user is on the mainpage$/, async function (callback) {
+		await helpers.loadPage('https://localhost:3000');
 		callback();
 	});
 
 //Cucumber söker efter "Vitt vin" och "Ekologisk"
-  	this.When(/^a search is executed with the text: "([^"]*)" and using the ekofilter: "([^"]*)"$/, function (arg1, arg2, callback) {
+  	this.When(/^a search is executed with the text: "([^"]*)" and using the ekofilter: "([^"]*)"$/, async function (arg1, arg2, callback) {
          searchText = arg1;
          InputAttribute = arg2;
          InputValue = 1;
@@ -33,7 +33,7 @@ console.log(myApp.displayedProducts.length + "  SECOND FILTER: freetext: ", sear
     });
 
   	//Cucumber söker "Vitt vin" och "Ekologisk"
-      this.Then(/^products matching "([^"]*)" and ekofilter: "([^"]*)" will show up$/, function (arg1, arg2, callback) {
+      this.Then(/^products matching "([^"]*)" and ekofilter: "([^"]*)" will show up$/, async function (arg1, arg2, callback) {
       		searchText = arg1
       	
       			for(let product of myApp.displayedProducts) {	
@@ -58,7 +58,7 @@ console.log(myApp.displayedProducts.length + "  SECOND FILTER: freetext: ", sear
        });
 
 //Cucumber söker efter "searchText" och olika pricefilter
-	this.When(/^a search is executed with "([^"]*)" and using the pricefilter: "([^"]*)"$/, function (arg1, arg2, callback) {
+	this.When(/^a search is executed with "([^"]*)" and using the pricefilter: "([^"]*)"$/, async function (arg1, arg2, callback) {
         searchText = arg1;
   		pris = arg2;												//"Pris: 1 - 120"	from cucumber								
 		let min = pris.split("Pris: ")[1].split("-")[0] / 1			// "1"
@@ -76,7 +76,7 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 
 
 //Cucumber söker "Vete öl" (arg1) och prisfilter: "Pris: 1 - 120" (arg 2)
-    this.Then(/^products matching "([^"]*)" and pricerange: "([^"]*)" will show up$/, function (arg1, arg2, callback) {
+    this.Then(/^products matching "([^"]*)" and pricerange: "([^"]*)" will show up$/, async function (arg1, arg2, callback) {
 
     	searchText = arg1
     	pris = arg2
@@ -107,10 +107,12 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 
 
 //Cucumber söker efter "searchText" och olika ursprunglandnamn
-  	this.When(/^a search is executed with the text: "([^"]*)" and filter: "([^"]*)"$/, function (arg1, arg2, callback) {
+  	this.When(/^a search is executed with the text: "([^"]*)" and filter: "([^"]*)"$/, async function (arg1, arg2, callback) {
 		searchText = arg1;
 		InputValue = arg2;
 		InputAttribute = "ursprunglandnamn"
+		//if InputAttribute == Övriga förpackningar || Flaskor mer än 0.6 L || Flaskor mindre än 0.6 L
+
 
 		searchFunction.reset();
 
@@ -123,7 +125,7 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 
 
 //Cucumber söker Text (arg 1) och ursprunglandnamn (arg2)
-	this.Then(/^products matching the "([^"]*)" and "([^"]*)" will show up$/, function (arg1, arg2, callback) {
+	this.Then(/^products matching the "([^"]*)" and "([^"]*)" will show up$/, async function (arg1, arg2, callback) {
 		searchText = arg1;
 		inputAttribute = arg2;
 
@@ -183,7 +185,7 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 
 
 //SCENARIO 4
-		this.When(/^a search is executed with the text: "([^"]*)"$/, function (arg1, callback) {
+		this.When(/^a search is executed with the text: "([^"]*)"$/, async function (arg1, callback) {
 			searchText = arg1
 
 				searchFunction.reset();
@@ -192,7 +194,7 @@ console.log(myApp.displayedProducts.length)
          callback();
        });
 
-		 this.Then(/^products matching "([^"]*)" will show up$/, function (arg1, callback) {
+		 this.Then(/^products matching "([^"]*)" will show up$/, async function (arg1, callback) {
 				searchText = arg1
 
 		 		let searchTextSplitted = searchText.toLowerCase().split(" ");

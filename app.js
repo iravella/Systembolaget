@@ -5,6 +5,12 @@ var Category = require('./category.js');
 
 class App {
 
+  createFrontendClasses(){
+    new MainMenu();
+    new CreateUnderMenus();
+    new ProductsDivs();
+  }
+
   constructor() {
     let productData;
     let categoryData;
@@ -14,6 +20,7 @@ class App {
         productData = await require('./json/sortiment.json');
         categoryData = await require('./json/categories.json');
         this.constructorContinued(productData, categoryData);
+        this.createFrontendClasses();
       })();
     } else {
       productData = require('./json/sortiment.json');
@@ -104,7 +111,7 @@ class App {
 
     //products with these forpackning calssifies into "Flaskor mer än 0.6l"//
     this.forpackningBiggerThen500ml = ["Flaska", "1 flaska à 750 ml + 1 flaska à 375ml", "12 fl à 750 ml", "2 fl à 750 ml", "2 flaskor à 720 ml", "2 x 750ml", "3 fl à 750 ml", 
-    "4 fl à 750 ml", "4 flaskor à 750ml", "1 x 720 ml", "5 flaskor à 750ml + 1 flaska à 500ml", "5 fl à 750 ml", "6 fl à 750 ml", "6 flaskor à 720 ml",]
+    "4 fl à 750 ml", "4 flaskor à 750ml", "1 x 720 ml", "5 flaskor à 750ml + 1 flaska à 500ml", "5 fl à 750 ml", "6 fl à 750 ml", "6 flaskor à 720 ml"];
 
     //products with these forpackning calssifies into "Flaskor mindre än 0.6l"//
     this.forpackningLesserOrEqual500ml =["Flaska", "1 flaska  à 200ml", "10 fl à 40 ml","10 fl à 50 ml", "10 fl à 60 ml",
@@ -113,7 +120,7 @@ class App {
      "3 fl à 100 ml", "3 fl à 20 ml", "3 fl à 200 ml", "3 fl à 50 ml", "3 fl à 500 ml", "3 flaskor à 375 ml", "3 x 330 ml, 1 x 250 ml", "36 flaskor à 20 ml", 
      "4 fl à 200 ml", "4 fl à 330 ml", "4 fl à 50 ml", "4 fl à 500 ml", "4 flaskor à 100 ml", "4 flaskor à 375 ml", "1 flaska à 500ml", "1 flaska à 37", "4 x 300 ml",
      "5 fl à 200 ml", "5 fl à 40 ml", "5 fl à 50 ml", "5 flaskor à 100 ml", "50 flaskor à 20 ml", "6 fl à 100 ml", "6 fl à 200 ml", "6 fl à 50 ml", "6 fl á 375 ml", 
-     "6 flaskor à 187 ml", "6 flaskor à 20 ml", "6 flaskor à 330 ml", "60 fl à 20 ml", "7 flaskor à 50 ml", "8 flaskor à 100 ml", "8 flaskor á 500ml", "9 fl à 20 ml", "96 flaskor à 50 ml", ]
+     "6 flaskor à 187 ml", "6 flaskor à 20 ml", "6 flaskor à 330 ml", "60 fl à 20 ml", "7 flaskor à 50 ml", "8 flaskor à 100 ml", "8 flaskor á 500ml", "9 fl à 20 ml", "96 flaskor à 50 ml"];
 
      this.searchcriteria = [];
 
@@ -148,7 +155,7 @@ class App {
 }
 
 // Create an app to start our application
-let myApp = new App();
+var myApp = new App();
 // Exporting the app instance so that I can use it 
 // in my test code (step definitions) via require
 module.exports = myApp;

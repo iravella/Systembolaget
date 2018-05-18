@@ -1,4 +1,4 @@
-let ShoppingCart = require("../shopping-cart.js");
+var ShoppingCart = require("../shopping-cart.js");
 
 module.exports = class OrderStatus {
 	constructor(){

@@ -1,4 +1,8 @@
-class productsDivs {
+class ProductsDivs {
+
+		constructor() {
+		this.createDisplayedproducts();
+		}
 
 		createDisplayedproducts () {
 		let id = 0
@@ -84,3 +88,4 @@ class productsDivs {
 	
  }
 
+module.exports = ProductsDivs;
