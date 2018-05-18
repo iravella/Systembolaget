@@ -2,10 +2,10 @@ var myApp = require('./app.js');
 
 class Search {
 
-		constructor (searchText, InputAttribute, InputValue, min, max) {
+		constructor (searchText, inputAttribute, inputValue, min, max) {
 			this.searchText = searchText;
-			this.InputAttribute = InputAttribute;
-			this.InputValue = InputValue;
+			this.inputAttribute = inputAttribute;
+			this.inputValue = inputValue;
 			this.min = min;
 			this.max = max;
 		}
@@ -41,8 +41,10 @@ class Search {
 		}
 
 		//Function for filters with ONE criteria// Needs to do this for every criteria.
-		critieriaSearch(InputAttribute, InputValue) {
-			if (InputValue == "Övriga") {
+		//inputAttribute = ursprungsnamnland, varugrupp, namn, ekologisk etc...
+		//inputvalue = Renat, Carlsberg, 1, Tyskland etc..
+		critieriaSearch(inputAttribute, inputValue) {
+			if (inputValue == "Övriga länder") {
 				let countryNames = myApp.CountrysWithLessThan201Products.map(function(objektet) {
 					return objektet.Country;
 				});
@@ -50,18 +52,37 @@ class Search {
 				myApp.displayedProducts = myApp.displayedProducts.filter(function(product){
 					return countryNames.includes(product.ursprunglandnamn);
 				});
+
+			} else if (inputValue == "Övriga förpackningar") {
+				
+						myApp.displayedProducts = myApp.displayedProducts.filter(function(product){
+						return myApp.forpackningOvriga.includes(product.forpackning)										//if true then return (product)
+						});
+					
+			} else if (inputValue == "Flaskor mer än 0.6 L") {
+		
+						myApp.displayedProducts = myApp.displayedProducts.filter(function(product){
+						return myApp.forpackningBiggerThen500ml.includes(product.forpackning)										//if true then return (product)
+						});
+
+			} else if (inputValue == "Flaskor mindre än 0.6 L") {
+
+						myApp.displayedProducts = myApp.displayedProducts.filter(function(product){
+						return myApp.forpackningLesserOrEqual500ml.includes(product.forpackning)										//if true then return (product)
+						});
 			} else {
-				myApp.displayedProducts = myApp.displayedProducts.filter(function(product){
-					return product[InputAttribute] === InputValue;													//if true then return (product)
-				});
+
+			 			myApp.displayedProducts = myApp.displayedProducts.filter(function(product){
+			 			return product[inputAttribute] === inputValue;													//if true then return (product)
+			 			});
 			}
 		}			
 
 		//Needs to create a function that handles intervalls
 
-		criteriaIntervalls(InputAttribute, min, max) {
+		criteriaIntervalls(inputAttribute, min, max) {
 			for (let i = 0; i < myApp.displayedProducts.length; i++) {
-				let realValue = myApp.displayedProducts[i][InputAttribute]
+				let realValue = myApp.displayedProducts[i][inputAttribute]
 				if (realValue < min || realValue > max)  {
 					myApp.displayedProducts.splice(i, 1);
 					i = i - 1;
