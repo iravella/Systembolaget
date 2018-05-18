@@ -10,15 +10,12 @@ Feature: Search function and filter
 		Then products matching the "<Search>" and "<SearchFilter>" will show up
 
 		Examples:
-		| Search    | SearchFilter            |
-		| Carlsberg | Frankrike               |
-		| Veteöl    | Norge                   |
-		| Rött Vin  | Övriga                  |
-		| Vodka     | Ryssland                |
-		| Volvo     | Sverige                 |
-		| Sverige	| Övriga förpackningar    |
-		| Sverige   | Flaskor mer än 0.6 L    |
-		| Sverige   | Flaskor mindre än 0.6 L |
+		| Search    | SearchFilter |
+		| Carlsberg | Frankrike    |
+		| Veteöl    | Norge        |
+		| Rött Vin  | Övriga       |
+		| Vodka     | Ryssland     |
+		| Volvo     | Sverige      |
 
 	Scenario: A person searches using the text: "Veteöl" using the pricefilter: "Pris: 1-120"
 		When a search is executed with "Veteöl" and using the pricefilter: "Pris: 1-120"
