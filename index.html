@@ -1,4 +1,6 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+<head>
   <meta charset="utf-8">
   <title>Mr. Shopper</title>
 
@@ -8,6 +10,13 @@
   <script src="./fake-module.js"></script>
   <script src="./node_modules/chai/chai.js"></script>
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="./css/main.css">
+
+
   <!-- <script src="./libs/jquery.min.js"></script> -->
   <!-- <script src="./libs/tether.js"></script> -->
   <!-- <script src="./libs/bootstrap.min.js"></script> -->
@@ -19,12 +28,32 @@
 </head>
 
 <body>
-  <h1>Hello World!</h1>
-<button id="wow">click me</button>
-<button id="wow2">click me</button>
-<script src="./test-frontend.js"></script>
+
+  <div class="WrapperOfsearchCrit">
+    <div id="Sök_kriterier" class="btn-secondary">Sökfilter ►</div>
+    <div><button type="button" class="btn btn-secondary" id="ekomenuFilter" aria-pressed="false" autocomplete="off">Ekologisk</button></div>
+  </div>
+
+  <div class="WrapperOfallFilters">
+    <div class="FiltersHidden"></div>
+    <div class="Filters"></div>
+  </div>
+
+  <div class="containerDisplayedProducts">
+    Produkter
+    <div class="gridDisplayedProducts">
+    </div>
+  </div>
+
+   <script src="./search-function.js"></script>
+   <script src="./app.js"></script>
+   <script src="./classes/MainMenu.js"></script>
+   <script src="./classes/ProductsDivs.js"></script>
+   <script src="./classes/UnderMenus.js"></script>
+
+</body>
+
+</html>
 
 
-</body></html><html><head></head>
-<body>
 

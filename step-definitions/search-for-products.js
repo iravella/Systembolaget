@@ -125,9 +125,9 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 //Cucumber söker Text (arg 1) och ursprunglandnamn (arg2)
 	this.Then(/^products matching the "([^"]*)" and "([^"]*)" will show up$/, function (arg1, arg2, callback) {
 		searchText = arg1;
-		ursprunglandnamn = arg2;
+		inputAttribute = arg2;
 
-		if (ursprunglandnamn == "Övriga") {
+		if (inputAttribute == "Övriga länder") {
 				let countryNames = myApp.CountrysWithLessThan201Products.map(function(objektet) {
 					return objektet.Country;
 				});
@@ -137,9 +137,28 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 			for(let i = 0; i < myApp.displayedProducts.length; i++) {
 			assert (ovrigaRegEx.test(myApp.displayedProducts[i].ursprunglandnamn), "the " + ovrigaRegEx + "didnt was not included in all displayedProducts")
 			}
+
+		} else if (inputAttribute == "Övriga förpackningar") {
+
+			for(let i = 0; i < myApp.displayedProducts.length; i++) {
+			assert (myApp.forpackningOvriga.includes(myApp.displayedProducts[i].forpackning) )
+			}
+			
+		} else if (inputAttribute == "Flaskor mer än 0.6 L") {
+
+			for(let i = 0; i < myApp.displayedProducts.length; i++) {
+			assert (myApp.forpackningBiggerThen500ml.includes(myApp.displayedProducts[i].forpackning) )
+			}
+
+		} else if (inputAttribute == "Flaskor mindre än 0.6 L") {
+
+			for(let i = 0; i < myApp.displayedProducts.length; i++) {
+			assert (myApp.forpackningLesserOrEqual500ml.includes(myApp.displayedProducts[i].forpackning) )
+			}
+
 		} else	{ 
 					for(let i = 0; i < myApp.displayedProducts.length; i++) {
-							assert(myApp.displayedProducts[i].ursprunglandnamn == ursprunglandnamn, "the ursprunglandnamn didn't match all products that is Displayed")
+							assert(myApp.displayedProducts[i].ursprunglandnamn == inputAttribute, "the ursprunglandnamn didn't match all products that is Displayed")
 					}
 				}
 
@@ -161,6 +180,9 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 			callback();
     });
 
+
+
+//SCENARIO 4
 		this.When(/^a search is executed with the text: "([^"]*)"$/, function (arg1, callback) {
 			searchText = arg1
 
