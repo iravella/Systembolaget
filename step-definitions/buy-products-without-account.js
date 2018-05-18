@@ -41,7 +41,7 @@ module.exports = function(){
          callback();
        });
 
-       this.Then(/^the user should have bougth the items$/, function (callback) {
+       this.Then(/^the user should have bought the items$/, function (callback) {
         //Add a module that say you items have been ordered (no need to save the order) frontend testing
          callback();
        });

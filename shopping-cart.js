@@ -75,7 +75,10 @@ module.exports = class ShoppingCart {
       this.thingsToBuy[index].quantity = 1;
     } 
     if (this.thingsToBuy[index].quantity > maxILager) {
+      //Change to alert
+      console.log("The item only has "+ maxILager + " in stock, your input was " + this.thingsToBuy[index].quantity);
       this.thingsToBuy[index].quantity = maxILager;
+
       
     }
     
