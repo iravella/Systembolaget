@@ -18,4 +18,4 @@ Feature: As a user, I should be able to enter a new quantity of items in my shop
 	And is on the shopping cart page
 	When the user enters a quantity lower than one
 	Then the quantity will change to one
-	And the user will be notified that quantity can't go lower than one
+	And the user will be notified that quantity can't go lower than ones
