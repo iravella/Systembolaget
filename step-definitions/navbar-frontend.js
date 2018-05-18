@@ -12,21 +12,21 @@ module.exports = function() {
   });
 
   this.When(/^the user clicks on the "([^"]*)" link$/, async function (arg1) {
-    
-    if (arg1 == "index") {
-      testPage = await driver.findElement(by.css('#index'));
+      
+    if (arg1 == "Hem") {
+      testPage = await driver.findElement(by.css('#Hem'));
       await testPage.click();
       
     }
 
-    if (arg1 == "sortiment") {
-      testPage = await driver.findElement(by.css('#sortiment'));
+    if (arg1 == "Sortiment") {
+      testPage = await driver.findElement(by.css('#Sortiment'));
       await testPage.click();
       
     }
 
-    if (arg1 == "shoppingcart") {
-      testPage = await driver.findElement(by.css('#shoppingcart'));
+    if (arg1 == "Kundvagn") {
+      testPage = await driver.findElement(by.css('#Kundvagn'));
       await testPage.click();
 
     }
