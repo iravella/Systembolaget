@@ -1,234 +1,237 @@
 body {
-	background-color: lightgrey;
+  background-color: lightgrey;
 }
 
 .WrapperOfallFilters {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-gap: 2em;
-	background: purple;
-	width: 250px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2em;
+  background: purple;
+  width: 250px;
 }
 
 .undermenupris {
-	display: none;
+  display: none;
 }
 
 .undermenuvolym {
-	display: none;
+  display: none;
 }
 
+.nrOfTypesInACountry {
+  display: inline-flex;
+  font-size: 15;
+  color: darkgrey;
+}
 
+.CriterasForDisplayInFilterBox {
+  display: inline-block;
+  background: white;
+  padding: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12;
+  transition-property: border;
+  border-color: white;
+  transition-duration: 0.3s;
+  animation-name: criterias;
+  animation-duration: 0.5s;
+  border-style: outset;
+  border-width: 2px;
+}
 
+.CriterasForDisplayInFilterBox:hover {
+  border-color: #008060;
+}
 
-	.nrOfTypesInACountry {
-	display: inline-flex;
-	font-size: 15;
-	color: darkgrey;
-
-	}
-
-	.CriterasForDisplayInFilterBox {
-	display: inline-block;
-	background: white;
-	padding: 4px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12;
-	transition-property: border;
-	border-color: white;
-	transition-duration: 0.3s;
-	animation-name: criterias;
-	animation-duration: 0.5s;
-	border-style: outset;
-	border-width: 2px;
-	}
-
-	.CriterasForDisplayInFilterBox:hover {
-		border-color: #008060;
-	
-	}
-
-	@keyframes criterias {
-	0% {border-color: #008060;}
-	100% {border-color: white;}
-
-	}
+@keyframes criterias {
+  0% {
+    border-color: #008060;
+  }
+  100% {
+    border-color: white;
+  }
+}
 
 
 
 .btn {
-	width: 250px
+  width: 250px
 }
+
 
 
 /*MENU AND ITS FILTER*/
 
 .WrapperOfsearchCrit {
-	background: darkgrey;
-	display: grid;
-	grid-template-columns: 2fr;
-	width: 20%;
+  background: darkgrey;
+  display: grid;
+  grid-template-columns: 2fr;
+  width: 20%;
 }
 
 #Sök_kriterier {
-	display: inline-block;
-	text-align: right;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12;
-	background: #008060;
-	padding: 4px;
-	border: 2px solid white;
-	display: none;
-	border-style: outset;
-	border-width: 2px;
-	width: 130px;	/*same as btn in bootstrap*/
+  display: inline-block;
+  text-align: right;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12;
+  background: #008060;
+  padding: 4px;
+  border: 2px solid white;
+  display: none;
+  border-style: outset;
+  border-width: 2px;
+  width: 130px;
+  /*same as btn in bootstrap*/
 }
 
 #landmenu {
-	display: inline-block;
+  display: inline-block;
 }
 
 #prismenu {
-	display: inline-block;
+  display: inline-block;
 }
 
 #ekomenu {
-	display: inline-block;
+  display: inline-block;
 }
 
 #ekomenuFilter {
-	background-color: #008060;
-	border-color: white;
-	border-style: inset;
-	display: none;
+  background-color: #008060;
+  border-color: white;
+  border-style: inset;
+  display: none;
 }
 
 #ekomenuFilter:hover {
-	background-color: #008080;
+  background-color: #008080;
 }
 
 #ursprunglandnamnFilter {
-	background-color: #008060;
-	border-color: white;
-	border-style: inset;
-	white-space: normal;
+  background-color: #008060;
+  border-color: white;
+  border-style: inset;
+  white-space: normal;
 }
 
 #ursprunglandnamnFilter:hover {
-	background-color: #008080;
+  background-color: #008080;
 }
 
 #prismenuFilter {
-	display: inline-block;
-	background-color: #008060;
-	border-color: white;
-	border-style: inset;
-	white-space: normal;
+  display: inline-block;
+  background-color: #008060;
+  border-color: white;
+  border-style: inset;
+  white-space: normal;
 }
 
 
 
 
 .hiddenfiltermenu {
-	background-color: #008060;	
+  background-color: #008060;
 }
+
 .hiddenfiltermenu:hover {
-	background-color: #c63939;
+  background-color: #c63939;
 }
 
 .values {
-	background-color: #c63939;
-	border-width: 2px;
-	border-color: black;
+  background-color: #c63939;
+  border-width: 2px;
+  border-color: black;
 }
 
-.buttonsOfLandFilter {
-}
+.buttonsOfLandFilter {}
 
 .buttonsOfLandFilter:hover {
-		background-color: #008060;
-	}
+  background-color: #008060;
+}
 
 
 .buttonsOfvarugrupperFilter:hover {
-		background-color: #008060;
+  background-color: #008060;
 }
 
 .buttonsOfforpackningFilter:hover {
-		background-color: #008060;
+  background-color: #008060;
 }
 
 .okpris:hover {
-	background-color: #008060;
+  background-color: #008060;
 }
 
 .form-control {
-	display: inline-block;
-	height: 20px;
+  display: inline-block;
+  height: 20px;
 }
 
+
 /*PRIS MENUS*/
+
 .pris {
-	display: grid;
-	grid-template-columns: 1fr
+  display: grid;
+  grid-template-columns: 1fr
 }
 
 .confirmbuttoninfilters {
-	padding: none;
-	border: 2px solid white;
-	border-style: outset;
-	width: 100%;
-	height: 100%;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 10;
+  padding: none;
+  border: 2px solid white;
+  border-style: outset;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10;
 }
 
 .prisform {
-	display: none;
-
+  display: none;
 }
+
 
 
 /*DISPLAYED PRODUCTS*/
+
 .productDisplayed {
-	display: grid;
-	grid-template-columns: 4fr 2fr;
-	grid-gap: 0.3em;
-	padding: 0.3em;
-	background: white;
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  grid-gap: 0.3em;
+  padding: 0.3em;
+  background: white;
 }
 
 .containerDisplayedProducts {
-	background: lightblue;
-	width: 50%
+  background: lightblue;
+  width: 50%
 }
 
-.gridDisplayedProducts {
-}
+.gridDisplayedProducts {}
 
 .values {
-	display: none;
-	border-width: 2px;
-	border-color: black;
+  display: none;
+  border-width: 2px;
+  border-color: black;
 }
 
 .priset {
-	display: inline-block;
-	margin-left: : 10%;
-	margin-right: : 10%;
+  display: inline-block;
+  margin-left: : 10%;
+  margin-right: : 10%;
 }
 
 .antal {
-	display: inline-block;
-	margin-left: : 10%;
-	margin-right: : 10%;
+  display: inline-block;
+  margin-left: : 10%;
+  margin-right: : 10%;
 }
 
 .köp {
-	display: inline-block;
-	margin-left: : 10%;
-	margin-right: : 10%;
+  display: inline-block;
+  margin-left: : 10%;
+  margin-right: : 10%;
 }
+
 
 
 /*
@@ -253,3 +256,14 @@ body {
 }
 
 /*
+/*footer*/
+.footer {
+	
+	position: relative;
+  	bottom: 0;
+	left: 0;
+  
+ 	width: 100%;
+   color: white;
+   text-align: center;
+ }
