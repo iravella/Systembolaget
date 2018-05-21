@@ -1,15 +1,8 @@
 body {
-  background-color: #bdd0ef;
-  
+  background-color: #bdd0ef; 
 
 }
 
-.homepage-card
-{
-	margin-left: 10px;
-	margin-right: 10px; 
-
-}
 .WrapperOfallFilters {
   display: grid;
   grid-template-columns: 1fr;
