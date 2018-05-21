@@ -1,6 +1,11 @@
 body {
-  background-color: #bdd0ef; 
-
+  
+  background-image: linear-gradient(#aa4b6b, #6b6b83, #3b8d99);
+}
+#slide-images
+{
+	background-image: linear-gradient(pink, #6b6b83);	
+	border-radius: 10px;	
 }
 
 .WrapperOfallFilters {
