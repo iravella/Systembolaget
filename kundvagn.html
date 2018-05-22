@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Sortiment</title>
@@ -20,6 +21,11 @@
       <link rel="stylesheet" href="./css/main.css">
 
 
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Custom styles for this template -->
+  <link href="css/heroic-features.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -49,13 +55,161 @@
        
         <div class="collapse navbar-collapse" id="navbarResponsive">
         
+<body mt-5>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #6d95ce;">
+    <div class="container">
+
+      <img class="navbar-brand" src="images/logo.png" alt="responsive image" style="height:7%; width:7% ">
+
+      <a class="navbar-brand active text-white " id="Hem" href="./index.html">Hem</a>
+      <a class="navbar-brand text-white" id="Sortiment" href="./sortiment.html">Sortiment</a>
+      <a class="navbar-brand text-white" id="Kundvagn" href="./shoppingcart.html">Kundvagn</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <div class="search-container">
+            <form action="/action_page.php">
+              <input type="text" placeholder="Search.." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+          <a href="shoppingcart.html"><i class="fa fa-shopping-cart"></i></a>
+        </ul>
+        <!--   <li class="nav-item active">
+                       <a class="nav-link" href="#">Home
+                         <span class="sr-only">(current)</span>
+                       </a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="#">About</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="#">Services</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="#">Contact</a>
+                     </li>
+                   </ul>  -->
+      </div>
+    </div>
+  </nav>
+  
+  <html lang="en">
+  <main>
+
+    </br><div class="basket mt-5 ">
+
+      <!-- <div class="basket-module">
+        <label for="promo-code">Enter a promotional code</label>
+        <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
+        <button class="promo-code-cta">Apply</button>
+      </div>  -->
+      <div class="basket-labels ">
+        <ul>
+          <li class="item item-heading text-white">Item</li>
+          <li class="price text-white">Price</li>
+          <li class="quantity text-white">Quantity</li>
+          <li class="subtotal text-white">Subtotal</li>
+        </ul>
+      </div>
+      <div class="basket-product">
+        <div class="item">
+          <div class="product-image">
+            <img src="images/10.jpg" alt="Placholder Image 2" class="product-frame">
+          </div>
+          <div class="product-details text-white">
+            <!--  <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1> -->
+            <p><strong>Red Wine</strong></p>
+          </div>
+        </div>
+        <div class="price text-white">26.00</div>
+        <div class="quantity text-white">
+          <input type="number" value="4" min="1" class="quantity-field">
+        </div>
+        <div class="subtotal text-white">104.00</div>
+        <div class="remove">
+          <button>Remove</button>
         </div>
       </div>
     </nav>
+      <div class="basket-product">
+        <div class="item">
+          <div class="product-image">
+            <img src="images/22.jpg" alt="Placholder Image 2" class="product-frame">
+          </div>
+          <div class="product-details text-white">
+            <!-- <h1><strong><span class="item-quantity">1</span> x Whistles</strong> Amella Lace Midi Dress</h1> -->
+            <p><strong>Captain Morgon</strong></p>
+            <!--   <p>Product Code - 232321939</p> -->
+          </div>
+        </div>
+        <div class="price text-white">26.00</div>
+        <div class="quantity text-white">
+          <input type="number" value="1" min="1" class="quantity-field">
+        </div>
+        <div class="subtotal text-white">26.00</div>
+        <div class="remove ">
+          <button>Remove</button>
+        </div>
+      </div>
+      <div class="basket-product">
+        <div class="item">
+          <div class="product-image">
+            <img src="images/10.jpg" alt="Placholder Image 2" class="product-frame">
+          </div>
+          <div class="product-details text-white">
+            <!--  <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1> -->
+            <p><strong>Red Wine</strong></p>
+          </div>
+        </div>
+        <div class="price text-white">26.00</div>
+        <div class="quantity">
+          <input type="number" value="4" min="1" class="quantity-field">
+        </div>
+        <div class="subtotal text-white">104.00</div>
+        <div class="remove">
+          <button>Remove</button>
+        </div>
+      </div>
+    </div>
 
     <!-- Page Content -->
     <div class="d-flex justify-content-center">
       <header>
+    <aside></br>
+      <div class="summary mt-5">
+        <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+        <div class="summary-subtotal">
+          <div class="subtotal-title">Subtotal</div>
+          <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
+          <div class="summary-promo hide">
+            <div class="promo-title">Promotion</div>
+            <div class="promo-value final-value" id="basket-promo"></div>
+          </div>
+        </div>
+        <div class="summary-delivery">
+          <select name="delivery-collection" class="summary-delivery-selection">
+            <option value="0" selected="selected">Select Collection or Delivery</option>
+            <option value="collection">Collection</option>
+            <option value="first-class">Royal Mail 1st Class</option>
+            <option value="second-class">Royal Mail 2nd Class</option>
+            <option value="signed-for">Royal Mail Special Delivery</option>
+          </select>
+        </div>
+        <div class="summary-total">
+          <div class="total-title">Total</div>
+          <div class="total-value final-value" id="basket-total">130.00</div>
+        </div>
+        <div class="summary-checkout">
+          <button class="checkout-cta">Go to Secure Checkout</button>
+        </div>
+      </div>
+    </aside>
+        </div>
+     <button id="rl">Remove All</button></br>
+ </div> 
 
       <!-- Jumbotron Header -->
      <h1 class="mt-5">Sortiment</h1>
@@ -79,6 +233,41 @@
       
      
     </footer>
+
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+ -->
+  <!-- /.container -->
+  <!-- Footer -->
+
+  <footer class="footer container-fluid py-4 mt-5" style="background-color: #6d95ce;" >
+    <div class="text-white text-center">
+    <div>
+      Group 3:&emsp;AJ &ndash; Jesper &ndash; Joel &ndash; Mattias &ndash; Sandhya &ndash; Sudha &ndash; Tobbias
+      <br> Copyright &copy; Systembolaget
+    </div>
+  </footer>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./classes/MainMenu.js"></script>
+  <script src="./classes/ProductsDivs.js"></script>
+  <script src="./classes/UnderMenus.js"></script>
+  <script src="./search-function.js"></script>
+  <script src="./card.js"></script>
+  <script src="./category.js"></script>
+  <script src="./person.js"></script>
+  <script src="./noRegistratedUser.js"></script>
+  <script src="./orderstatus.js"></script>
+  <script src="./product.js"></script>
+  <script src="./shopping-cart.js"></script>
+  <script src="./app.js"></script>
+
 
 </body>
 
