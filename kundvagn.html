@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>kundvagn</title>
+  <title>Sortiment</title>
+
   <!-- <link rel="stylesheet" href="./css/main.css"> -->
   <!-- <link rel="stylesheet" href="./libs/bootstrap.min.css"> -->
+
   <script src="./fake-module.js"></script>
   <script src="./node_modules/chai/chai.js"></script>
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="css/heroic-features.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/main.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+      <link rel="stylesheet" href="./css/main.css">
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+
+
   <!-- <script src="./libs/jquery.min.js"></script> -->
   <!-- <script src="./libs/tether.js"></script> -->
   <!-- <script src="./libs/bootstrap.min.js"></script> -->
@@ -29,136 +38,27 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <!-- <img class="navbar-brand" src="images/logo.png" alt="responsive image" style="height:7%; width:7% "> -->
-      <a class="navbar-brand" id="Hem" href="./index.html">Hem</a>
-      <a class="navbar-brand" id="Sortiment" href="./sortiment.html">Sortiment</a>
-      <a class="navbar-brand" id="Kundvagn" href="./shoppingcart.html">Kundvagn</a>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-      </div>
-    </div>
-  </nav>
-  <html lang="en">
-  <main>
-
-    <div class="basket mt-5">
-
-      <!-- <div class="basket-module">
-        <label for="promo-code">Enter a promotional code</label>
-        <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
-        <button class="promo-code-cta">Apply</button>
-      </div>  -->
-      <div class="basket-labels ">
-        <ul>
-          <li class="item item-heading">Item</li>
-          <li class="price">Price</li>
-          <li class="quantity">Quantity</li>
-          <li class="subtotal">Subtotal</li>
-        </ul>
-      </div>
-      <div class="basket-product">
-        <div class="item">
-          <div class="product-image">
-            <img src="images/10.jpg" alt="Placholder Image 2" class="product-frame">
-          </div>
-          <div class="product-details">
-            <!--  <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1> -->
-            <p><strong>Red Wine</strong></p>
-          </div>
-        </div>
-        <div class="price">26.00</div>
-        <div class="quantity">
-          <input type="number" value="4" min="1" class="quantity-field">
-        </div>
-        <div class="subtotal">104.00</div>
-        <div class="remove">
-          <button>Remove</button>
+ 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        
+        <!-- <img class="navbar-brand" src="images/logo.png" alt="responsive image" style="height:7%; width:7% "> -->
+        <a class="navbar-brand" id="Hem" href="./index.html">Hem</a>
+        <a class="navbar-brand" id="Sortiment" href="./sortiment.html">Sortiment</a>
+        <a class="navbar-brand" id="Kundvagn" href="./shoppingcart.html">Kundvagn</a>
+       
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+        
         </div>
       </div>
-      <div class="basket-product">
-        <div class="item">
-          <div class="product-image">
-            <img src="images/22.jpg" alt="Placholder Image 2" class="product-frame">
-          </div>
-          <div class="product-details">
-            <!-- <h1><strong><span class="item-quantity">1</span> x Whistles</strong> Amella Lace Midi Dress</h1> -->
-            <p><strong>Captain Morgon</strong></p>
-            <!--   <p>Product Code - 232321939</p> -->
-          </div>
-        </div>
-        <div class="price">26.00</div>
-        <div class="quantity">
-          <input type="number" value="1" min="1" class="quantity-field">
-        </div>
-        <div class="subtotal">26.00</div>
-        <div class="remove ">
-          <button>Remove</button>
-        </div>
-      </div>
-      <div class="basket-product">
-        <div class="item">
-          <div class="product-image">
-            <img src="images/10.jpg" alt="Placholder Image 2" class="product-frame">
-          </div>
-          <div class="product-details">
-            <!--  <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1> -->
-            <p><strong>Red Wine</strong></p>
-          </div>
-        </div>
-        <div class="price">26.00</div>
-        <div class="quantity">
-          <input type="number" value="4" min="1" class="quantity-field">
-        </div>
-        <div class="subtotal">104.00</div>
-        <div class="remove">
-          <button>Remove</button>
-        </div>
-      </div>
-    </div>
+    </nav>
 
-    <aside>
-      <div class="summary mt-5">
-        <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
-        <div class="summary-subtotal">
-          <div class="subtotal-title">Subtotal</div>
-          <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
-          <div class="summary-promo hide">
-            <div class="promo-title">Promotion</div>
-            <div class="promo-value final-value" id="basket-promo"></div>
-          </div>
-        </div>
-        <div class="summary-delivery">
-          <select name="delivery-collection" class="summary-delivery-selection">
-            <option value="0" selected="selected">Select Collection or Delivery</option>
-            <option value="collection">Collection</option>
-            <option value="first-class">Royal Mail 1st Class</option>
-            <option value="second-class">Royal Mail 2nd Class</option>
-            <option value="signed-for">Royal Mail Special Delivery</option>
-          </select>
-        </div>
-        <div class="summary-total">
-          <div class="total-title">Total</div>
-          <div class="total-value final-value" id="basket-total">130.00</div>
-        </div>
-        <div class="summary-checkout">
-          <button class="checkout-cta">Go to Secure Checkout</button>
-        </div>
-      </div>
-    </aside>
-        </div>
-     <button id="rl">Remove All</button></br>
- </div> 
+    <!-- Page Content -->
+    <div class="d-flex justify-content-center">
+      <header>
 
-
-    
-  </main>
-
-  <!-- Page Content -->
-  <!-- <div class="d-flex justify-content-center">
-      <header> -->
-  <!-- Jumbotron Header -->
-  <!-- <h1 class="mt-5">Sortiment</h1>
+      <!-- Jumbotron Header -->
+     <h1 class="mt-5">Sortiment</h1>
   <button id="wow">click me</button>
   <button id="wow2">click me</button>
   <a id="Hem" href="./index.html">Hem</a>
@@ -167,31 +67,18 @@
   <script src="./test-frontend.js"></script>
 
     
-   </header> -->
-  <!--  </div> -->
-  <!-- <div class="container mt-5">
+   </header>
+   </div>
 
-   <h1>Shopping Cart</h1>
-
-  <div class="column-labels">
-    <label class="product-image">Image</label>
-    <label class="product-details">Product</label>
-    <label class="product-price">Price</label>
-    <label class="product-quantity">Quantity</label>
-    <label class="product-removal">Remove</label>
-    <label class="product-line-price">Total</label>
-  </div>
- -->
-  <!-- /.container -->
-  <!-- Footer -->
-
-  <footer class=" footer py-4 container-fluid bg-dark mt-5 ">
-    <div>
-      Group 3:&emsp;AJ &ndash; Jesper &ndash; Joel &ndash; Mattias &ndash; Sandhya &ndash; Sudha &ndash; Tobbias
-      <br> Copyright &copy; Systembolaget
-    </div>
-  </footer>
-
+    <!-- /.container -->
+<!-- Footer -->
+    <footer class="py-5 bg-dark">
+       <div class="footer">
+        Group 3:&emsp;AJ &ndash; Jesper &ndash; Joel &ndash; Mattias &ndash; Sandhya &ndash; Sudha &ndash; Tobbias <br> Copyright &copy; Systembolaget
+      </div>
+      
+     
+    </footer>
 
 </body>
 
