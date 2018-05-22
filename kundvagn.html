@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>kundvagn</title>
@@ -12,6 +13,7 @@
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <!-- Custom styles for this template -->
   <link href="css/heroic-features.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
@@ -28,21 +30,51 @@
   <script src="./app.js" defer></script> -->
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<body mt-5>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #6d95ce;">
     <div class="container">
-      <!-- <img class="navbar-brand" src="images/logo.png" alt="responsive image" style="height:7%; width:7% "> -->
-      <a class="navbar-brand" id="Hem" href="./index.html">Hem</a>
-      <a class="navbar-brand" id="Sortiment" href="./sortiment.html">Sortiment</a>
-      <a class="navbar-brand" id="Kundvagn" href="./shoppingcart.html">Kundvagn</a>
+
+      <img class="navbar-brand" src="images/logo.png" alt="responsive image" style="height:7%; width:7% ">
+
+      <a class="navbar-brand active text-white " id="Hem" href="./index.html">Hem</a>
+      <a class="navbar-brand text-white" id="Sortiment" href="./sortiment.html">Sortiment</a>
+      <a class="navbar-brand text-white" id="Kundvagn" href="./shoppingcart.html">Kundvagn</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <div class="search-container">
+            <form action="/action_page.php">
+              <input type="text" placeholder="Search.." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+          <a href="shoppingcart.html"><i class="fa fa-shopping-cart"></i></a>
+        </ul>
+        <!--   <li class="nav-item active">
+                       <a class="nav-link" href="#">Home
+                         <span class="sr-only">(current)</span>
+                       </a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="#">About</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="#">Services</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="#">Contact</a>
+                     </li>
+                   </ul>  -->
       </div>
     </div>
   </nav>
+  
   <html lang="en">
   <main>
 
-    <div class="basket mt-5">
+    </br><div class="basket mt-5 ">
 
       <!-- <div class="basket-module">
         <label for="promo-code">Enter a promotional code</label>
@@ -51,10 +83,10 @@
       </div>  -->
       <div class="basket-labels ">
         <ul>
-          <li class="item item-heading">Item</li>
-          <li class="price">Price</li>
-          <li class="quantity">Quantity</li>
-          <li class="subtotal">Subtotal</li>
+          <li class="item item-heading text-white">Item</li>
+          <li class="price text-white">Price</li>
+          <li class="quantity text-white">Quantity</li>
+          <li class="subtotal text-white">Subtotal</li>
         </ul>
       </div>
       <div class="basket-product">
@@ -62,16 +94,16 @@
           <div class="product-image">
             <img src="images/10.jpg" alt="Placholder Image 2" class="product-frame">
           </div>
-          <div class="product-details">
+          <div class="product-details text-white">
             <!--  <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1> -->
             <p><strong>Red Wine</strong></p>
           </div>
         </div>
-        <div class="price">26.00</div>
-        <div class="quantity">
+        <div class="price text-white">26.00</div>
+        <div class="quantity text-white">
           <input type="number" value="4" min="1" class="quantity-field">
         </div>
-        <div class="subtotal">104.00</div>
+        <div class="subtotal text-white">104.00</div>
         <div class="remove">
           <button>Remove</button>
         </div>
@@ -81,17 +113,17 @@
           <div class="product-image">
             <img src="images/22.jpg" alt="Placholder Image 2" class="product-frame">
           </div>
-          <div class="product-details">
+          <div class="product-details text-white">
             <!-- <h1><strong><span class="item-quantity">1</span> x Whistles</strong> Amella Lace Midi Dress</h1> -->
             <p><strong>Captain Morgon</strong></p>
             <!--   <p>Product Code - 232321939</p> -->
           </div>
         </div>
-        <div class="price">26.00</div>
-        <div class="quantity">
+        <div class="price text-white">26.00</div>
+        <div class="quantity text-white">
           <input type="number" value="1" min="1" class="quantity-field">
         </div>
-        <div class="subtotal">26.00</div>
+        <div class="subtotal text-white">26.00</div>
         <div class="remove ">
           <button>Remove</button>
         </div>
@@ -101,23 +133,23 @@
           <div class="product-image">
             <img src="images/10.jpg" alt="Placholder Image 2" class="product-frame">
           </div>
-          <div class="product-details">
+          <div class="product-details text-white">
             <!--  <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1> -->
             <p><strong>Red Wine</strong></p>
           </div>
         </div>
-        <div class="price">26.00</div>
+        <div class="price text-white">26.00</div>
         <div class="quantity">
           <input type="number" value="4" min="1" class="quantity-field">
         </div>
-        <div class="subtotal">104.00</div>
+        <div class="subtotal text-white">104.00</div>
         <div class="remove">
           <button>Remove</button>
         </div>
       </div>
     </div>
 
-    <aside>
+    <aside></br>
       <div class="summary mt-5">
         <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
         <div class="summary-subtotal">
@@ -185,12 +217,27 @@
   <!-- /.container -->
   <!-- Footer -->
 
-  <footer class=" footer py-4 container-fluid bg-dark mt-5 ">
+  <footer class="footer container-fluid py-4 mt-5" style="background-color: #6d95ce;" >
+    <div class="text-white text-center">
     <div>
       Group 3:&emsp;AJ &ndash; Jesper &ndash; Joel &ndash; Mattias &ndash; Sandhya &ndash; Sudha &ndash; Tobbias
       <br> Copyright &copy; Systembolaget
     </div>
   </footer>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./classes/MainMenu.js"></script>
+  <script src="./classes/ProductsDivs.js"></script>
+  <script src="./classes/UnderMenus.js"></script>
+  <script src="./search-function.js"></script>
+  <script src="./card.js"></script>
+  <script src="./category.js"></script>
+  <script src="./person.js"></script>
+  <script src="./noRegistratedUser.js"></script>
+  <script src="./orderstatus.js"></script>
+  <script src="./product.js"></script>
+  <script src="./shopping-cart.js"></script>
+  <script src="./app.js"></script>
 
 
 </body>

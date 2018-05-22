@@ -337,7 +337,7 @@ table
   text-align: center;
 }
 
-#rl
+/*#rl
 {
   float:right;
     display:block;
@@ -349,7 +349,7 @@ table
     width: 10%;
     padding: 4px;
   
-}
+}*/
 }
 
 /* other page kundbagn
@@ -573,6 +573,7 @@ label {
 
 
 /* Make more adjustments for phone */
+/*Making of another page for kundvagn*/
 @charset "utf-8";
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
@@ -763,7 +764,7 @@ li.subtotal:before {
 }
 
 .remove button {
-  background-color: transparent;
+  background-color: white;
   color: #777;
   float: none;
   text-decoration: underline;
@@ -803,7 +804,7 @@ li.subtotal:before {
 }
 
 .quantity-field {
-  background-color: #ccc;
+  background-color: white;
   border: 2px solid #aaa;
   border-radius: 4px;
   font-size: 0.825rem;
@@ -978,3 +979,5 @@ aside {
     padding: 0 1rem;
   }
 }
+
+/* Kundvagn page css till before line
