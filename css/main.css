@@ -395,11 +395,11 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 
 
 /* Body/Header stuff */
-/*body {
+body {
   padding: 0px 30px 30px 20px;
   font-family: $font-default;
   font-weight: 100;
-}*/
+}
 
 h1 {
   font-weight: 100;
@@ -584,14 +584,14 @@ html a {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
 
-/*body {
+body {
   background-color: #fff;
   color: #666;
   font-family: 'Open Sans', sans-serif;
   font-size: 62.5%;
   margin: 0 auto;
 }
-*/
+
 a {
   border: 0 none;
   outline: 0;
@@ -978,30 +978,6 @@ aside {
   .product-details {
     padding: 0 1rem;
   }
-}
-
-.removeall
-{
-  background-color: #e7e7e7; /* Green */
-    border: none;
-    color: white;
-    padding: 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-
-}
-.contshopping{
-  background-color: #e7e7e7; /* Green */
-    border: none;
-    color: white;
-    padding: 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-
 }
 
 /* Kundvagn page css till before line
