@@ -52,28 +52,35 @@
 
 
        this.Then(/^the user will be notified$/, async function () {
-         // Write code here that turns the phrase above into concrete actions
+         let highText = await driver.findElement(by.css("#highText"));
+         await highText.isDisplayed();
+          assert(await highText.getText() == "Your quantity can't go higher than max in stock","message wasn't displayed");
          
        });
 
 
 
        this.When(/^the user enters a quantity lower than one$/, async function () {
-         // Write code here that turns the phrase above into concrete actions
+         let quantityChanger = await driver.findElement(by.css("#quantityChangerP1"));
+         await quantityChanger.click();
+         await quantityChanger.sendKeys(0);
+         console.log(quantityChanger.getText());
          
        });
 
 
 
         this.Then(/^the quantity will change to one$/,  async function () {
-          // Write code here that turns the phrase above into concrete actions
+          let quantity = await driver.findElement(by.css("#quantity"));
+         assert(await quantityChanger.getText() == "1","Your quantity is lower then 1");
           
         });
 
 
         this.Then(/^the user will be notified that quantity can't go lower than ones$/, async function () {
-          // Write code here that turns the phrase above into concrete actions
-          
+          let lowText = await driver.findElement(by.css("#lowText"));
+         await lowText.isDisplayed();
+          assert(await lowText.getText() == "Your quantity can't go lower then one","message wasn't displayed");
         });
 
       }
