@@ -4,20 +4,32 @@ Feature:
     I want to be able to add a certain quantity of a beverage to my shopping cart
 
 	Scenario: A user want to add certain quantity of beverage to his shopping cart
-	    Given the user is a registered user
-	    When the user is trying to add  3 bottles of Captain Morgan to his/her shopping cart
+	    Given the user is in sortiment page
+	    And the user clicks on sorting button
+	    And the user clicks on sorting by name
+	    When the user clicks on Captain Morgan 
+	    And the user enter 3 bottels in quantity feild 
 	    Then 3 bottles of Captain Morgan should be add to his/her shopping cart
 
-	Scenario: A user wants to add different beverages and quantities to his/her shopping cart
-	   	Given the user's shopping cart is empty
-	    When the user is trying to add 3 bottles of Renat to his/her shopping cart
-	    And the user is trying to add 2 bottles of Canella to his/her shopping cart
-	    And the user is trying to add 1 bottles of Purcari to his/her shopping cart
-	    Then 3 bottles of Renat, 2 bottles of Canella and 1 bottle of Purcari beverages should be add to his/her shopping cart
+	Scenario Outline: A user wants to add different beverages and quantities to his/her shopping cart
+		Given the user is in sortiment page
+		And the page is sorted by name
+        When the user clicks on <namn>
+        And the user clicks on <quantity>
+        Then 3 bottles of Renat, 2 bottles of Canella and 1 bottle of Purcari beverages should be add to his/her shopping cart
+
+        Examples:
+        
+        |namn			|quantity|
+        |Captain Morgan	|3		 |
+        |Renat			|2		 |
+        |Purcari		|1		 |
 
     Scenario: A user can add a maximum of 99 bottles of Captain Morgan to his shopping cart
-	    Given the user is in online web shop
-	    When the user is trying to add 100 bottles of Captain Morgan to his/her shopping cart
+	    Given the user is in sortiment page
+		And the page is sorted by name
+		When the user clicks on Captain Morgan
+		And the user enters 100 bottles of Captain Morgan 
 	    Then the system should be display an error message as 99 is maximum quantity than can be ordered
 	    And the sytem should be added 99 bottels of Captain Morgan defaultly to his/her shopping cart
 

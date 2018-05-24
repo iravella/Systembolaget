@@ -1,10 +1,11 @@
 var assert = require('assert');
 //let Card = require('../card.js');
 //let OrderStatus = require("../orderstatus.js");
-module.exports = class ShoppingCart {
+class ShoppingCart {
 
   constructor() {
     this.thingsToBuy = [];
+    this.add = new add();
   }
 
   add(product, quantity) {
@@ -16,6 +17,11 @@ module.exports = class ShoppingCart {
 
     // should we allow a product that's already in the cart
     // to be added? or error? or add an extra quantity?
+
+     if(quantity > product.iLager)
+     {
+      quantity = Math.min(quantity, product.iLager);
+     }
 
     // old
     // assert(quantity < 100 , " 99 is the maximum quantity") 
@@ -180,3 +186,5 @@ module.exports = class ShoppingCart {
 
 
 }
+
+module.exports = ShoppingCart;

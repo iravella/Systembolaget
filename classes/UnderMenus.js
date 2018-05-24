@@ -1,3 +1,5 @@
+var Category = require('./app.js');
+
 class CreateUnderMenus {
 
 		CreateUnderMenuPris() {
@@ -34,7 +36,7 @@ class CreateUnderMenus {
 							return;
 							}
 
-							
+
 							$('#hiddenfiltermenu0').toggle('swing');
 						//	$('#mainfiltermenu0').toggle();
 							$('#hiddenfiltermenu0').html(minPris + " - " + maxPris + " kr")
@@ -77,21 +79,35 @@ class CreateUnderMenus {
 					if(e.target !== e.currentTarget) return;
 					let minVol = $('.minVolym').val() / 1;
 					let maxVol = $('.maxVolym').val() / 1;
-					$('#hiddenfiltermenu1').toggle('swing');
+					if( maxVol == 0 && minVol == 0) {						
+						$('#mainfiltermenu1').children().toggle();
+						return;
+					}
+
+					myApp.searchcriteria.push( {attribute: "volymiml", min: minVol, max: maxVol } )
+					//DO THE SEARCH FROM THE myApp.searchcriteria
+					myApp.search();
+
 					$('#mainfiltermenu1').toggle();
+					$('#mainfiltermenu1').children().toggle();
+					$('#hiddenfiltermenu1').toggle();
+
 					$('#hiddenfiltermenu1').html(minVol + " - " + maxVol + " ml")
 							.on("click",function(e) {
 								if(e.target !== e.currentTarget) return;
-								$('.undermenuvolym').remove()								//This Works as reset 
-								myUndermenus.CreateUnderMenuVolym();		
+							// $('#mainfiltermenu1').toggle('swing');						//resetta alla värden
+							$('#hiddenfiltermenu1').toggle('swing');					
+								$('.minVolym').val("");			
+								$('.maxVolym').val("");
+
+								for (let i=0; i < myApp.searchcriteria.length; i++) {
+									if (myApp.searchcriteria[i].attribute == "volymiml") {
+										myApp.searchcriteria.splice(i, 1)
+										i = i -1
+									}	
+								}
+						
 							});
-
-							if( maxVol == 0 && minVol == 0) {						
-								$('#hiddenfiltermenu1').toggle();
-								$('#mainfiltermenu1').toggle();
-							}
-					$('.undermenuvolym').toggle();
-
 			});
 
 
@@ -137,7 +153,7 @@ class CreateUnderMenus {
 						if(e.target !== e.currentTarget) return
 							if ($('#mainfiltermenu2').children().length > 16) {
 								$('#mainfiltermenu2').children().remove();
-								myUndermenus.CreateUnderMenuVarugrupp();
+								myApp.a.CreateUnderMenuVarugrupp();
 							}
 						});
 					//This adds a clickfunction on the filter so it correct the varugrupps length

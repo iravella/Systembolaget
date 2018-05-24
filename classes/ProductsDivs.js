@@ -1,6 +1,7 @@
 class productsDivs {
 
 		createDisplayedproducts () {
+		//$('.gridDisplayedProducts').empty();
 		let id = 0
 		let stoppedAt = $('.productDisplayed').length;
 		for(let i = $('.productDisplayed').length; i < myApp.displayedProducts.length; i++) { //myApp.displayedProducts
@@ -70,7 +71,7 @@ class productsDivs {
 			.addClass('visafler')
 			.on("click",function(e) {
 			if(e.target !== e.currentTarget) return;
-			DisplayProducts.createDisplayedproducts()
+			myApp.productsDivs.createDisplayedproducts()
 			});
 			$('.gridDisplayedProducts').append(visafler)
 			break;
