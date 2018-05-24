@@ -17,6 +17,11 @@ module.exports = class ShoppingCart {
     // should we allow a product that's already in the cart
     // to be added? or error? or add an extra quantity?
 
+     if(quantity > product.iLager)
+     {
+      quantity = Math.min(quantity, product.iLager);
+     }
+
     // old
     // assert(quantity < 100 , " 99 is the maximum quantity") 
     //Adding max quantity

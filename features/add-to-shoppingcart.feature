@@ -30,3 +30,13 @@ Feature:
         Given the user has already added 3 bottles of Amicone to his/her shopping cart
         When the user is trying to add 1 more bottle of Amicone to his/her shopping cart
         Then the total of 4 bottles of Amicone should be added to his/her shopping cart
+
+    Scenario: Out of stock
+        Given the user has already added 47 bottles of Fighting Cock to his/her shopping cart
+        When the user is trying to add 1 more bottle of Fighting Cock to his/her shopping cart
+        Then system should be displayed an error message as Fighting Cock is out of stock
+
+    Scenario: Out of stock
+        Given the user is in online web shop
+        When the user is trying to add 10 bottles of Schlappeseppel to his/her shopping cart
+        Then system should be displayed an error message as Schlappeseppel is out of stock
