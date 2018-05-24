@@ -7,7 +7,7 @@
 
   this.Given(/^is on the shopping cart page$/, async function () {
     //We are now on the Shopping cart page  
-    let result = await helpers.loadPage('http://localhost:3000');
+    let result = await helpers.loadPage('http://localhost:3000/shoppingcart.html');
     assert(await driver.getTitle() != 'Error', "you are not on the website");
   });
 

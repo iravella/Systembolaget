@@ -73,13 +73,13 @@ module.exports = class ShoppingCart {
 
     if(this.thingsToBuy[index].quantity < 1){
       this.thingsToBuy[index].quantity = 1;
+      $(".quantityText").append("<h4>Your quantity was lower then 1 </h4>")
     } 
     if (this.thingsToBuy[index].quantity > maxILager) {
       //Change to alert
       console.log("The item only has "+ maxILager + " in stock, your input was " + this.thingsToBuy[index].quantity);
       this.thingsToBuy[index].quantity = maxILager;
-
-      
+      $(".quantityText").append("<h4>Your quantity was higher then max in stock</h4>")
     }
     
 
