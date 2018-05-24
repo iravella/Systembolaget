@@ -14,6 +14,43 @@ class Search {
             myApp.displayedProducts = myApp.products.slice();
 		}
 
+		searchFromCriteras () {
+		//making a search from myApp.searchcriteria
+		let ValuesForCriteriaIntervalls = ["volymiml", "prisinklmoms", "volymiml"]
+		let ValuesForTextFilter = ["freetext"]
+		let ValuesForCritieriaSearch = ["ekologisk", "ursprunglandnamn", "forpackning", "varugrupp"]
+
+
+			for (let i = 0; i < myApp.searchcriteria.length; i++) {
+
+				if (ValuesForCriteriaIntervalls.includes(myApp.searchcriteria[i].attribute)) {
+					inputAttribute = myApp.searchcriteria[i].attribute
+					min = myApp.searchcriteria[i].min
+					max = myApp.searchcriteria[i].max
+					this.criteriaIntervalls(inputAttribute, min, max)
+					continue;
+				}
+
+				if (ValuesForTextFilter.includes(myApp.searchcriteria[i].attribute)) {
+					searchText = myApp.searchcriteria[i].attribute
+					this.fixTextAndThenSearchFreeText(searchText)
+					continue;
+				}
+
+				if (ValuesForCritieriaSearch.includes(myApp.searchcriteria[i].attribute)) {
+					inputAttribute = myApp.searchcriteria[i].attribute
+					inputValue = myApp.searchcriteria[i].inputValue
+					this.critieriaSearch(inputAttribute, inputValue)
+					continue;
+				}
+			}
+		}
+
+
+
+
+
+
 		fixTextAndThenSearchFreeText(searchText) {
 
 			let searchTextSplitted = searchText.toLowerCase().split(" ");

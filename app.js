@@ -5,6 +5,16 @@ var Category = require('./category.js');
 
 class App {
 
+<<<<<<< Updated upstream
+=======
+  createFrontendClasses(){
+   this.mainMenu = new MainMenu();
+   this.createUnderMenus = new CreateUnderMenus();
+   this.productsDivs = new ProductsDivs();
+   //this.search = new Search();
+  }
+
+>>>>>>> Stashed changes
   constructor() {
     let productData;
     let categoryData;
@@ -20,7 +30,6 @@ class App {
       categoryData = require('./json/categories.json');
       this.constructorContinued(productData, categoryData);
     }
-
   }
 
   async constructorContinued(productData, categoryData){
