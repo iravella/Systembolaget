@@ -1,4 +1,4 @@
-let assert = require('assert');
+var assert = require('assert');
 //let Card = require('../card.js');
 //let OrderStatus = require("../orderstatus.js");
 module.exports = class ShoppingCart {

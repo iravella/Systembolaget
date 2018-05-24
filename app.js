@@ -23,7 +23,7 @@ class App {
 
   }
 
-  constructorContinued(productData, categoryData){
+  async constructorContinued(productData, categoryData){
     // Make instances of Product from the productdata
     this.products = [];
     for (let p of productData) {
@@ -148,7 +148,7 @@ class App {
 }
 
 // Create an app to start our application
-let myApp = new App();
+var myApp = new App();
 // Exporting the app instance so that I can use it 
 // in my test code (step definitions) via require
 module.exports = myApp;

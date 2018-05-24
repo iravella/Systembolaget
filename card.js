@@ -1,4 +1,4 @@
-let assert = require('assert');
+var assert = require('assert');
 
 module.exports = class Card
 {
