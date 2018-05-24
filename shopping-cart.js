@@ -1,10 +1,11 @@
 var assert = require('assert');
 //let Card = require('../card.js');
 //let OrderStatus = require("../orderstatus.js");
-module.exports = class ShoppingCart {
+class ShoppingCart {
 
   constructor() {
     this.thingsToBuy = [];
+    this.add = new add();
   }
 
   add(product, quantity) {
@@ -180,3 +181,5 @@ module.exports = class ShoppingCart {
 
 
 }
+
+module.exports = ShoppingCart;
