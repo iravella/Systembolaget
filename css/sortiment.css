@@ -1,0 +1,311 @@
+body {
+	background-color: lightgrey;
+	margin-top: 6em;
+}
+
+.BigGrid {
+	display: grid;
+	grid-template-columns: 11em 60em;
+	background: grey;
+	grid-gap: 1em;
+	align-self: start;
+}
+
+.wrapperlagstOrHogst {
+	display: grid;
+	grid-template-columns: 1fr;
+	padding: 1px;
+	text-align: center;
+	background-color: grey;
+	color: white;
+	font-size: 12;
+	font-weight: bold;
+
+}
+
+.wrapperlagstOrHogst:hover {
+	color: black;
+	cursor: pointer;
+}
+
+.listOfSortera {
+	cursor: pointer;
+}
+.sorteraValj{
+	cursor: pointer;
+}
+.sorteraNamn{
+	cursor: pointer;
+}
+.sorteraPris{
+	cursor: pointer;
+}
+
+.WrapSorteraEfter {
+	display: grid;
+	grid-template-columns: 7em 2em 10em;
+	grid-gap: 0.5em;
+	background: grey;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+}
+
+.sortera:hover {
+	background: #008060;
+}
+
+.WrapperOfallFilters {
+	align-self: start;
+}
+
+.undermenupris {
+	display: none;
+}
+
+.undermenuvolym {
+	display: none;
+}
+
+
+
+	.nrOfTypesInACountry {
+	display: inline-flex;
+	font-size: 15;
+	color: darkgrey;
+
+	}
+
+	.CriterasForDisplayInFilterBox {
+	display: inline-block;
+	background: white;
+	padding: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12;
+	transition-property: border;
+	border-color: white;
+	transition-duration: 0.3s;
+	animation-name: criterias;
+	animation-duration: 0.5s;
+	border-style: outset;
+	border-width: 2px;
+	}
+
+
+	/* FILTER MENU */
+	.buttonsOfforpackningFilter{
+		text-align: left;
+		padding: 0px;
+		padding-bottom: 0.5px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 15px;
+		color: lightgrey;
+	}
+
+	.buttonsOfforpackningFilter:hover {
+		background-color: #008060;
+		font-weight: bold;
+	}
+
+
+	.buttonsOfvarugrupperFilter{
+		text-align: left;
+		padding: 0px;
+		padding-bottom: 0.5px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 15px;
+		color: lightgrey;
+	}
+
+	.buttonsOfvarugrupperFilter:hover {
+		background-color: #008060;
+		font-weight: bold;
+	}
+
+	.buttonsOfLandFilter {
+		text-align: left;
+		padding: 0px;
+		padding-bottom: 0.5px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 15px;
+		color: lightgrey;
+	}
+
+	.buttonsOfLandFilter:hover {
+		background-color: #008060;
+		font-weight: bold;
+	}
+
+	.btn {
+	width: 160px;
+}
+
+	/* FILTER MENU END*/
+
+	/* PRODUCTS DIVS */
+
+	.productDisplayed {
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	grid-gap: 0.3em;
+	padding: 0.3em;
+	background: white;
+	}
+
+	.productDisplayed:hover {
+	background: LightGreen;
+	}
+
+	.produktnamn:hover {
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	
+
+	.plusAntalMinus {
+		display: grid;
+		grid-template-columns: 0.5em 2em 0.5em;
+		grid-gap: 3px;
+	}
+
+
+	.plusNminus {
+		font-size: 17px;
+		cursor: pointer;
+	}
+
+	.plusNminus:hover {
+		font-weight: bold;
+	}
+
+	.köp {
+		background: lightgrey;
+		border: 2px solid white;
+		border-style: outset;
+		cursor: pointer;
+	}
+
+	.köp:hover {
+		background-color: grey;
+	}
+
+
+	#prisAntalKop {
+	display: grid;
+	grid-template-columns: 1fr 1fr 0.5fr;
+	padding: 10fr;
+	text-align: center;
+}
+	/* PRODUCTS DIVS END */
+
+
+
+
+/*MENU AND ITS FILTER*/
+
+.WrapperOfsearchCrit {
+	background: darkgrey;
+	display: grid;
+	grid-template-columns: 2fr;
+	width: 20%;
+}
+
+.hiddenfiltermenu {
+	background-color: #008060;	
+}
+
+.hiddenfiltermenu:hover {
+	background-color: #008060;	
+}
+
+.values {
+	background-color: #c63939;
+	border-width: 2px;
+	border-color: black;
+}
+
+.confirmbuttoninfilters {
+	padding: none;
+	border: 2px solid white;
+	border-style: outset;
+	width: 100%;
+	height: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10;
+}
+
+.prisform {
+	display: none;
+
+}
+
+
+/*DISPLAYED PRODUCTS*/
+
+
+
+
+.containerDisplayedProducts {
+	background: darkgrey;
+}
+
+.gridDisplayedProducts {
+}
+
+
+.antal {
+	width: 2em;
+	text-align: center;
+}
+.values {
+	display: none;
+	border-width: 2px;
+	border-color: black;
+}
+
+.priset {
+	display: inline-block;
+	margin-left: : 10%;
+	margin-right: : 10%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12;
+	font-weight: bold;
+
+}
+
+.antal {
+	display: inline-block;
+	margin-left: : 10%;
+	margin-right: : 10%;
+}
+
+.köp {
+	display: inline-block;
+	margin-left: : 10%;
+	margin-right: : 10%;
+}
+
+
+/*
+.1container_of_filtered_countries {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 0.3em;
+}
+.1container_of_filtered_countries > div {
+	padding: 0.3em;
+	background: white;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20;
+	transition-property: background;
+	transition-duration: 0.5s;
+	background: white;
+}
+
+.1container_of_filtered_countries > div:hover {
+	background: grey;
+}
+
+/*

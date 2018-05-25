@@ -16,34 +16,40 @@ class Search {
 
 		searchFromCriteras () {
 		//making a search from myApp.searchcriteria
-		let ValuesForCriteriaIntervalls = ["volymiml", "prisinklmoms", "volymiml"]
+		let ValuesForCriteriaIntervalls = ["volymiml", "prisinklmoms", "alkoholhalt"]
 		let ValuesForTextFilter = ["freetext"]
 		let ValuesForCritieriaSearch = ["ekologisk", "ursprunglandnamn", "forpackning", "varugrupp"]
-
 
 			for (let i = 0; i < myApp.searchcriteria.length; i++) {
 
 				if (ValuesForCriteriaIntervalls.includes(myApp.searchcriteria[i].attribute)) {
-					inputAttribute = myApp.searchcriteria[i].attribute
-					min = myApp.searchcriteria[i].min
-					max = myApp.searchcriteria[i].max
+					var inputAttribute = myApp.searchcriteria[i].attribute
+					var min = myApp.searchcriteria[i].min
+					var max = myApp.searchcriteria[i].max
 					this.criteriaIntervalls(inputAttribute, min, max)
 					continue;
 				}
 
 				if (ValuesForTextFilter.includes(myApp.searchcriteria[i].attribute)) {
-					searchText = myApp.searchcriteria[i].attribute
+					var searchText = myApp.searchcriteria[i].text
 					this.fixTextAndThenSearchFreeText(searchText)
 					continue;
 				}
 
 				if (ValuesForCritieriaSearch.includes(myApp.searchcriteria[i].attribute)) {
-					inputAttribute = myApp.searchcriteria[i].attribute
-					inputValue = myApp.searchcriteria[i].inputValue
+					var inputAttribute = myApp.searchcriteria[i].attribute
+					var inputValue = myApp.searchcriteria[i].inputValue
 					this.critieriaSearch(inputAttribute, inputValue)
 					continue;
 				}
 			}
+
+			$('.productDisplayed').remove();							// } Both these works as a reset
+			myApp.productsDivs.createDisplayedproducts();				// } everytime you make a search from criteria
+			if ( $('.productDisplayed').length == 0) {
+				$('.visafler').text("Sökningen hittade inga produkter")
+			}
+
 		}
 
 
@@ -96,13 +102,13 @@ class Search {
 						return myApp.forpackningOvriga.includes(product.forpackning)										//if true then return (product)
 						});
 					
-			} else if (inputValue == "Flaskor mer än 0.6 L") {
+			} else if (inputValue == "Flaskor < 0.6 L") {
 		
 						myApp.displayedProducts = myApp.displayedProducts.filter(function(product){
 						return myApp.forpackningBiggerThen500ml.includes(product.forpackning)										//if true then return (product)
 						});
 
-			} else if (inputValue == "Flaskor mindre än 0.6 L") {
+			} else if (inputValue == "Flaskor > 0.6 L") {
 
 						myApp.displayedProducts = myApp.displayedProducts.filter(function(product){
 						return myApp.forpackningLesserOrEqual500ml.includes(product.forpackning)										//if true then return (product)

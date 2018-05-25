@@ -2,19 +2,20 @@
 var Person = require('./person.js');
 var Product = require('./product.js');
 var Category = require('./category.js');
+var ShoppingCart = require('./shopping-cart.js');
 
 class App {
 
-<<<<<<< Updated upstream
-=======
   createFrontendClasses(){
    this.mainMenu = new MainMenu();
    this.createUnderMenus = new CreateUnderMenus();
    this.productsDivs = new ProductsDivs();
-   //this.search = new Search();
+   this.search = new Search();
+   this.SorteraEfter = new SorteraEfter();
+   this.freeText = new FreeText();
+   this.shoppingCart = new ShoppingCart();
   }
 
->>>>>>> Stashed changes
   constructor() {
     let productData;
     let categoryData;
@@ -24,6 +25,7 @@ class App {
         productData = await require('./json/sortiment.json');
         categoryData = await require('./json/categories.json');
         this.constructorContinued(productData, categoryData);
+        this.createFrontendClasses();
       })();
     } else {
       productData = require('./json/sortiment.json');
@@ -32,7 +34,7 @@ class App {
     }
   }
 
-  async constructorContinued(productData, categoryData){
+  constructorContinued(productData, categoryData){
     // Make instances of Product from the productdata
     this.products = [];
     for (let p of productData) {
@@ -106,14 +108,14 @@ class App {
     this.varugrupper = ["Alkoholfritt", "Öl", "Rött vin", "Vitt vin", "Whisky", "Gin", "Cider", "Cognac", "Likör", "Punsch", "Rom", "Rosé", "Mousserande vin", "Aniskryddad sprit", "Aperitif", "Armagnac", "Bitter", "Blanddrycker", "Blå mousserande", "Blå stilla", "Brandy och Vinsprit", "Calvados", "Drinkar och Cocktails", "Fruktvin", "Genever", "Glögg och Glühwein", "Grappa och Marc", "Juldrycker", "Kryddad sprit", "Madeira", "Mjöd", "Montilla", "Okryddad sprit", "Portvin", "Rosévin", "Röda", "Sake", "Sherry", "Smaksatt sprit", "Smaksatt vin", "Sprit av frukt", "Tequila och Mezcal", "Vermouth", "Vin av flera typer", "Vita", "Övrig sprit", "Övrigt starkvin"];
     
     //This is the menu thats it created under forpackning//
-    this.forpackning = ["Flaskor mer än 0.6 L", "Flaskor mindre än 0.6 L", "Box", "Burk", "Magnum", "Minibutelj", "PET-flaska", "Fat", "Engångsfat", "Papp", "Övriga"];
+    this.forpackning = ["Flaskor < 0.6 L", "Flaskor > 0.6 L", "Box", "Burk", "Magnum", "Minibutelj", "PET-flaska", "Fat", "Engångsfat", "Papp", "Övriga"];
 
     //products with these forpackning calssifies into övriga//
     this.forpackningOvriga = ["Vinglas i hårdplast", "Påse", "Glasburk 500 ml", "Bag-in-box i 2 delar"];
 
     //products with these forpackning calssifies into "Flaskor mer än 0.6l"//
     this.forpackningBiggerThen500ml = ["Flaska", "1 flaska à 750 ml + 1 flaska à 375ml", "12 fl à 750 ml", "2 fl à 750 ml", "2 flaskor à 720 ml", "2 x 750ml", "3 fl à 750 ml", 
-    "4 fl à 750 ml", "4 flaskor à 750ml", "1 x 720 ml", "5 flaskor à 750ml + 1 flaska à 500ml", "5 fl à 750 ml", "6 fl à 750 ml", "6 flaskor à 720 ml",]
+    "4 fl à 750 ml", "4 flaskor à 750ml", "1 x 720 ml", "5 flaskor à 750ml + 1 flaska à 500ml", "5 fl à 750 ml", "6 fl à 750 ml", "6 flaskor à 720 ml"];
 
     //products with these forpackning calssifies into "Flaskor mindre än 0.6l"//
     this.forpackningLesserOrEqual500ml =["Flaska", "1 flaska  à 200ml", "10 fl à 40 ml","10 fl à 50 ml", "10 fl à 60 ml",
@@ -122,10 +124,11 @@ class App {
      "3 fl à 100 ml", "3 fl à 20 ml", "3 fl à 200 ml", "3 fl à 50 ml", "3 fl à 500 ml", "3 flaskor à 375 ml", "3 x 330 ml, 1 x 250 ml", "36 flaskor à 20 ml", 
      "4 fl à 200 ml", "4 fl à 330 ml", "4 fl à 50 ml", "4 fl à 500 ml", "4 flaskor à 100 ml", "4 flaskor à 375 ml", "1 flaska à 500ml", "1 flaska à 37", "4 x 300 ml",
      "5 fl à 200 ml", "5 fl à 40 ml", "5 fl à 50 ml", "5 flaskor à 100 ml", "50 flaskor à 20 ml", "6 fl à 100 ml", "6 fl à 200 ml", "6 fl à 50 ml", "6 fl á 375 ml", 
-     "6 flaskor à 187 ml", "6 flaskor à 20 ml", "6 flaskor à 330 ml", "60 fl à 20 ml", "7 flaskor à 50 ml", "8 flaskor à 100 ml", "8 flaskor á 500ml", "9 fl à 20 ml", "96 flaskor à 50 ml", ]
+     "6 flaskor à 187 ml", "6 flaskor à 20 ml", "6 flaskor à 330 ml", "60 fl à 20 ml", "7 flaskor à 50 ml", "8 flaskor à 100 ml", "8 flaskor á 500ml", "9 fl à 20 ml", "96 flaskor à 50 ml"];
 
      this.searchcriteria = [];
 
+     this.KALLE = [];
 /////////end creating stuff for searchfunction
 
   }
