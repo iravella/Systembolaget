@@ -2,6 +2,17 @@ var Category = require('./app.js');
 
 class CreateUnderMenus {
 
+
+	constructor() {
+		this.CreateUnderMenuPris()
+		this.CreateUnderMenuVolym();
+		this.CreateUnderMenuVarugrupp();
+		this.CreateUnderMenuLänder();
+		this.CreateUnderMenuFörpackning();
+		this.CreateUnderMenuAlkoholhalt();
+		this.CreateUnderMenuEkologisk();
+	}
+
 		CreateUnderMenuPris() {
 			let formdiv = $('<form>' + '<div>').addClass('form-group undermenupris').attr('type', 'text').attr('display', 'none')
 			let minpris = $('<input>' + '<div>').attr('type', 'text').attr('placeholder', "Min pris").attr('id', 'hiddenfiltermenu0').attr('size','6').attr('maxlength', '6').addClass('minPris undermenupris').attr('display', 'none')
@@ -14,46 +25,66 @@ class CreateUnderMenus {
 							if(e.target !== e.currentTarget) return;
 							let minPris = $('.minPris').val() / 1;
 							let maxPris = $('.maxPris').val() / 1;
+							let hacker;
 
 							if( maxPris == 0 && minPris == 0) {						
-								$('#mainfiltermenu0').toggle();
+								$('#mainfiltermenu0').children().toggle();
+								return;
 							}
-
 
 							if (minPris > 0 && maxPris == 0) {
-								maxPris = undefined;
+								maxPris = minPris + 1
+								hacker = true;
 							}
-							
-							if ( maxPris !== "Max pris") {
-								if (typeof maxPris == 'string') {
-									alert("you can only type numbers as max price");
-									return;
-								}
-							}
-						
+
 							if ( maxPris < minPris ) {
 							alert("Max cant be less than min");
 							return;
 							}
 
+							if( minPris < 0 ) {
+								alert("minimum can't be less than 0")
+								return;
+							}
 
+							if (isNaN(minPris) || isNaN(maxPris)) {
+								alert("You sure you used only numbers to determine the min and max values?")
+								return;
+							}
+
+							if (hacker == true) {
+								hacker = false
+								maxPris = "∞"
+							}
+					
 							$('#hiddenfiltermenu0').toggle('swing');
-						//	$('#mainfiltermenu0').toggle();
-							$('#hiddenfiltermenu0').html(minPris + " - " + maxPris + " kr")
-							.on("click",function(e) {
-								if(e.target !== e.currentTarget) return;
-								$('.undermenupris').remove()								//This Works as reset 
-								myUndermenus.CreateUnderMenuPris();							//This +
+							$('#mainfiltermenu0').toggle();
 
-							});
+							myApp.searchcriteria.push( {attribute: "prisinklmoms", min: minPris, max: maxPris } )
+							myApp.search.searchFromCriteras();
+
+
+								$('#hiddenfiltermenu0').html(minPris + " - " + maxPris + " kr")
+								.on("click",function(e) {
+									if(e.target !== e.currentTarget) return;
+									$('.undermenupris').remove()								//This Works as reset 
+									myApp.createUnderMenus.CreateUnderMenuPris();
+									
+									for (let i=0; i < myApp.searchcriteria.length; i++) {
+											if (myApp.searchcriteria[i].attribute == "prisinklmoms") {
+												myApp.searchcriteria.splice(i, 1)
+												myApp.search.reset();
+												myApp.search.searchFromCriteras();
+												i = i -1
+											}	
+									}
+
+
+
+								});
 
 				
 							$('.undermenupris').toggle();
-						// let pris = mySearch.criteriaIntervalls("prisinklmoms", minPris, maxPris);
-						myApp.searchcriteria.push({ text: "prisinklmoms", min: minPris, max: maxPris})
-						console.log("totala filter arrayn:", myApp.searchcriteria)
-
-							//Insert searchfunction here! // using the attribute prisinklmoms? shall we add that to the class?
 
 			});
 			
@@ -79,14 +110,42 @@ class CreateUnderMenus {
 					if(e.target !== e.currentTarget) return;
 					let minVol = $('.minVolym').val() / 1;
 					let maxVol = $('.maxVolym').val() / 1;
+					let hacker;
 					if( maxVol == 0 && minVol == 0) {						
 						$('#mainfiltermenu1').children().toggle();
 						return;
 					}
 
+					if (minVol > 0 && maxVol == 0) {
+								maxVol = minVol + 1
+								hacker = true;
+					}
+
+					if( minVol > maxVol) {	
+								alert("Minimum value needs to be more than maximum")					
+								return;
+					}
+
+					if( minVol < 0 ) {
+								alert("minimum can't be less than 0")
+								return;
+					}
+
+					if (isNaN(minVol) || isNaN(maxVol)) {
+						alert("You sure you used only numbers to determine the min and max values?")
+						return;
+					}
+
+					if (hacker == true) {
+								hacker = false
+								maxVol = "∞"
+					}
+					
+
+
 					myApp.searchcriteria.push( {attribute: "volymiml", min: minVol, max: maxVol } )
 					//DO THE SEARCH FROM THE myApp.searchcriteria
-					myApp.search();
+					myApp.search.searchFromCriteras();
 
 					$('#mainfiltermenu1').toggle();
 					$('#mainfiltermenu1').children().toggle();
@@ -95,14 +154,14 @@ class CreateUnderMenus {
 					$('#hiddenfiltermenu1').html(minVol + " - " + maxVol + " ml")
 							.on("click",function(e) {
 								if(e.target !== e.currentTarget) return;
-							// $('#mainfiltermenu1').toggle('swing');						//resetta alla värden
-							$('#hiddenfiltermenu1').toggle('swing');					
-								$('.minVolym').val("");			
-								$('.maxVolym').val("");
+								$('.undermenuvolym').remove()								//This Works as reset 
+								myApp.createUnderMenus.CreateUnderMenuVolym();	
 
 								for (let i=0; i < myApp.searchcriteria.length; i++) {
 									if (myApp.searchcriteria[i].attribute == "volymiml") {
 										myApp.searchcriteria.splice(i, 1)
+										myApp.search.reset();
+										myApp.search.searchFromCriteras();
 										i = i -1
 									}	
 								}
@@ -131,11 +190,16 @@ class CreateUnderMenus {
 					$('#mainfiltermenu2').toggle();
 					$('#hiddenfiltermenu2').toggle('swing');
 					$('#hiddenfiltermenu2').text(textuclickedat);
-					//insert searhfuntion here like...search(ursprungsnamnland, textuclickedat)
 					$('.buttonsOfvarugrupperFilter').toggle();
+					myApp.searchcriteria.push( {attribute: "varugrupp", inputValue: textuclickedat } )
+					myApp.search.searchFromCriteras();
 				});
 
 				$('#mainfiltermenu2').append(aVarugrupp);
+
+					
+
+
 
 				if ($('#mainfiltermenu2').children().length >= StoppedLastAt + 15) {
 					let visaFler = $('<div>'+"Visa fler ▼"+'</div>')
@@ -145,7 +209,7 @@ class CreateUnderMenus {
 						if(e.target !== e.currentTarget) return;
 						$(this).remove()
 						$('#mainfiltermenu2').children().toggle()
-						myUndermenus.CreateUnderMenuVarugrupp()
+						myApp.createUnderMenus.CreateUnderMenuVarugrupp();
 						$('#mainfiltermenu2').children().toggle()
 						});
 					$('#mainfiltermenu2').append(visaFler);
@@ -153,7 +217,7 @@ class CreateUnderMenus {
 						if(e.target !== e.currentTarget) return
 							if ($('#mainfiltermenu2').children().length > 16) {
 								$('#mainfiltermenu2').children().remove();
-								myApp.a.CreateUnderMenuVarugrupp();
+								myApp.createUnderMenus.CreateUnderMenuVarugrupp();
 							}
 						});
 					//This adds a clickfunction on the filter so it correct the varugrupps length
@@ -161,9 +225,21 @@ class CreateUnderMenus {
 						if(e.target !== e.currentTarget) return
 							if ($('#mainfiltermenu2').children().length > 16) {
 								$('#mainfiltermenu2').children().remove();
-								myUndermenus.CreateUnderMenuVarugrupp();
+								myApp.createUnderMenus.CreateUnderMenuVarugrupp();
 							}
+
+							for (let i=0; i < myApp.searchcriteria.length; i++) {
+									if (myApp.searchcriteria[i].attribute == "varugrupp") {
+										myApp.searchcriteria.splice(i, 1)
+										myApp.search.reset();
+										myApp.search.searchFromCriteras();
+										i = i -1
+									}	
+							}
+
 						});
+
+				
 
 					break;
 				} 
@@ -180,11 +256,33 @@ class CreateUnderMenus {
 				.on("click",function(e) {
 					if(e.target !== e.currentTarget) return;
 					let textuclickedat = myApp.forpackning[i]
+					if (textuclickedat == "Övriga") {
+						textuclickedat = "Övriga förpackningar"
+					}
+
 					$('#mainfiltermenu3').toggle();
 					$('#hiddenfiltermenu3').toggle('swing');
 					$('#hiddenfiltermenu3').text(textuclickedat);
-					//insert searhfuntion here like...search(forpackning, textuclickedat)
 					$('.buttonsOfforpackningFilter').toggle();
+
+					myApp.searchcriteria.push( {attribute: "forpackning", inputValue: textuclickedat } )
+					myApp.search.searchFromCriteras();
+
+
+					$('#hiddenfiltermenu3')
+					.on("click", function(e) { 
+						if(e.target !== e.currentTarget) return;
+						for (let i=0; i < myApp.searchcriteria.length; i++) {
+									if (myApp.searchcriteria[i].attribute == "forpackning") {
+										myApp.searchcriteria.splice(i, 1)
+										myApp.search.reset();
+										myApp.search.searchFromCriteras();
+										i = i -1
+									}	
+						}
+
+					});
+
 				});
 
 
@@ -200,20 +298,43 @@ class CreateUnderMenus {
 		     //    let container_of_filtered_countries = $(this.selector);					//vad gör $(this.selector)?
 		         let ActualLand = myApp.CountrysWith200Products[i].Country
 		         let ActualNrTypes = myApp.CountrysWith200Products[i].NumberOfTypes
-		         let aCountry = $('<button>'+ActualLand+'&nbsp;'+'</button>').addClass(myApp.CountrysWith200Products[i].Country).addClass('buttonsOfLandFilter').addClass("dropdown-item").attr('style', 'display: none')
+		         let aCountry = $('<div>'+ActualLand+'&nbsp;'+'</div>').addClass(myApp.CountrysWith200Products[i].Country).addClass('buttonsOfLandFilter').addClass("dropdown-item").attr('style', 'display: none')
 		         .on("click",function(e) {
 					if(e.target !== e.currentTarget) return;
 					let textuclickedat = myApp.CountrysWith200Products[i].Country
 					$('#mainfiltermenu4').toggle();
 					$('#hiddenfiltermenu4').toggle('swing');
+					if (textuclickedat == "Övriga") {
+						textuclickedat = "Övriga länder"
+					}
 					$('#hiddenfiltermenu4').text(textuclickedat);
-					//insert searhfuntion here like...search(ursprungsnamnland, textuclickedat)
 					$('.buttonsOfLandFilter').toggle();
+
+
+					myApp.searchcriteria.push( {attribute: "ursprunglandnamn", inputValue: textuclickedat } )
+					myApp.search.searchFromCriteras();
+
+
+
 				});
-		         let nrOfTypes = $('<div>'+'('+ActualNrTypes+')'+'</div>').addClass('nrOfTypesInACountry');
-		         aCountry.append(nrOfTypes);
+		   //      let nrOfTypes = $('<div>'+'('+ActualNrTypes+')'+'</div>').addClass('nrOfTypesInACountry');
+		   //      aCountry.append(nrOfTypes);
 		         $('#mainfiltermenu4').append(aCountry);
 		      }
+
+		      	$('#hiddenfiltermenu4')
+					.on("click", function(e) { 
+						if(e.target !== e.currentTarget) return;
+						for (let i=0; i < myApp.searchcriteria.length; i++) {
+									if (myApp.searchcriteria[i].attribute == "ursprunglandnamn") {
+										myApp.searchcriteria.splice(i, 1)
+										myApp.search.reset();
+										myApp.search.searchFromCriteras();
+										i = i -1
+									}	
+						}
+
+					});
 
 
 		}
@@ -230,19 +351,71 @@ class CreateUnderMenus {
 					if(e.target !== e.currentTarget) return;
 					let minAlk = $('.minAlk').val() / 1;
 					let maxAlk = $('.maxAlk').val() / 1;
+					let hacker;
+					
+					if( minAlk == 0 && maxAlk == 0) {						
+								$('#mainfiltermenu5').children().toggle();
+								return;
+					}
+
+					if (minAlk > 0 && maxAlk == 0) {
+								maxAlk = minAlk + 1
+								hacker = true;
+					}
+						
+
+					if( minAlk > maxAlk) {	
+								alert("Minimum value needs to be more than maximum")					
+								return;
+					}
+
+					if( minAlk < 0 ) {
+								alert("minimum can't be less than 0")
+								return;
+					}
+
+					if (isNaN(minAlk) || isNaN(maxAlk)) {
+						alert("You sure you used only numbers to determine the min and max values?")
+						return;
+					}
+			
+					if (hacker == true) {
+								hacker = false
+								maxAlk = "∞"
+					}
+
+
+
 					$('#hiddenfiltermenu5').toggle('swing');
 					$('#mainfiltermenu5').toggle();
+
+					myApp.searchcriteria.push( {attribute: "alkoholhalt", min: minAlk, max: maxAlk } )
+					myApp.search.searchFromCriteras();
+
+
+
 					$('#hiddenfiltermenu5').html(minAlk + " - " + maxAlk + " %")
 							.on("click",function(e) {
 								if(e.target !== e.currentTarget) return;
-								$('.undermenualkoholhalt').remove()								//This Works as reset 
-								myUndermenus.CreateUnderMenuAlkoholhalt();		
-							});
+								$('.undermenualkoholhalt').remove()								
+								myApp.createUnderMenus.CreateUnderMenuAlkoholhalt();
 
-							if( minAlk == 0 && maxAlk == 0) {						
-								$('#hiddenfiltermenu5').toggle();
-								$('#mainfiltermenu5').toggle();
-							}
+								for (let i=0; i < myApp.searchcriteria.length; i++) {
+									if (myApp.searchcriteria[i].attribute == "alkoholhalt") {
+										myApp.searchcriteria.splice(i, 1)
+										myApp.search.reset();
+										myApp.search.searchFromCriteras();
+										i = i -1
+									}	
+								}
+
+
+
+								});
+
+
+
+
 					$('.undermenualkoholhalt').toggle();
 
 			});
@@ -262,20 +435,30 @@ class CreateUnderMenus {
 					if(e.target !== e.currentTarget) return;
 					$(this).toggle();
 					$('#hiddenfiltermenu6').toggle('swing');
-					//insert searhfuntion here like...search(ursprungsnamnland, textuclickedat)
+
+					myApp.searchcriteria.push( {attribute: "ekologisk", inputValue: 1 } )
+					myApp.search.searchFromCriteras();
+					
 			});
+
+			$('#hiddenfiltermenu6')
+					.on("click", function(e) { 
+						if(e.target !== e.currentTarget) return;
+						for (let i=0; i < myApp.searchcriteria.length; i++) {
+									if (myApp.searchcriteria[i].attribute == "ekologisk") {
+										myApp.searchcriteria.splice(i, 1)
+										myApp.search.reset();
+										myApp.search.searchFromCriteras();
+										i = i -1
+									}	
+						}
+
+			});
+
 		}
 
-
-		CreateAllUnderMenus() {
-		this.CreateUnderMenuPris()
-		this.CreateUnderMenuVolym();
-		this.CreateUnderMenuVarugrupp()
-		this.CreateUnderMenuLänder();
-		this.CreateUnderMenuFörpackning();
-		this.CreateUnderMenuAlkoholhalt();
-		this.CreateUnderMenuEkologisk();
-		}
 
 
 }
+
+module.exports = CreateUnderMenus;

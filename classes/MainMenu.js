@@ -1,5 +1,9 @@
 class MainMenu {
 
+	constructor() {
+		this.CreateButtonForFilter();
+	}
+
 	CreateButtonForFilter() {
 	let choosenCriterias = ["Pris", "Volym", "Varugrupp", "Förpackning", "Länder", "Alkoholhalt", "Ekologisk"];
 	let button = [];
@@ -43,3 +47,5 @@ class MainMenu {
 		}
 	}
 }
+
+module.exports = MainMenu;
