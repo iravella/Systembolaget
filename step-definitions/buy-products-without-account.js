@@ -41,9 +41,12 @@ module.exports = function(){
          callback();
        });
 
-       this.Then(/^the user should have bought the items$/, function (callback) {
-        //Add a module that say you items have been ordered (no need to save the order) frontend testing
-         callback();
+       this.Then(/^the user should have bought the items$/, async function () {
+        await helpers.loadPage('http://localhost:3000/payment.html');
+        assert(await driver.getTitle() != 'Error', "you are not on the website");
+        let paymentComplete = await driver.findElement(by.css("#payComplete"));
+        assert(await paymentComplete.isDisplayed(), "you cant se the confirm text");
+
        });
 
 }
