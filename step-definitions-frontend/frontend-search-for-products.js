@@ -19,7 +19,6 @@ module.exports = function() {
 // eller kör den given, when, then för en variabel i taget?
 
 	this.Given(/^that a user is on the mainpage$/, async function () {
-    console.warn("JJAAAAAAAAaAAAAAAA");
 		await helpers.loadPage('http://localhost:3000/sortiment.html');
 		await sleep(2000);
 	});
@@ -66,13 +65,29 @@ module.exports = function() {
 
       assert(searchlist, "Didnt find the searchlist");
 
+      let foundProducts;
       if (searchlist) {
-      	let foundProducts = await $(".gridDisplayedProducts .productDisplayed");
-      	assert(foundProducts, "Didnt find any products!");									//Vad händer om testet inte ska hitta några?
+      	foundProducts = await $('.productDisplayed')
+      	assert(foundProducts, "Didnt find any products!");	//Vad händer om testet inte ska hitta några?
+        for (let i = 0; i < foundProducts.length; i++) {
+          foundProducts[i].click()
+          await sleep(1000);
+    		}
+        await sleep(2000);
+      }
+		  
+      for (let product of foundProducts) {
+          let childDivs = await product.findElements(by.css("div"));
+          for(let i = 0; i < childDivs.length; i++){
+            let text = await childDivs[i].getText();
+            if(text.includes("ekologisk")){ 
+              let isEkologisk = await childDivs[i+1].getText();
+              let namn = await childDivs[0].getText();
+              console.warn(namn, isEkologisk);
+            }
+          }    
       }
 
-		
-		
       });
       	
 
@@ -102,5 +117,6 @@ module.exports = function() {
 
 	this.Then(/^products matching "([^"]*)" will show up$/, async function (arg1) {
 	});
+
 
 }
