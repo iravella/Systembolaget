@@ -10,6 +10,7 @@ class App {
    this.mainMenu = new MainMenu();
    this.createUnderMenus = new CreateUnderMenus();
    this.productsDivs = new ProductsDivs();
+  // this.productsDivsincart = new ProductsDivsincart();
    this.search = new Search();
    this.SorteraEfter = new SorteraEfter();
    this.freeText = new FreeText();
