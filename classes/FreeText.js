@@ -12,7 +12,7 @@ class FreeText {
 
 		let inputfield = $('<input>' + '</inuput>')
 		.attr('id', 'inputfield');
-		inputfield.appendTo('#navbarResponsive')
+		inputfield.appendTo(divSearchingTextField)
 
 		let sokButton = $('<button>' +"Sök"+ '</button>')
 		.attr('id', 'sokButton')
@@ -65,7 +65,7 @@ class FreeText {
 
 		});
 
-		sokButton.appendTo('#navbarResponsive')
+		sokButton.appendTo(divSearchingTextField)
 
 
 		divSearchingTextField.appendTo( '.sokfield' ) 
