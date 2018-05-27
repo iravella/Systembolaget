@@ -119,14 +119,14 @@ module.exports = function() {
 
     });
 
-     this.Then(/^the sytem should be added (\d+) bottels of Canella \- Bellini defaultly to his\/her 
-     shopping cart$/, async function(arg1) 
-     {
-        // Write code here that turns the phrase above into concrete actions
+       this.Then(/^the sytem should be added (\d+) bottels of Canella \- Bellini defaultly to his\/her shopping cart$/, async function (arg1) {
+         // Write code here that turns the phrase above into concrete actions
+
         let köpId1 = await product.findElement(by.css('.köp'));
         await köpId1.click();
         await sleep(8000);
+         
+       });
 
-    });
 
 }
