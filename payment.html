@@ -10,6 +10,7 @@
   <script src="./fake-module.js"></script>
   <script src="./node_modules/chai/chai.js"></script>
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="./css/payment.css">
    <script src="./pay.js"></script>
 </head>
 
@@ -18,23 +19,11 @@
     <div class="container">
 
       <img class="navbar-brand" src="images/logo.png" alt="responsive image" style="height:7%; width:7% ">
-
-      <a class="navbar-brand active text-white " id="Hem" href="./index.html">Hem</a>
-      <a class="navbar-brand text-white" id="Sortiment" href="./sortiment.html">Sortiment</a>
-      <a class="navbar-brand text-white" id="Kundvagn" href="./shoppingcart.html">Kundvagn</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand text-white" id="Kundvagn" href="./shoppingcart.html">Tillbaka till Kundvagn</a>
+      
       <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <div class="search-container">
-            <form action="/action_page.php">
-              <input type="text" placeholder="Search.." name="search">
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
-          <a href="shoppingcart.html"><i class="fa fa-shopping-cart"></i></a>
-        </ul>
+     
         <!--   <li class="nav-item active">
                        <a class="nav-link" href="#">Home
                          <span class="sr-only">(current)</span>
@@ -58,6 +47,8 @@
     </header>
   </div>
   <main>
+    <div class="price">
+    </div>
     <div class="firstNm">
     <p>Förnamn</p>
     <input type="text" id="firstName">
