@@ -1,6 +1,6 @@
 var { $, sleep } = require('./funcs');
 
-module.exports = async function() 
+module.exports =  function() 
 {
 
    this.Given(/^the user is in sortiment page$/, async function () {
