@@ -64,18 +64,14 @@ $(document).ready(function() {
 		 alert("Tack för att du handla hos oss! Din order är påväg.");
 		 // to remove all items
 		 //ShoppingCart.removeAllItems();
-		 document.location.href = "https://www.youtube.com/watch?v=lXMskKTw3Bc";
-		 //document.location.href = "http://localhost:3000/index.html";
+		 //document.location.href = "https://www.youtube.com/watch?v=lXMskKTw3Bc";
+		 document.location.href = "http://localhost:3000/index.html";
 		}
 	});
 
 
  });
-
-
-
-
-
+ 
 
 
 
