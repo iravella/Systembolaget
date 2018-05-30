@@ -19,7 +19,7 @@ module.exports =  function()
 
        this.When(/^click on search button$/, async	 function () {
          // Write code here that turns the phrase above into concrete actions
-          searchBtn = await $('#sokButton');
+          	 searchBtn = await $('#sokButton');
 		     assert(searchBtn, "There is no Search Button");
 		     await searchBtn.click();
 		     await sleep(2000);
