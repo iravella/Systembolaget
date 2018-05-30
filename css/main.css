@@ -1,17 +1,17 @@
 body 
-{
-  
+{ 
   background-image: linear-gradient(#aa4b6b, #6b6b83, #3b8d99);
 }
 .navbar {
-
 width: 100%;
 top: 0;
 height: 12%
 
 }
-
-
+a:hover { 
+color :blue;
+font-size: 160%;  
+}
 
 #login-button
 {
