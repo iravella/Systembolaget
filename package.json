@@ -5,13 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "node node_modules/selenium-cucumber-js/index.js -b phantomjs & exit 0",
+    "test1": "node node_modules/selenium-cucumber-js/index.js -b chrome & exit 0",
     "one-feature": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/total-price-of-items.feature & exit 0",
-    "view-shopping-cart": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/view-shopping-cart.feature & exit 0",
-    "ajay": "node node_modules/selenium-cucumber-js/index.js -d -b chrome -f ./features/test.feature & exit 0",
-    "search": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/search-for-products.feature & exit 0",
-    "test-frontend": "node node_modules/selenium-cucumber-js/index.js -b chrome -s ./step-definitions-frontend -f ./features-frontend & exit 0",
-    "search-frontend": "node node_modules/selenium-cucumber-js/index.js -b chrome -x 60000 -s ./step-definitions-frontend -f ./features-frontend/frontend-search-for-products.feature & exit 0"
-  },
+    "front": "node node_modules/selenium-cucumber-js/index.js -d -b chrome -f ./features/frontend-shopping-cart.feature & exit 0"
+ },
   "author": "",
   "license": "ISC",
   "dependencies": {
