@@ -84,8 +84,8 @@ module.exports = function()
    this.When(/^the user clicks on länder button$/, async function ()
    {
      // click on länder button
-     let varuGruppBtn = await $('#mainfiltermenu4');
-	 	await varuGruppBtn.click();
+     let länderBtn = await $('#mainfiltermenu4');
+	 	await länderBtn.click();
 
 
    });
@@ -93,20 +93,25 @@ module.exports = function()
    this.When(/^the user chooses Chile namn$/, async function () 
    {
        //select Chile from the list
-    let varuGrupp = await $('.buttonsOfvarugrupperFilter');
-    for(let div of varuGrupp)
-    {
-    	let text = await div.getText();
+ let länderOpt = await $('.Australien.buttonsOfLandFilter.dropdown-item');
+         
+         await länderOpt.click();
+         await sleep(1000);
 
-    	if (text === 'Chile'){
-    		varuGrupp = div;
-    		break;
-    	}
-	}
-	await varuGrupp.click();	
- 	// await sleep(5000);  
 
-     
+ //    let länderOpt = await $('.buttonsOfLandFilter ');
+ //    for(let div of länderOpt)
+ //    {
+ //    	let text2 = await div.getText();
+
+ //    	if (text2 === 'Chile'){
+ //    		länderOpt = div;
+ //    		break;
+ //    	}
+	// }
+	// await länderOpt.click();	
+ // 	 await sleep(5000);  
+
    });
 
 
