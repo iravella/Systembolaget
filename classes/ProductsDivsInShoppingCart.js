@@ -270,7 +270,6 @@ class shoppingCartDivs {
         userData.shoppingCart.thingsToBuy = [];
         localStorage.users = JSON.stringify(userData)
         ShopCart.readJsonData(userData)
-        location.reload()
     }
 
 

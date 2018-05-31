@@ -54,13 +54,19 @@ $(document).ready(function() {
 
 
 		if(first == true && last == true && cardn == true && cvcn == true){
-		 alert("Tack för att du handla hos oss! Din order är påväg.");
+		 
 		 // to remove all items
 		 //ShoppingCart.removeAllItems();
 		 //document.location.href = "https://www.youtube.com/watch?v=lXMskKTw3Bc";
 		 ShopCart.RemoveAll(); 
+		 alert("Tack för att du handla hos oss! Din order är påväg.");
 		 document.location.href = "http://localhost:3000/index.html";
 		}
+	});
+
+	$("#resetButton").click(function(){
+		ShopCart.RemoveAll();
+		 location.reload();
 	});
 
 
