@@ -10,6 +10,22 @@
          console.log("page is loaded");
          await sleep(1000);
 
+         let username = await $('.login');
+         await sleep(3000);
+         await username.click();
+          await username.sendKeys("swapna"); 
+          await sleep(300);    
+
+          let password = await $('.password');
+          await password.click();
+          await password.sendKeys(12345);
+          await  sleep(300);
+
+          let login = await $('.loginItem3');
+          await login.click();
+          await sleep(2000);
+        
+         
      });
 
      this.Given(/^the user has (\d+) products in the shoppingcart$/, async function(arg1) {
@@ -27,11 +43,7 @@
          assert(searchBtn, "There is no search button");
          await searchBtn.click();
          await sleep(1000);
-         // let quntity = await $(".antal");
-         // await quntity.sendKeys(5);
-         // let addtocart = await $(".köp");
-         // await addtocart.click();
-
+         
          {
              let products = await $('.productDisplayed');
              for (let product of products) {
@@ -48,48 +60,63 @@
                      let addtocart1 = await product.findElement(by.css('.köp'));
                      await addtocart1.click();
                      await sleep(1000);
+
+                     await driver.switchTo().alert().accept();
                      
              
                  }
              }
          }
 
-         let searchField1 = await $('#inputfield');
-         assert(searchField, "There is no search field");
-         await searchField.sendKeys("Canella-Bellini");
-         await sleep(1000);
-
-         let searchBtn1 = await $('#sokButton');
-         assert(searchBtn1, "There is no search button");
-         await searchBtn1.click();
-         await sleep(1000);
          
-         {
-             let products = await $('.productDisplayed');
-             for (let product of products) {
-                 let text1 = await product.getText();
-                 if (text1.includes("Canella-Bellini")) {
-                     await product.click();
-                     await sleep(1000);
+
+         // let searchField1 = await $('#inputfield');
+         // assert(searchField, "There is no search field");
+         // await searchField.sendKeys("Renat");
+         // await sleep(1000);
+
+         // let searchBtn1 = await $('#sokButton');
+         // assert(searchBtn1, "There is no search button");
+         // await searchBtn1.click();
+         // await sleep(1000);
+         
+         // {
+         //     let products = await $('.productDisplayed');
+         //     for (let product of products) {
+         //         let text1 = await product.getText();
+         //         if (text1.includes("Renat")) {
+         //             await product.click();
+         //             await sleep(1000);
 
 
-                     let quantityField1 = await product.findElement(by.css('.antal'));
-                     await quantityField1.sendKeys(1);
-                     await sleep(1000);
+         //             let quantityField1 = await product.findElement(by.css('.antal'));
+         //             await quantityField1.sendKeys(1);
+         //             await sleep(100);
 
-                     let addtocart2 = await product.findElement(by.css('.köp'));
-                     await addtocart2.click();
-                     await sleep(1000);
+         //             let addtocart2 = await product.findElement(by.css('.köp'));
+         //             await addtocart2.click();
+         //             await sleep(100);
+
+
+         //             await driver.switchTo().alert().accept();
+                     
              
-                 }
-             }
-         }
+         //         }
+         //     }
+         // }
 
 
           });
 
      this.When(/^the person clicks  delete on (\d+)nd item in the shoppingcart$/, async function(arg1) {
-
+        await sleep(200);
+        let cart = await $('#Kundvagn');
+        await cart.click();
+        await sleep(1000);
+        let remove = await $('#minus0');
+        await sleep(200);
+        await remove.click();
+        await sleep(2000);
      });
 
 

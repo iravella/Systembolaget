@@ -6,26 +6,59 @@ body
 width: 100%;
 top: 0;
 height: 12%
+padding: 100px;
 
+}
+#resetButton{
+  margin-left:1000px;
 }
 .navbar-brand:hover { 
 color :blue;
 font-size: 160%;  
 }
 
-#login-button
-{
-  color: #fff;
-  padding: 0 -50px;
-  vertical-align: top;
- cursor: pointer;
+.wrapLogin {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+  grid-template-areas: 
+  " x x x x a b c"
 }
 
-#login-button button:hover 
-{
+  .loginItem1 {
+    grid-area: a;
+  }
+
+  .loginItem2 {
+    grid-area: b;
+  }
+
+  .loginItem3 {
+    grid-area: c;
+    cursor: pointer;
+    background: #DCDCDC;
+    width: 100px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .loginItem3:hover {
+    background: #6d95ce;
+  }
+
+.loggedIn {
   background: #6d95ce;
-   cursor: pointer;
+  grid-area: a;
+  font-size: 15px;
+  width: 200px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+
 }
+
 
 #slide-images
 {
@@ -323,7 +356,17 @@ font-size: 160%;
   margin-right: : 10%;
 }
 
+.divvarugruppsbild {
+  width: 5px;
+}
 
+.varugruppsbild {
+  height: 100%; 
+  width: 100%; 
+  object-fit: contain;
+
+
+}
 
 /*
 .1container_of_filtered_countries {

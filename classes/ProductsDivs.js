@@ -10,7 +10,7 @@ class ProductsDivs {
 		}
 
 		createDisplayedproducts () {
-		//$('.gridDisplayedProducts').empty();
+		//$('.gridDisplayedProducts').empty()
 		let id = 0
 		let stoppedAt = $('.productDisplayed').length;
 		for(let i = $('.productDisplayed').length; i < myApp.displayedProducts.length; i++) { //myApp.displayedProducts
@@ -19,16 +19,22 @@ class ProductsDivs {
 			id = id + 1;
 			let objektNameToDisplay = $('<div>')
 			.addClass('productDisplayed')
-			.attr("divnr", id);
+			.attr("id", "produkt"+i);
 
 		if (typeof eachobjekt.namn2 == 'object') {
+
 			$('<div>' +"▼ " + eachobjekt.namn + '</div>')
 			.addClass('produktnamn')
 			.appendTo(objektNameToDisplay)
+			//.attr('id', 'divnr'+i)				??
 			.on("click",function() {
 				let thisid = $(this).parent().attr("divnr");
 					$(this).parent().children(".values").toggle();
 			}); 
+
+	
+
+		
 
 		} else {
 
@@ -41,6 +47,21 @@ class ProductsDivs {
 			});
 
 		}
+
+	
+
+
+		// console.log(eachobjekt.varugrupp)
+		// if (eachobjekt.varugrupp == "Öl") {
+		// 	$('.produktnamn').append(
+		// 		'<div class="divvarugruppsbild">' +
+		// 		'<div>'+
+		// 		"hej"+
+		// 		'</div>'+
+		// 		'<img class="varugruppsbild" src="./images/varugrupper/öl.jpg"/>'+
+		// 		'</div>'
+		// 		);
+		// }
 
 			let plusAntalMinus = $('<div>' + '</div>')
 			.addClass('plusAntalMinus')
@@ -93,6 +114,74 @@ class ProductsDivs {
 			objektNameToDisplay.append(combinedDiv);
 
 			$('.gridDisplayedProducts').append(objektNameToDisplay);
+
+			//adding the pictures
+
+			let divofpic = $('<div>' + '</div>' + '<div>' + '</div>')
+			.addClass('divinvarugrupp')
+			.attr('id', 'imgdiv'+i)
+			.on('click', function() {
+				$(this).parent().children(".values").toggle();
+			});
+
+			$('#produkt'+i).append(divofpic)
+
+			if (eachobjekt.varugrupp == "Öl") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/öl.jpg"/>')
+			}
+
+			if (eachobjekt.varugrupp == "Vitt vin") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/vitt vin.jpg"/>')
+			}
+
+			if (eachobjekt.varugrupp == "Vitt") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/vitt vin.jpg"/>')
+			}
+
+			if (eachobjekt.varugrupp == "Rött vin") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/rött vin.jpg"/>')
+			}
+
+			if (eachobjekt.varugrupp == "Rött") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/rött vin.jpg"/>')
+			}
+
+			if (eachobjekt.varugrupp == "Cider") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/cider.jpg"/>')
+			}
+
+			if (eachobjekt.varugrupp == "Whiskey") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/whiskey.jpg"/>')
+			}
+
+
+			if (eachobjekt.varugrupp == "Whisky") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/whiskey.jpg"/>')
+			}
+
+			if (eachobjekt.varugrupp == "Mousserande vin") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/mousserande vin.jpg"/>')
+			}
+
+			if (eachobjekt.varugrupp == "Okryddad sprit") {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/okryddad sprit.jpg"/>')
+			}
+
+			
+			if ( $('#imgdiv'+i+' img').length == 0) {
+				$('#imgdiv'+i).append('<img class="varugruppsbild" style="width:10%" style="height:10%"  src="./images/varugrupper/product-placeholder.png"/>')
+			}
+	
+
+
+
+
+
+			//
+
+	
+
+
 			for (let eachproduct in eachobjekt) {
 				let valueofattr = eachobjekt[eachproduct]
 				if (typeof valueofattr == 'object') {
@@ -206,19 +295,57 @@ class ProductsDivs {
 			return;
 		}
 
-		myApp.shoppingCart.add(myApp.displayedProducts[value], antal)
+		if (!localStorage.users) {
+			alert("Logga in för att kunna addera produkter till din varukorg")
+			return;
+		}
 
+
+		if (localStorage.users) {
+			myApp.users[0].shoppingCart.add(myApp.displayedProducts[value], antal)
+			localStorage.users = JSON.stringify(myApp.users[0])
+			let data = window.JSON.parse(localStorage.users)
+			myApp.productsDivs.readJsonData(data)
+			console.log(data)
+		} 
+	
 		if (typeof myApp.displayedProducts[value].namn2 == 'object') {
 		alert("Succesfully added: " + antal + " of " + myApp.displayedProducts[value].namn + " into your cart.")
 		} else {
 		alert("Succesfully added: " + antal + " of " + myApp.displayedProducts[value].namn + " - " + myApp.displayedProducts[value].namn2 + " into your cart.")
 		}
-		console.log(myApp.shoppingCart.thingsToBuy)
 		$('#antal'+value).val(0)
 		
 
 
 	}
+
+	async readJsonData(data){
+
+			let thisAccountNr = data.accountnumber
+			console.log(thisAccountNr)
+
+			//data enbart objektet som ska sparas.
+		//	console.log(thisAccountNr)
+			let allUsers = await JSON._load('../../json/usersaccounts.json')
+			
+			for (let i = 0; i < allUsers.length; i++) {
+					if (allUsers[i].accountnumber == thisAccountNr) {
+						console.log("MATCH")
+						allUsers.splice(i, 1);
+						allUsers.push(data)
+					}
+			}
+
+		//	console.log(allUsers)
+
+
+			JSON._save('../../json/usersaccounts.json', allUsers).then(function(){
+ 			 console.log('Saved!');
+			});
+    }
+
+
 	
  }
 

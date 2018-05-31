@@ -7,19 +7,12 @@ $(document).ready(function() {
 	let cardn = false;
 	let cvcn= false;
 
-		//adding the total sum
-		//ifall vi hinner
-	$(".price").append("<p id='sum'> Totalsumma: " + ShoppingCart.sum + "</p>");
-
 
 	$("#pay").click(function(){
 		 let fName = $("#firstName").val();
 		 let lName = $("#lastName").val();
 		 let cNumber = $("#cardNumber").val();
 		 let verNumber = $("#verificationNumber").val();
-	
-	 
-		 
 
 
 	 if(!isNaN(fName)|| fName === ""){
@@ -62,11 +55,18 @@ $(document).ready(function() {
 
 		if(first == true && last == true && cardn == true && cvcn == true){
 		 alert("Tack för att du handla hos oss! Din order är påväg.");
+		  document.location.href = "http://localhost:3000/index.html";
 		 // to remove all items
 		 //ShoppingCart.removeAllItems();
 		 //document.location.href = "https://www.youtube.com/watch?v=lXMskKTw3Bc";
-		 document.location.href = "http://localhost:3000/index.html";
+		 ShopCart.RemoveAll(); 
+		 
 		}
+	});
+
+	$("#resetButton").click(function(){
+		ShopCart.RemoveAll();
+		 location.reload();
 	});
 
 

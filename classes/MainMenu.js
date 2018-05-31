@@ -40,6 +40,13 @@ class MainMenu {
 							if(e.target !== e.currentTarget) return;
 							$(this).toggle('swing');
 							$('#'+'mainfiltermenu'+$(this).attr('val')).toggle('swing');
+							if ( $('.listOfSortera').val() !== "Valfri sortering" ) {
+								$('.listOfSortera').val("Namn")
+							}
+							if ( $('#lagstOrHogst').text() == "▲" ) {
+								$('#lagstOrHogst').text("▼");
+							}
+
 					});
 			$('.FiltersHidden').append( buttoncreationInvis );
 			$('.Filters').append( buttoncreation );

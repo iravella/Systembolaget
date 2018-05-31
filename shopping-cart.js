@@ -7,7 +7,7 @@ module.exports = class ShoppingCart {
   constructor() {
     this.thingsToBuy = [];
   }
-
+  
   add(product, quantity) {
     // should we check that the product
     // is an instanceOf Product ?

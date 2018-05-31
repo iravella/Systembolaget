@@ -3,6 +3,6 @@ Feature: As a user of systembolaget
 	so that I can start over with the shopping cart
 
 	Scenario: A person want to reset the shopping cart
-		Given that a person have a shopping cart with items in it
-		When the person resets the shopping cart
-		Then the shopping cart will be reset
+		Given that the shopping cart displays the users items
+		When the person clicks the reset button
+		Then the shopping cart will display 0 items

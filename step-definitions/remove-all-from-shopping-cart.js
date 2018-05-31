@@ -18,7 +18,7 @@ module.exports = function(){
          callback();
        });
 
-       this.When(/^the person clicks the reset button$/, function (callback) {
+       this.When(/^the person resets the shopping cart$/, function (callback) {
        	//When a person clicks the reset buttom then the removeAllItems will be triggered
        	// Use jqueary to se when to button gets clicked
         // $(".reset-button").click(ShoppingCart.removeAllItems);
