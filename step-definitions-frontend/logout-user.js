@@ -1,44 +1,20 @@
-var { $, sleep } = require('./funcs');
+module.exports = function() {
 
-module.exports = function() 
-{
+	function sleep(ms) {
+    	return new Promise(resolve => setTimeout(resolve, ms));
+  	}
 
+   	this.When(/^the user clicks on logout button$/, async function () {
+   		await sleep(3000);
+   		let logOut = await driver.findElement(by.css(".loginItem3"));
+   		await logOut.click();
+  	});
 
+   this.Then(/^the user should be logout from the page$/, async function () {
+    	await sleep(1000);
 
-
-       this.When(/^the user clicks on logout button$/, async function () 
-       {
-       		await helpers.loadPage('http://localhost:3000');
-			await sleep(10000);
-
-		    // Enter the username in the username feild
-			let username = await $('.login');
-			await username.click();
-			await username.sendKeys('Tobias');
-
-		    // Enter the password in the password feild
-			let userPassword = await $('.password');
-			await userPassword.click();
-			await userPassword.sendKeys("4321");
-
-			//Click on Login button
-	        let logInBtn = await $('.loginItem3');
-			await logInBtn.click();
-			await sleep(6000);
-
-
-			//Click on Login button
-	        let logOutBtn = await $('.loginItem3');
-			await logOutBtn.click();
-			await sleep(8000);
-        	
-        	
-
-		         
-       });
-
-       this.Then(/^the user should be logout from the page$/, async function () {
-         // Write code here that turns the phrase above into concrete actions
-         
-       });
+    	let isLoggedIn = await driver.findElements(by.css(".loggedIn"));
+ 		
+    	assert(isLoggedIn.length == 0, "The user is still logged in");
+   	});
 }
