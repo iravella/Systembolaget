@@ -54,5 +54,16 @@
         }
       ]
     }
+  },
+  {
+    "fullName": "Test Testsson",
+    "dateOfBirth": "1969-09-11",
+    "addressStreet": "Testogatan 24",
+    "addressZipCode": "12345",
+    "addressCity": "Test",
+    "accountnumber": "2",
+    "shoppingCart": {
+      "thingsToBuy": []
+    }
   }
 ]
