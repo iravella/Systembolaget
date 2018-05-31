@@ -8,6 +8,9 @@ top: 0;
 height: 12%
 
 }
+#resetButton{
+  margin-left:1000px;
+}
 .navbar-brand:hover { 
 color :blue;
 font-size: 160%;  
