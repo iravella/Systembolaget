@@ -48,7 +48,7 @@ module.exports = function() {
 
        this.Then(/^I should recieve a verification of my payment$/, async function () {
         let alerttext = await driver.switchTo().alert().getText();  
-        assert(alerttext == "Tack för att du handla hos oss! Din order är påväg.", "The alert didnt show!")
+        assert(await alerttext == "Tack för att du handla hos oss! Din order är påväg.", "The alert didnt show!")
         await driver.switchTo().alert();
        });
 
