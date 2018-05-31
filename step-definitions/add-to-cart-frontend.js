@@ -7,12 +7,12 @@ module.exports = function() {
     this.Given(/^the user is in sortiment page$/, async function() {
         // Write code here that turns the phrase above into concrete actions
 
-        await helpers.loadPage('http://localhost:3000');
+        await helpers.loadPage('http://localhost:3000/sortiment.html');
         await sleep(1000);
 
-        let sortiment = await $('#Sortiment');
-        await sortiment.click();
-        await sleep(1000);
+        // let sortiment = await $('#Sortiment');
+        // await sortiment.click();
+        // await sleep(1000);
     });
 
     this.Given(/^the user enters Captain Morgan in inputfeild$/, async function()

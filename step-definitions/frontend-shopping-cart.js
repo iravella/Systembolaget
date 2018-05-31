@@ -9,6 +9,7 @@
   }
 
   this.Given(/^that the user is logged in on the home page$/, async function () {
+
     await helpers.loadPage('http://localhost:3000/index.html');
     await sleep(3000);
     
@@ -35,7 +36,11 @@
 
 
   this.Given(/^that the user has a product in his shopping cart$/, async function() {
-    await helpers.loadPage('http://localhost:3000/sortiment.html');
+    await helpers.loadPage('http://localhost:3000/shoppingcart.html');
+    let resetButton = await $("#resetButton");
+    await resetButton.click();
+    let testPage = await driver.findElement(by.css('#Sortiment'));
+    await testPage.click();
 
     await sleep(2000);
     let product = await driver.findElement(by.css("#antal0"));
@@ -77,8 +82,13 @@
    //INPUT CODE HERE
    //All products added 2 the cart should have there own ID for example quantity changer for product 1 can be quantityChanger p1
    //and for product 2 quantityChangerP2
-  
-
+   
+        let köpId = await driver.findElement(by.css('#plus0'));
+        await köpId.click();
+        await köpId.click();
+        await köpId.click();
+        await köpId.click();        
+        await sleep(2000);
  });
 
 
@@ -86,66 +96,26 @@
 
  this.Then(/^the user should see the quantity change to (\d+) on that item$/, async function (quan) {
    //CHANGE QUANTITY TO INPUT AMOUNT
-   let quantity = await driver.findElement(by.css("antal0"));
-   assert(await quantityChanger.getText() == quan, "Your quantity did not change");
+   let pris = await driver.findElement(by.css("#antal0"));
+   console.log(pris.getAttribute());
+   assert(await pris.getAttribute() == "5", "Your quantity did not change");
+   await sleep(1000);
 
   
  });
 
-
-
-
- this.When(/^the user enters a quantity which is higher than the stock balance$/, async function () {
-   
-  let quantityChanger = await driver.findElement(by.css("#quantityChangerP1"));
-   await quantityChanger.click();
-   await quantityChanger.sendKeys(50000000);
-   console.log(quantityChanger.getText());
-   
- });
-
-
-
-
- this.Then(/^the quantity will change to the maximum stock balance$/, async function () {
-   // Write code here that turns the phrase above into concrete actions
-   let quantity = await driver.findElement(by.css("#quantity"));
-   assert(await quantityChanger.getText() == "28","Your quantity is higher then 28");
- });
-
-
-
-
- this.Then(/^the user will be notified$/, async function () {
-   let highText = await driver.findElement(by.css("#highText"));
-   
-    assert(await highText.isDisplayed(), "highText is not displayed");
-    assert(await highText.getText() == "Your quantity can't go higher than max in stock","message wasn't displayed");
- });
-
-
-
  this.When(/^the user enters a quantity lower than one$/, async function () {
-   let quantityChanger = await driver.findElement(by.css("#quantityChangerP1"));
-   await quantityChanger.click();
-   await quantityChanger.sendKeys(0);
-   console.log(quantityChanger.getText());
+   let namn = await driver.findElement(by.css("#namn0"));
+   let köpId = await driver.findElement(by.css('#minus0'));
+        await köpId.click(); 
    
  });
 
 
 
-  this.Then(/^the quantity will change to one$/,  async function () {
-    let quantity = await driver.findElement(by.css("#quantity"));
-   assert(await quantityChanger.getText() == "1","Your quantity is lower then 1");
-    
-  });
-
-
-  this.Then(/^the user will be notified that quantity can't go lower than ones$/, async function () {
-    let lowText = await driver.findElement(by.css("#lowText"));
-    await lowText.isDisplayed();
-    assert(await lowText.getText() == "Your quantity can't go lower then one","message wasn't displayed");
+  this.Then(/^the item will be removed$/,  async function () {
+    let namn = await driver.findElements(by.css(".BigGrid"));
+    assert(namn.length == 1, "you still have 1 item");
   });
 
       }
