@@ -34,8 +34,13 @@ module.exports = function() {
 
   this.Then(/^the user redirects to the "([^"]*)" page$/, async function (arg1) {
     let titleCheck = await driver.getTitle();
-    let pageCheck = arg1;
-    assert(pageCheck == titleCheck, "The redirect didn't work, you got redirected to the page with a title of " + titleCheck);
+    if (arg1 == "Hem"){
+     assert(titleCheck == "Quality Liquor Store","The redirect didn't work, you got redirected to the page with a title of " + titleCheck);
+    }
+    else{
+       assert(arg1 == await titleCheck, "The redirect didn't work, you got redirected to the page with a title of " + titleCheck);
+    }
+   
  });
 
   this.Given(/^that the user is on the sortiment page$/, async function () {
