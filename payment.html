@@ -11,7 +11,7 @@
   <script src="./node_modules/chai/chai.js"></script>
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" href="./css/payment.css">
-   <script src="./pay.js"></script>
+   
 </head>
 
 <body class="mt-5">
@@ -59,13 +59,13 @@
     </div>
     <div class="cardNb">
     <p>Kortnummer</p>
-    <input type="number" id="cardNumber" value="1337133713371337">
+    <input type="number" id="cardNumber">
     </div>
     <div class="cvc">
     <p>Cvc</p>
-    <input type="number" id="verificationNumber" value="123">
+    <input type="number" id="verificationNumber">
     </div>
-    <button id="pay">Betala</button>
+    <a href="index.html"><button id="pay">Betala</button></a>
 
   </main>
   
@@ -88,11 +88,8 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-   <script src="./classes/MainMenu.js"></script>
-   <script src="./classes/UnderMenus.js"></script>
-  <!-- <script src="./classes/ProductsDivsincart.js"></script> -->
-   <script src="./classes/SorteraEfter.js"></script>
-   <script src="./classes/FreeText.js"></script>
+  <script src="./classes/ProductsDivsInShoppingCart.js"></script> 
+  <script src="./pay.js"></script>
    <script src="./shopping-cart.js"></script>
    <script src="./card.js"></script>
    <script src="./category.js"></script>

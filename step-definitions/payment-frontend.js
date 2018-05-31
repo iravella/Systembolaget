@@ -22,17 +22,20 @@ module.exports = function() {
 
        this.When(/^I enter valid payment information$/, async function () {
         let fr = await $("#firstName");
-        await fr.click();
-        await sleep(1000);
         await fr.sendKeys("Pelle");
         await sleep(1000);
 
         let ls = await $("#lastName");
-        await ls.click();
-        await sleep(1000);
         await ls.sendKeys("Khan");
         await sleep(1000);
-       
+
+        let cn = await $("#cardNumber");
+        await cn.sendKeys(1337133713371337);
+        await sleep(1000);
+
+        let vn = await $("#verificationNumber");
+        await vn.sendKeys(133);
+        await sleep(1000);
        });
 
        this.When(/^press the payment button$/, async function () {
@@ -64,6 +67,14 @@ module.exports = function() {
         await ls.sendKeys("123");
         await sleep(1000);
 
+       let cn = await $("#cardNumber");
+        await cn.sendKeys(1337133713371337);
+        await sleep(1000);
+
+        let vn = await $("#verificationNumber");
+        await vn.sendKeys(133);
+        await sleep(1000);
+
         //trigger pay
          let paybutton = await $("#pay");
         await paybutton.click();
@@ -88,16 +99,20 @@ module.exports = function() {
        });
 
        this.Given(/^have typed in the correct information$/, async function () {
-        let fr = await $("#firstName");
-        await fr.click();
-        await sleep(1000);
+         let fr = await $("#firstName");
         await fr.sendKeys("Pelle");
         await sleep(1000);
 
         let ls = await $("#lastName");
-        await ls.click();
-        await sleep(1000);
         await ls.sendKeys("Khan");
+        await sleep(1000);
+
+       let cn = await $("#cardNumber");
+        await cn.sendKeys(1337133713371337);
+        await sleep(1000);
+
+        let vn = await $("#verificationNumber");
+        await vn.sendKeys(133);
         await sleep(1000);
        });
 

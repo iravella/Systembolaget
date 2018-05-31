@@ -8,5 +8,10 @@
 		"login": "Tobias",
 		"password": 4321,
 		"accountnumber": 2
+	},
+	{
+		"login": "Farbrorjoel",
+		"password": 1337,
+		"accountnumber": 3
 	}
 ]

@@ -265,6 +265,14 @@ class shoppingCartDivs {
 		
 	}
 
+	RemoveAll() {
+        let userData = JSON.parse(localStorage.users)
+        userData.shoppingCart.thingsToBuy = [];
+        localStorage.users = JSON.stringify(userData)
+        ShopCart.readJsonData(userData)
+        location.reload()
+    }
+
 
 	clickOnMinus(value) {
 
