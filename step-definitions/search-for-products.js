@@ -26,9 +26,9 @@ module.exports = function() {
          InputValue = 1;
          searchFunction.reset();
          searchFunction.critieriaSearch(InputAttribute, InputValue);
-console.log(myApp.displayedProducts.length + "  FIRST FILTER: InputAttribut: ", InputAttribute + "InputValue: " + InputValue)
+//console.log(myApp.displayedProducts.length + "  FIRST FILTER: InputAttribut: ", InputAttribute + "InputValue: " + InputValue)
          searchFunction.fixTextAndThenSearchFreeText(searchText);
-console.log(myApp.displayedProducts.length + "  SECOND FILTER: freetext: ", searchText)
+//console.log(myApp.displayedProducts.length + "  SECOND FILTER: freetext: ", searchText)
          callback();
     });
 
@@ -67,9 +67,9 @@ console.log(myApp.displayedProducts.length + "  SECOND FILTER: freetext: ", sear
 
   		searchFunction.reset();
   		searchFunction.criteriaIntervalls(InputAttribute, min, max)
-console.log(myApp.displayedProducts.length + "   FIRST FILTER: InputAttribut: ", InputAttribute)
+//console.log(myApp.displayedProducts.length + "   FIRST FILTER: InputAttribut: ", InputAttribute)
 		searchFunction.fixTextAndThenSearchFreeText(searchText)
-console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", searchText)
+//console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", searchText)
 
         callback();
        });
@@ -117,9 +117,9 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 		searchFunction.reset();
 
 		searchFunction.critieriaSearch(InputAttribute, InputValue);
-console.log(myApp.displayedProducts.length + "  FIRST FILTER: InputAttribut: ", InputAttribute + "InputValue: " + InputValue)		
+//console.log(myApp.displayedProducts.length + "  FIRST FILTER: InputAttribut: ", InputAttribute + "InputValue: " + InputValue)		
 		searchFunction.fixTextAndThenSearchFreeText(searchText)
-console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", searchText)
+//console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", searchText)
 		callback();
 	});
 
@@ -134,7 +134,7 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 					return objektet.Country;
 				});
 				let ovrigaRegEx = new RegExp(countryNames.join('|'));
-//console.log(ovrigaRegEx)
+////console.log(ovrigaRegEx)
 			
 			for(let i = 0; i < myApp.displayedProducts.length; i++) {
 			assert (ovrigaRegEx.test(myApp.displayedProducts[i].ursprunglandnamn), "the " + ovrigaRegEx + "didnt was not included in all displayedProducts")
@@ -190,7 +190,7 @@ console.log(myApp.displayedProducts.length + "   SECOND FILTER: freetext: ", sea
 
 				searchFunction.reset();
      			searchFunction.fixTextAndThenSearchFreeText(searchText)
-console.log(myApp.displayedProducts.length)
+//console.log(myApp.displayedProducts.length)
          callback();
        });
 

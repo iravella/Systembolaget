@@ -100,7 +100,7 @@
   let quantityChanger = await driver.findElement(by.css("#quantityChangerP1"));
    await quantityChanger.click();
    await quantityChanger.sendKeys(50000000);
-   console.log(quantityChanger.getText());
+   //console.log(quantityChanger.getText());
    
  });
 
@@ -129,7 +129,7 @@
    let quantityChanger = await driver.findElement(by.css("#quantityChangerP1"));
    await quantityChanger.click();
    await quantityChanger.sendKeys(0);
-   console.log(quantityChanger.getText());
+   //console.log(quantityChanger.getText());
    
  });
 
