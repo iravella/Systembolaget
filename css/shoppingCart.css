@@ -1,0 +1,129 @@
+
+.BigGrid {
+	padding-top: 2.5em;
+	padding-left: 5em;
+	display: grid;
+	grid-template-columns: 50em;
+	background: white;
+	align-self: start;
+}
+
+
+	/* PRODUCTS DIVS */  
+
+	.DivNamn {
+		display: grid;
+		grid-template-columns: 50em 10em;
+		cursor: pointer;
+		background: white;
+		font-weight: bold;
+		margin: 10px;
+	}
+
+	.Totalsumma {
+		display: grid;
+		grid-template-columns: 50em 10em;
+		cursor: pointer;
+		background: white;
+		font-weight: bold;
+		height: 3em;
+		align-content: center;
+	}
+
+	#totalen {
+
+	}
+
+	.gridDisplayedProducts {
+		display: grid;
+		grid-template-columns: 20em 20em;
+		grid-gap: 3px;
+		grid-row-gap: 10px;
+		background: rgba(0, 0, 0, 0.2);;
+		padding-left: 20px;
+		cursor: pointer;
+		font-weight: normal;
+		margin-left: 5%;
+	}
+
+	.DivNamn:hover { 
+		cursor: pointer;
+		background: rgba(109, 149, 206, 0.7);
+	}
+
+	.productDisplayed {
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	grid-gap: 0.3em;
+	padding: 0.3em;
+	background: white;
+	}
+
+
+	.plusAntalMinus {
+		display: grid;
+		grid-template-columns: 1em 2em 1em 2em;
+		grid-column-gap: 3px;
+		background: white;
+		align-items: end;
+		align-content: end;
+
+
+	}
+
+
+	.plusNminus {
+		font-size: 17px;
+		cursor: pointer;
+		text-align: center;
+		align-content: end;
+	}
+
+	.plusNminus:hover {
+		font-weight: bold;
+	}
+
+	.köp {
+		background: lightgrey;
+		border: 2px solid white;
+		border-style: outset;
+		cursor: pointer;
+	}
+
+	.köp:hover {
+		background-color: grey;
+	}
+
+
+.antal {
+	width: 2em;
+	text-align: center;
+	border-style: solid;
+	border-color: darkgrey;
+	border-width: 3px;
+}
+.values {
+	display: none;
+	border-width: 2px;
+	border-color: black;
+}
+
+.Pris {
+background: white;
+margin-left: 1em;
+
+}
+
+.antal {
+	display: inline-block;
+	margin-left: : 10%;
+	margin-right: : 10%;
+}
+
+.köp {
+	display: inline-block;
+	margin-left: : 10%;
+	margin-right: : 10%;
+}
+	/* PRODUCTS DIVS END */
+

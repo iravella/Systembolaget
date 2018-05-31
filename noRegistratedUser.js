@@ -1,4 +1,4 @@
-var assert = require('assert');
+/*var assert = require('assert');
 var ShoppingCart = require('./shopping-cart.js');
 var Person = require("./person.js");
 
@@ -9,4 +9,4 @@ module.exports = class NoRegistratedUser extends Person{
     this.shoppingCart = new ShoppingCart();
   }
 
-}
+}*/

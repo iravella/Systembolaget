@@ -71,22 +71,27 @@ module.exports = function() {
       	assert(foundProducts, "Didnt find any products!");	//Vad händer om testet inte ska hitta några?
         for (let i = 0; i < foundProducts.length; i++) {
           foundProducts[i].click()
-          await sleep(1000);
+          await sleep(200);
     		}
-        await sleep(2000);
+        await sleep(1000);
       }
 		  
+      let totalEKOfound = 0;
       for (let product of foundProducts) {
           let childDivs = await product.findElements(by.css("div"));
           for(let i = 0; i < childDivs.length; i++){
             let text = await childDivs[i].getText();
             if(text.includes("ekologisk")){ 
-              let isEkologisk = await childDivs[i+1].getText();
+              let isEkologisk = await ( childDivs[i+1].getText() ) / 1;
+
+              totalEKOfound = totalEKOfound + isEkologisk
               let namn = await childDivs[0].getText();
-              console.warn(namn, isEkologisk);
+      
             }
           }    
       }
+
+      assert(totalEKOfound == 15, "Det ekologisk filtret är knas hittade: " + totalEKOfound + " st. Förväntade: 15 st");
 
       });
       	

@@ -4,38 +4,44 @@ var Product = require('./product.js');
 var Category = require('./category.js');
 var ShoppingCart = require('./shopping-cart.js');
 
+
 class App {
 
-  createFrontendClasses(){
+  async createFrontendClasses(){
    this.mainMenu = new MainMenu();
    this.createUnderMenus = new CreateUnderMenus();
    this.productsDivs = new ProductsDivs();
-  // this.productsDivsincart = new ProductsDivsincart();
    this.search = new Search();
    this.SorteraEfter = new SorteraEfter();
    this.freeText = new FreeText();
    this.shoppingCart = new ShoppingCart();
+   this.login = new Login();
+   this.person = new Person();
+
   }
 
   constructor() {
     let productData;
     let categoryData;
+    let persons;
 
     if (typeof window !== 'undefined') {
       (async ()=>{
         productData = await require('./json/sortiment.json');
         categoryData = await require('./json/categories.json');
-        this.constructorContinued(productData, categoryData);
+       // persons = await require('./json/logindetails.json');
+        this.constructorContinued(productData, categoryData, persons);
         this.createFrontendClasses();
+
       })();
     } else {
       productData = require('./json/sortiment.json');
       categoryData = require('./json/categories.json');
-      this.constructorContinued(productData, categoryData);
+      this.constructorContinued(productData, categoryData, persons);
     }
   }
 
-  constructorContinued(productData, categoryData){
+  constructorContinued(productData, categoryData, persons){
     // Make instances of Product from the productdata
     this.products = [];
     for (let p of productData) {
@@ -47,21 +53,28 @@ class App {
       this.products.push(new Product(p));
     }
 
-    // Make instances of Category from categoryData
-    this.categories = [];
-    for (let catName of categoryData) {
-      this.categories.push(new Category(catName, this.products));
-    }
+    // // Make instances of Category from categoryData
+    // this.categories = [];
+    // for (let catName of categoryData) {
+    //   this.categories.push(new Category(catName, this.products));
+    // }
 
-    // Make a "dictionary" based on category namess
-    this.categoryByName = {};
-    for (let category of this.categories) {
-      this.categoryByName[category.name] = category;
-    }
+    // // Make a "dictionary" based on category namess
+    // this.categoryByName = {};
+    // for (let category of this.categories) {
+    //   this.categoryByName[category.name] = category;
+    // }
 
     // Add a list of active/logged in user
     this.users = [];
-
+ //    if (!localStorage.users) {
+ //      this.person1 = new Person("Unregistrated user"); //fake account
+ //    }
+ //    myApp.users.push(myApp.person1) //fake account
+ //    if (!localStorage.users) {
+ //      console.log("!localStorage ..in app.js Creating unrgistread user")
+ //   	 localStorage.users = JSON.stringify(myApp.person1)
+	// }
 ///////////// Creating stuff for searchfunction and creating the menus
     this.globalSortiment = this.products.slice();
     this.displayedProducts = this.products.slice();
@@ -129,7 +142,7 @@ class App {
 
      this.searchcriteria = [];
 
-     this.KALLE = [];
+
 /////////end creating stuff for searchfunction
 
   }
@@ -146,16 +159,6 @@ class App {
 
   addUser(name, age) {
     this.users.push(new Person(name, age));
-  }
-
-  displayProductBasicDetails(ursprunglandnamn, volymiml, alkoholhalt, prisinklmoms)
-  {
-    // this.ursprunglandnamn = [];
-    // this.volymiml = [];
-    // this.alkoholhalt = [];
-    // this.prisinklmoms = [];
-     //response[namn=='Renat'].ursprunglandnamn
-
   }
 
 }

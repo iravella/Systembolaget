@@ -52,7 +52,7 @@ body {
 }
 
 .sortera:hover {
-	background: #008060;
+	background: #a74d6d;
 }
 
 .WrapperOfallFilters {
@@ -103,7 +103,7 @@ body {
 	}
 
 	.buttonsOfforpackningFilter:hover {
-		background-color: #008060;
+		background-color: #a74d6d;
 		font-weight: bold;
 	}
 
@@ -118,7 +118,7 @@ body {
 	}
 
 	.buttonsOfvarugrupperFilter:hover {
-		background-color: #008060;
+		background-color: #a74d6d;
 		font-weight: bold;
 	}
 
@@ -132,13 +132,13 @@ body {
 	}
 
 	.buttonsOfLandFilter:hover {
-		background-color: #008060;
+		background-color: #a74d6d;
 		font-weight: bold;
 	}
 
 	.btn {
 	width: 160px;
-}
+	}
 
 	/* FILTER MENU END*/
 
@@ -153,15 +153,20 @@ body {
 	}
 
 	.productDisplayed:hover {
-	background: LightGreen;
+		font-weight: bold;
+		cursor: pointer;
+		background: rgba(109, 149, 206, 0.7)
 	}
 
 	.produktnamn:hover {
 		font-weight: bold;
 		cursor: pointer;
+		background: rgba(109, 149, 206, 0.7)
+
 	}
 
-	
+
+
 
 	.plusAntalMinus {
 		display: grid;
@@ -212,11 +217,11 @@ body {
 }
 
 .hiddenfiltermenu {
-	background-color: #008060;	
+	background-color: #a74d6d;	
 }
 
 .hiddenfiltermenu:hover {
-	background-color: #008060;	
+	background-color: #a74d6d;	
 }
 
 .values {
@@ -257,6 +262,9 @@ body {
 .antal {
 	width: 2em;
 	text-align: center;
+	border-style: solid;
+	border-color: darkgrey;
+	border-width: 3px;
 }
 .values {
 	display: none;
@@ -285,6 +293,13 @@ body {
 	margin-left: : 10%;
 	margin-right: : 10%;
 }
+/*
+.wrapLogin {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+*/
 
 
 /*
@@ -309,3 +324,4 @@ body {
 }
 
 /*
+
