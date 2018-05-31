@@ -53,9 +53,9 @@
 
        this.Then(/^the user will be notified$/, async function () {
          let highText = await driver.findElement(by.css("#highText"));
-         await highText.isDisplayed();
-          assert(await highText.getText() == "Your quantity can't go higher than max in stock","message wasn't displayed");
          
+          assert(await highText.isDisplayed(), "highText is not displayed");
+          assert(await highText.getText() == "Your quantity can't go higher than max in stock","message wasn't displayed");
        });
 
 
