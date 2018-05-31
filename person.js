@@ -5,11 +5,11 @@ module.exports = class Person {
 
   constructor(fullName,dateOfBirth,addressStreet,addressZipCode, addressCity, accountnumber){
 
-    // Throw an error if name is not an empty string
-    // assert(
-    //   typeof fullName === 'string' && fullName !== '',
-    //   'The name must be a non-empty string!'
-    // );
+    //Throw an error if name is not an empty string
+    assert(
+      typeof fullName === 'string' && fullName !== '',
+      'The name must be a non-empty string!'
+    );
 
     this.fullName = fullName;
     this.dateOfBirth = dateOfBirth;

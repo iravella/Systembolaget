@@ -7,24 +7,28 @@ module.exports = function(){
 
   // Declaring variables I want to be able to share 
   // between the different steps
-  let name, age, aPerson;
+  let fullName, dateOfBirth, aPerson, addressStreet,addressZipCode, addressCity, accountnumber;
 
-  this.Given(/^that we have a name as a non\-empty string$/, function (callback) {
-    name = 'Anna';
+  this.Given(/^that we have a fullName as a non\-empty string$/, function (callback) {
+    fullName = 'Anna';
+    addressStreet = 'Herr knasons väg 42';
+    addressZipCode = 12330;
+    addressCity = "Stockholm";
+    accountnumber = 3;
     callback();
   });
 
-  this.Given(/^an age as a number$/, function (callback) {
-    age = 35;
+  this.Given(/^an dateOfBirth as a number$/, function (callback) {
+    dateOfBirth = 1935;
     callback();
   });
 
   this.When(/^I try to create a person with this data$/, function (callback) {
     assert.doesNotThrow(
       function(){
-        aPerson = new Person(name, age);
+        aPerson = new Person(fullName, dateOfBirth, addressStreet,addressZipCode, addressCity, accountnumber);
       },
-      'Creating a person with valid data for name and age failed.'
+      'Creating a person with valid data for fullName and dateOfBirth failed.'
     );
   
     callback();
@@ -38,31 +42,31 @@ module.exports = function(){
     callback();
   });
 
-  this.Then(/^have the properties name and age$/, function (callback) {
+  this.Then(/^have the properties fullName and dateOfBirth$/, function (callback) {
     assert(
-      aPerson.name !== undefined && aPerson.age !== undefined,
-      "The person are missing properties (name and/or age)"
+      aPerson.fullName !== undefined && aPerson.dateOfBirth !== undefined,
+      "The person are missing properties (fullName and/or dateOfBirth)"
     )
     callback();
   });
 
   this.Then(/^the properties should be equal to our original data$/, function (callback) {
     assert(
-      name === aPerson.name,
-      "The name of the person isn't the name used when creating the person."
+      fullName === aPerson.fullName,
+      "The fullName of the person isn't the fullName used when creating the person."
     );
     assert(
-      age === aPerson.age,
-      "The age of the person isn't the age used when creating the person."
+      dateOfBirth === aPerson.dateOfBirth,
+      "The dateOfBirth of the person isn't the dateOfBirth used when creating the person."
     );
     callback();
   });
 
 
-  // Test for a number of scenarios with non-valid data for person name
-  let nameToTryWith;
+  // Test for a number of scenarios with non-valid data for person fullName
+  let fullNameToTryWith;
   let currentDataType;
-  let validAge = 25;
+  let validdateOfBirth = 25;
   let error;
   let exampleData = {
     "number" : 123,
@@ -75,22 +79,22 @@ module.exports = function(){
     "empty string": ""
   };     
 
-  this.Given(/^that we have a name that is of the data type "([^"]*)"$/, function (dataType, callback) {
+  this.Given(/^that we have a fullName that is of the data type "([^"]*)"$/, function (dataType, callback) {
     currentDataType = dataType;
     error = undefined;
-    nameToTryWith = exampleData[dataType];
+    fullNameToTryWith = exampleData[dataType];
     callback();
   });
 
   this.When(/^we try to create a person$/, function (callback) {
 
     /*assert.throws(
-      function(){ new Person(nameToTryWith, validAge)},
-      "Didn't get an error when trying to create a person with a " + dataType + " as name."
+      function(){ new Person(fullNameToTryWith, validdateOfBirth)},
+      "Didn't get an error when trying to create a person with a " + dataType + " as fullName."
     );*/
 
     try {
-      new Person(nameToTryWith, validAge);
+      new Person(fullNameToTryWith, validdateOfBirth);
     }
     catch(mittFinaCatchigaFel){
       error = mittFinaCatchigaFel;
@@ -101,7 +105,7 @@ module.exports = function(){
   this.Then(/^we should get a runtime error$/, function (callback) {
     assert(
       error !== undefined,
-      "Didn't get an error when trying to create a person with a " + currentDataType + " as name."
+      "Didn't get an error when trying to create a person with a " + currentDataType + " as fullName."
     );
     callback();
   });
