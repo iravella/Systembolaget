@@ -43,7 +43,7 @@
       aProduct1 = myApp.products[0];
       aProduct2 = myApp.products[1200];
       aProduct3 = myApp.products[400];
-      //console.log("name of the product1",aProduct1);
+      ////console.log("name of the product1",aProduct1);
 
       aShoppingCart = new ShoppingCart();
       aShoppingCart.add(aProduct1, 5);

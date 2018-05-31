@@ -11,9 +11,9 @@
      aShoppingCart.add(myApp.products[700], 5);
      aShoppingCart.add(myApp.products[500], 5);
      aShoppingCart.add(myApp.products[1200], 10);
-     console.log(myApp.products[500]);
-     console.log(myApp.products[1200]);
-     console.log(myApp.products[700]);
+     //console.log(myApp.products[500]);
+     //console.log(myApp.products[1200]);
+     //console.log(myApp.products[700]);
 
      callback();
    });

@@ -13,8 +13,8 @@ module.exports = function(){
          aShoppingCart = new ShoppingCart();
          aShoppingCart.add(theApp.products[500], 5);
          aShoppingCart.add(theApp.products[1200], 10);
-         console.log(theApp.products[500]);
-         console.log(theApp.products[1200]);
+         //console.log(theApp.products[500]);
+         //console.log(theApp.products[1200]);
          callback();
        });
 

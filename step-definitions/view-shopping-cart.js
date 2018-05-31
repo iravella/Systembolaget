@@ -30,8 +30,8 @@ module.exports = function() {
           {product:myApp.products[1337], quantity: 3} ], 
           "Your shopping cart doesn't contain your products"
           );
-         console.log(myApp.products[1337]);
-         console.log(myApp.products[729]);
+         // console.log(myApp.products[1337]);
+         // console.log(myApp.products[729]);
          callback();
        });
 
