@@ -5,6 +5,21 @@
  	await helpers.loadPage('http://localhost:3000');
          console.log("page is loaded");
          await sleep(1000);
+
+         let username = await $('.login');
+         await sleep(3000);
+         await username.click();
+          await username.sendKeys("Brad"); 
+          await sleep(300);    
+
+          let password = await $('.password');
+          await password.click();
+          await password.sendKeys(1234);
+          await  sleep(300);
+
+          let login = await $('.loginItem3');
+          await login.click();
+          await sleep(2000);
          
        });
 
