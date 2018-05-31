@@ -6,7 +6,11 @@ body
 width: 100%;
 top: 0;
 height: 12%
+padding: 100px;
 
+}
+#resetButton{
+  margin-left:1000px;
 }
 .navbar-brand:hover { 
 color :blue;

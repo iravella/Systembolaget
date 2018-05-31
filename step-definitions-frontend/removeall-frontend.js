@@ -6,6 +6,23 @@
          let driver = await helpers.loadPage('http://localhost:3000');
          console.log("page is loaded");
          await sleep(1000);
+
+
+         let username = await $('.login');
+         await sleep(3000);
+         await username.click();
+          await username.sendKeys("Brad"); 
+          await sleep(300);    
+
+          let password = await $('.password');
+          await password.click();
+          await password.sendKeys(1234);
+          await  sleep(300);
+
+          let login = await $('.loginItem3');
+          await login.click();
+          await sleep(2000);
+        
      });
 
  	this.Given(/^the user has three selected items in his cart$/,async function() {
@@ -40,6 +57,8 @@
                      let addtocart1 = await product.findElement(by.css('.köp'));
                      await addtocart1.click();
                      await sleep(1000);
+
+                     await driver.switchTo().alert().accept();
                      
              
                  }
@@ -49,14 +68,20 @@
        });
 
  	 this.When(/^the user clicks remove all button$/,async function() {
- 	 	let removeallbtn = await $("#rl");
+
+ 	 	await sleep(200);
+        let cart = await $('#Kundvagn');
+        await cart.click();
+        await sleep(1000);
+ 	 	let removeallbtn = await $("#resetButton");
  	 	await removeallbtn.click();
+ 	 	await sleep(2000);
        
        });
 
  	  this.Then(/^the shoppingcart should become empty$/, async function() {
- 	  	aperson.shoppingcart = [];
- 	  	assert(aperson.shoppingcart = [],"the cart is not empty");
+ 	  	// aperson.shoppingcart = [];
+ 	  	// assert(aperson.shoppingcart = [],"the cart is not empty");
         
        });
 }

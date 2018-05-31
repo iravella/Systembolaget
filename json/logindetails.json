@@ -13,5 +13,10 @@
 		"login": "Test",
 		"password": 1111,
 		"accountnumber": 2
+	},
+	{
+		"login": "Farbrorjoel",
+		"password": 1337,
+		"accountnumber": 3
 	}
 ]
