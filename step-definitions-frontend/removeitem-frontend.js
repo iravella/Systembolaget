@@ -13,12 +13,12 @@
          let username = await $('.login');
          await sleep(3000);
          await username.click();
-          await username.sendKeys("swapna"); 
+          await username.sendKeys("Brad"); 
           await sleep(300);    
 
           let password = await $('.password');
           await password.click();
-          await password.sendKeys(12345);
+          await password.sendKeys(1234);
           await  sleep(300);
 
           let login = await $('.loginItem3');
@@ -113,9 +113,11 @@
         let cart = await $('#Kundvagn');
         await cart.click();
         await sleep(1000);
-        let remove = await $('#minus0');
-        await sleep(200);
-        await remove.click();
+        // let remove = await $('#minus0');
+        let remove = await $('#antal0');
+        await remove.clear();
+        // await sleep(200);
+        // await remove.click();
         await sleep(2000);
      });
 
