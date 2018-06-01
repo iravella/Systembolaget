@@ -40,16 +40,20 @@ module.exports = function() {
     else{
        assert(arg1 == await titleCheck, "The redirect didn't work, you got redirected to the page with a title of " + titleCheck);
     }
+    await sleep(1000);
    
  });
 
   this.Given(/^that the user is on the sortiment page$/, async function () {
     await helpers.loadPage('http://localhost:3000/sortiment.html');
+    await sleep(1000);
  
   });
 
   this.Given(/^that the user is on the shoppingcart page$/, async function () {
     await helpers.loadPage('http://localhost:3000/shoppingcart.html');
+    await sleep(1000);
+ 
  
   });
 }
