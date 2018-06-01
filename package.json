@@ -9,7 +9,8 @@
     "one-feature": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/total-price-of-items.feature & exit 0",
     "front": "node node_modules/selenium-cucumber-js/index.js -d -b chrome -f ./features/frontend-shopping-cart.feature & exit 0",
     "shopping-cart-frontend": "node node_modules/selenium-cucumber-js/index.js -b chrome -x 60000 -s ./step-definitions-frontend -f ./features-frontend/frontend-ShoppingCart.feature & exit 0",
-    "shopping-cart-frontend-unreg": "node node_modules/selenium-cucumber-js/index.js -b chrome -x 60000 -s ./step-definitions-frontend -f ./features-frontend/frontend-ShoppingCart-unreg.feature & exit 0"
+    "shopping-cart-frontend-unreg": "node node_modules/selenium-cucumber-js/index.js -b chrome -x 60000 -s ./step-definitions-frontend -f ./features-frontend/frontend-ShoppingCart-unreg.feature & exit 0",
+     "search-frontend": "node node_modules/selenium-cucumber-js/index.js -b chrome -x 60000 -s ./step-definitions-frontend -f ./features-frontend/frontend-search-for-products.feature & exit 0"
  },
   "author": "",
   "license": "ISC",
