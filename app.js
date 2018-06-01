@@ -53,28 +53,28 @@ class App {
       this.products.push(new Product(p));
     }
 
-    // // Make instances of Category from categoryData
-    // this.categories = [];
-    // for (let catName of categoryData) {
-    //   this.categories.push(new Category(catName, this.products));
-    // }
+    this.users = [];
+    if (typeof window !== 'undefined') {
+      if (!localStorage.users) {
+        this.person1 = new Person("Unregistrated user");
+        localStorage.users = JSON.stringify(myApp.person1);
+        myApp.users.push(myApp.person1)
+      }
 
-    // // Make a "dictionary" based on category namess
-    // this.categoryByName = {};
-    // for (let category of this.categories) {
-    //   this.categoryByName[category.name] = category;
-    // }
+      if (JSON.parse(localStorage.users).fullName == "Unregistrated user") {
+        let TempCart = JSON.parse(localStorage.users).shoppingCart.thingsToBuy
+        this.person1 = new Person("Unregistrated user");
+        myApp.users.push(myApp.person1)
+      myApp.users[0].shoppingCart.thingsToBuy = TempCart
+      }
+   }
+  
 
     // Add a list of active/logged in user
-    this.users = [];
- //    if (!localStorage.users) {
- //      this.person1 = new Person("Unregistrated user"); //fake account
- //    }
- //    myApp.users.push(myApp.person1) //fake account
- //    if (!localStorage.users) {
- //      console.log("!localStorage ..in app.js Creating unrgistread user")
- //   	 localStorage.users = JSON.stringify(myApp.person1)
-	// }
+    
+
+
+
 ///////////// Creating stuff for searchfunction and creating the menus
     this.globalSortiment = this.products.slice();
     this.displayedProducts = this.products.slice();
