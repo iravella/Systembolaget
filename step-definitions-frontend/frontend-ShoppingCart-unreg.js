@@ -30,12 +30,12 @@ module.exports = function() {
 
         if (await logOutBtn.getText() == "Logout") {
             await logOutBtn.click();
-            await sleep(1500);
+            await sleep(1000);
         }
 
             let resetButton = await $('#resetButton');
             await resetButton.click();
-            await sleep(2500);
+            await sleep(1000);
        });
 
   this.When(/^an unreg user adds one to ten pieces of two random products from the sortiment$/, async function () {
@@ -47,8 +47,14 @@ module.exports = function() {
           q1Added = Math.floor((Math.random() * 10) +1);
           q2Added = Math.floor((Math.random() * 10) +1);
           
-          rnd1 = await Math.floor((Math.random() * 14) );
+          rnd1 = 4                 //await Math.floor((Math.random() * 14) );
           
+          while (rnd1 == 4 || rnd1 == 5 || rnd1 == 6) {
+            rnd1 = await Math.floor((Math.random() * 14) );
+          }
+
+          console.log(rnd1+"_______________rnd1")
+
           if (rnd1 == 6 ) {
             rnd1 = rnd1 + 1
           }
@@ -160,11 +166,51 @@ module.exports = function() {
       let q2 = await $('#antal1')
       assert (await q1.getAttribute('value') == "" +  q1Added, "antalet av rpodukt 1 stämmer ej med det addrade antalet")
       assert (await q2.getAttribute('value') == "" + q2Added, "antalet av rpodukt 2 stämmer ej med det addrade antalet")
+
+
+
+
       
        });
 
-   this.Then(/^the items recently added with macthing quantity should be displayed into that unreg users shoppingcart$/, async function () {
-    
-         });
+
+     this.Then(/^the sum of the products is correct$/, async function () {
+         
+                          let      divsInProduct1 = await driver.findElements(by.css('.produkt0'))
+
+                 for(let i = 0; i < divsInProduct1.length; i++) {
+                     let text = await divsInProduct1[i].getText();
+                       if(text.includes("prisinklmoms")){ 
+                          CartProduct1_pris = await ( divsInProduct1[i+1].getText() ) / 1;
+                          console.log(CartProduct1_pris+"______________PRIS OF CART PROD 1")
+                     }
+                     
+                    }  
+              let  divsInProduct2 = await driver.findElements(by.css('.produkt1'))
+
+                 for(let i = 0; i < divsInProduct2.length; i++) {
+                     let text = await divsInProduct2[i].getText();
+                       if(text.includes("prisinklmoms")){ 
+                          CartProduct2_pris = await ( divsInProduct2[i+1].getText() ) / 1;
+                          console.log(CartProduct2_pris+"______________PRIS OF CART PROD 2")
+                     }
+                     
+                    }   
+
+                    let totalen = await $('#totalen')
+                    totalen = await totalen.getText()
+                    totalen = await totalen.replace(/\D/g,'');
+
+                    console.log(totalen+"____________totalen___________");    
+
+                    assert( (CartProduct1_pris * q1Added + CartProduct2_pris * q2Added) == totalen, "summan stämmer ej") 
+                    
+
+
+         
+       });
+
+
+
 
 } //end
