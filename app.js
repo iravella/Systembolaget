@@ -15,8 +15,6 @@ class App {
    this.SorteraEfter = new SorteraEfter();
    this.freeText = new FreeText();
    this.shoppingCart = new ShoppingCart();
-   this.login = new Login();
-   this.person = new Person();
 
   }
 
@@ -24,9 +22,12 @@ class App {
     let productData;
     let categoryData;
     let persons;
+    this.users = [];
 
     if (typeof window !== 'undefined') {
       (async ()=>{
+        this.loadLocalStorage();
+        this.login = new Login();
         productData = await require('./json/sortiment.json');
         categoryData = await require('./json/categories.json');
        // persons = await require('./json/logindetails.json');
@@ -41,6 +42,23 @@ class App {
     }
   }
 
+  loadLocalStorage(){
+    if (typeof window !== 'undefined') {
+      if (!localStorage.users) {
+        this.person1 = new Person("Unregistrated user");
+        localStorage.users = JSON.stringify(this.person1);
+        this.users.push(this.person1)
+      }
+
+      if (JSON.parse(localStorage.users).fullName == "Unregistrated user") {
+        let TempCart = JSON.parse(localStorage.users).shoppingCart.thingsToBuy
+        this.person1 = new Person("Unregistrated user");
+        this.users.push(this.person1)
+        this.users[0].shoppingCart.thingsToBuy = TempCart
+      }
+   }
+  }
+
   constructorContinued(productData, categoryData, persons){
     // Make instances of Product from the productdata
     this.products = [];
@@ -53,21 +71,6 @@ class App {
       this.products.push(new Product(p));
     }
 
-    this.users = [];
-    if (typeof window !== 'undefined') {
-      if (!localStorage.users) {
-        this.person1 = new Person("Unregistrated user");
-        localStorage.users = JSON.stringify(myApp.person1);
-        myApp.users.push(myApp.person1)
-      }
-
-      if (JSON.parse(localStorage.users).fullName == "Unregistrated user") {
-        let TempCart = JSON.parse(localStorage.users).shoppingCart.thingsToBuy
-        this.person1 = new Person("Unregistrated user");
-        myApp.users.push(myApp.person1)
-      myApp.users[0].shoppingCart.thingsToBuy = TempCart
-      }
-   }
   
 
     // Add a list of active/logged in user

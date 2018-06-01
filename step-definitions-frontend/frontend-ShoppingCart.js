@@ -102,7 +102,7 @@ module.exports = function() {
 
   				let köpBtn1 = await $('#köp'+rnd1);
   				await köpBtn1.click();
-  				await sleep(1000);
+  				await sleep(2000);
   				await driver.switchTo().alert().accept();
   				await sleep(1000);
 
@@ -112,7 +112,7 @@ module.exports = function() {
 
   				let köpBtn2 = await $('#köp'+rnd2);
   				await köpBtn2.click();
-  				await sleep(1000);
+  				await sleep(2000);
   				await driver.switchTo().alert().accept();
   				await sleep(1000);
 
@@ -204,11 +204,8 @@ module.exports = function() {
  			assert (textOfLoggOutBtn == "Logout", "Det står inte logout på knappen jag letar efter")
 
  			let q1 = await $('#antal0')
- 			//q1 = q1.getAttribute('value');
  			let q2 = await $('#antal1')
- 			//q1 = q2.getAttribute('value');
 
- 			console.log(await q1.getAttribute('value')+"____________q1__________")
  			assert (await q1.getAttribute('value') == "" +  quantityAdded, "antalet av rpodukt 1 stämmer ej med det addrade antalet")
  			assert (await q2.getAttribute('value') == "" + quantityAdded, "antalet av rpodukt 2 stämmer ej med det addrade antalet")
 

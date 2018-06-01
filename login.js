@@ -2,13 +2,10 @@ class Login {
 
 constructor() {
 	this.constructerContinued();
-	this.accountnumber;
-    this.userAccountName;
 }
 
 constructerContinued () {
 
-    (async ()=>{
     if (!localStorage.LoggedIn) {
         console.log("creating logginbuttons");
         this.LoggedInFalse();
@@ -19,7 +16,6 @@ constructerContinued () {
         this.LoggedInTrue();
         
     }
-     })();
 }
 
 

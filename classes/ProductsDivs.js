@@ -308,6 +308,10 @@ class ProductsDivs {
 			myApp.productsDivs.readJsonData(data)
 			console.log(data)
 		} 
+
+		console.log(myApp.displayedProducts[value].namn);
+		console.log(myApp.displayedProducts[value].namn2);
+		console.log(antal);
 	
 		if (typeof myApp.displayedProducts[value].namn2 == 'object') {
 		alert("Succesfully added: " + antal + " of " + myApp.displayedProducts[value].namn + " into your cart.")
