@@ -5,4 +5,3 @@ Feature: As an unreg user I want to be able to add items in my cart and keep the
 		When an unreg user adds one to ten pieces of two random products from the sortiment
 		And the user navigate to the shoppingcart
 		Then the items recently added with macthing quantity should be displayed into that unreg users shoppingcart
-		And the sum of the products should be correct
