@@ -6,7 +6,7 @@ module.exports = function()
    this.Given(/^that the user is in home page$/, async function () 
    {
     await helpers.loadPage('http://localhost:3000');
-	await sleep(10000);
+	 //await sleep(10000);
 
     
    });
@@ -27,12 +27,15 @@ module.exports = function()
 	//Click on Login button
     let clikBtn = await $('.loginItem3');
 	await clikBtn.click();
-	await sleep(800);
+	//await sleep(800);
+  await driver.switchTo().alert().accept();
 
    });
 
    this.Then(/^the system should be show an error meesage$/, async function () {
      // showing an error message on the web-page
+
+     //assert()
      
    });
 
