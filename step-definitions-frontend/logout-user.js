@@ -3,22 +3,26 @@ module.exports = function() {
 
 
     this.Given(/^that the user is logged in on the home page$/, async function() {
-        await helpers.loadPage('http://localhost:3000');
-        await sleep(10000);
+        await helpers.loadPage('http://localhost:3000/index.html');
+    
+    
+        let testName = await driver.findElement(by.css(".login"));
+        let testPassword = await driver.findElement(by.css(".password"));
+        let loginButton = await driver.findElement(by.css(".loginItem3"));
+        let checkTitle = await driver.getTitle();
+        let pageCheck = "Quality Liquor Store";
 
-        // Enter the username in the username feild
-        let username = await $('.login');
-        await username.click();
-        await username.sendKeys('Tobias');
+        await testName.click();
+        await testName.sendKeys("Test");
+        await testPassword.click();
+        await testPassword.sendKeys("1111");
+        await loginButton.click();
 
-        // Enter the password in the password feild
-        let userPassword = await $('.password');
-        await userPassword.click();
-        await userPassword.sendKeys("4321");
 
-        let clikBtn = await $('.loginItem3');
-    await clikBtn.click();
-    await sleep(8000);
+        let isLoggedIn = await driver.findElements(by.css(".loggedIn"));
+     
+        assert(isLoggedIn.length != 0, "The user is not logged in");
+        assert(checkTitle == pageCheck, "The user is not on the home page!");
 
     });
 
