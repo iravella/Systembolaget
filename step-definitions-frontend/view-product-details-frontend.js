@@ -2,7 +2,7 @@ let { $, sleep } = require('./funcs');
 module.exports = function() {
 
 
-    this.Given(/^that the is on the online shopping cart$/, async function() {
+    this.Given(/^that the user is on the shopping cart page$/, async function() {
 
         await helpers.loadPage('http://localhost:3000');
         console.log("page is loaded");

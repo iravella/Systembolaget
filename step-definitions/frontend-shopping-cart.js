@@ -97,8 +97,7 @@
  this.Then(/^the user should see the quantity change to (\d+) on that item$/, async function (quan) {
    //CHANGE QUANTITY TO INPUT AMOUNT
    let pris = await driver.findElement(by.css("#antal0"));
-   console.log(pris.getAttribute());
-   assert(await pris.getAttribute() == "5", "Your quantity did not change");
+   assert(await pris.getAttribute("value") == "5", "Your quantity did not change");
    await sleep(1000);
 
   
@@ -114,8 +113,8 @@
 
 
   this.Then(/^the item will be removed$/,  async function () {
-    let namn = await driver.findElements(by.css(".BigGrid"));
-    assert(namn.length == 1, "you still have 1 item");
+    let namn = await driver.findElements(by.css(".BigGrid .DivNamn"));
+    assert(namn.length == 0, "you still have 1 item");
   });
 
       }
