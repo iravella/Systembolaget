@@ -1,0 +1,30 @@
+[0531/231304.236:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0531/231304.239:ERROR:exception_snapshot_win.cc(88)] thread ID 17208 not found in process
+[0531/231537.781:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0531/231537.782:ERROR:exception_snapshot_win.cc(88)] thread ID 18848 not found in process
+[0531/231909.982:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0531/231909.982:ERROR:exception_snapshot_win.cc(88)] thread ID 18352 not found in process
+[0531/232008.654:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0531/232008.655:ERROR:exception_snapshot_win.cc(88)] thread ID 12304 not found in process
+[0531/232146.484:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0531/232146.486:ERROR:exception_snapshot_win.cc(88)] thread ID 3972 not found in process
+[0531/232717.874:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0531/232717.875:ERROR:exception_snapshot_win.cc(88)] thread ID 17960 not found in process
+[0531/232842.429:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0531/232842.430:ERROR:exception_snapshot_win.cc(88)] thread ID 13644 not found in process
+[0531/233926.461:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0531/233926.462:ERROR:exception_snapshot_win.cc(88)] thread ID 2952 not found in process
+[0531/235415.677:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0531/235415.681:ERROR:exception_snapshot_win.cc(88)] thread ID 18688 not found in process
+[0601/000848.188:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0601/000848.189:ERROR:exception_snapshot_win.cc(88)] thread ID 18376 not found in process
+[0601/001124.151:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0601/001124.151:ERROR:exception_snapshot_win.cc(88)] thread ID 16880 not found in process
+[0601/001201.579:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0601/001201.580:ERROR:exception_snapshot_win.cc(88)] thread ID 19028 not found in process
+[0601/001335.061:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0601/001335.062:ERROR:exception_snapshot_win.cc(88)] thread ID 6308 not found in process
+[0601/001455.404:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0601/001455.405:ERROR:exception_snapshot_win.cc(88)] thread ID 8260 not found in process
+[0601/001712.652:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0601/001712.653:ERROR:exception_snapshot_win.cc(88)] thread ID 13980 not found in process
