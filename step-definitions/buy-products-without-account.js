@@ -41,7 +41,7 @@ module.exports = function(){
          callback();
        });
 
-       this.Then(/^the user should have bought the items$/, async function () {
+       this.Then(/^the user should have bougth the items$/, async function () {
         await helpers.loadPage('http://localhost:3000/payment.html');
         assert(await driver.getTitle() != 'Error', "you are not on the website");
         let paymentComplete = await driver.findElement(by.css("#payComplete"));
