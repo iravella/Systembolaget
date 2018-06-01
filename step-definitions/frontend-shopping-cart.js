@@ -11,7 +11,7 @@
   this.Given(/^that the user is logged in on the home page$/, async function () {
 
     await helpers.loadPage('http://localhost:3000/index.html');
-    await sleep(5000);
+    
     
     let testName = await driver.findElement(by.css(".login"));
     let testPassword = await driver.findElement(by.css(".password"));
@@ -25,12 +25,12 @@
     await testPassword.sendKeys("1111");
     await loginButton.click();
 
-    await sleep(2000);
+
     let isLoggedIn = await driver.findElements(by.css(".loggedIn"));
  
     assert(isLoggedIn.length != 0, "The user is not logged in");
     assert(checkTitle == pageCheck, "The user is not on the home page!");
-    await sleep(1000);
+    
   });
 
 
